@@ -1,3 +1,5 @@
+![image](Logo/Logo.png)
+
 ## DRA. Mishelle Villalta - Nutricionista
 
 Este Proyecto ha sido diseñado con la finalidad de proporcionar una aplicación para la administración de los expedientes, citas y perfil de pacientes de la DRA. Mishelle Villalta. 
