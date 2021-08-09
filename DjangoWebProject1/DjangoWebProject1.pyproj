@@ -40,7 +40,6 @@
     <Compile Include="DjangoWebProject1\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DjangoWebProject1\Plantilla\.DS_Store" />
     <Content Include="DjangoWebProject1\Plantilla\agendar.html" />
     <Content Include="DjangoWebProject1\Plantilla\alimentos.html" />
     <Content Include="DjangoWebProject1\Plantilla\buscar.html" />

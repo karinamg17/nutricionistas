@@ -32,6 +32,5 @@ urlpatterns = [
     path('crear-expediente/',views.crearexpediente,name='crear-expediente'),
     path('ver-expediente/',views.verexpediente,name='ver-expediente'),
     path('recetas/',views.recetas,name='recetas'),
-    
     path('admin/', admin.site.urls),
 ]
