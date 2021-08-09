@@ -1,0 +1,430 @@
+﻿{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Panel de Control administrativo </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/images/favicon.png'%}">
+    <link href="{% static '/vendor/jqvmap/css/jqvmap.min.css'%}" rel="stylesheet">
+	<link rel="stylesheet" href="{% static '/vendor/chartist/css/chartist.min.css'%}">
+    <link href="{% static '/vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="{% static '/css/style.css'%}" rel="stylesheet">
+	<link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+	
+</head>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="{% url 'index' %}" class="brand-logo">
+                <img class="logo-abbr" src="{% static '/images/logo.png'%}" alt="">
+                <img class="logo-compact" src="{% static '/images/logo-text.png'%}" alt="">
+                <img class="brand-title" src="{% static '/images/logo-text.png'%}" alt="">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Control de Pacientes
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+				<ul class="metismenu" id="menu">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-381-networking"></i>
+							<span class="nav-text">Pacientes</span>
+						</a>
+                        <ul aria-expanded="false">
+							<li><a href="{% url 'index' %}">Panel</a></li>
+							<li><a href="{% url 'contactos' %}">Contactos</a></li>
+						</ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+						<i class="flaticon-381-television"></i>
+							<span class="nav-text">Expedientes</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'ver-expediente' %}">Ver Expedientes</a></li>
+							<li><a href="{% url 'crear-expediente' %}">Crear expediente</a></li>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-381-controls-3"></i>
+							<span class="nav-text">Agendar Citas</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'agendar' %}">Agendar</a></li>
+                            <li><a href="{% url 'buscar' %}">Buscar</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-381-internet"></i>
+							<span class="nav-text">Alimentos</span>
+						</a>
+                        <ul aria-expanded="false">
+							<li><a href="{% url 'alimentos' %}">Administrar Alimentos</a></li>
+							<li><a href="{% url 'recetas' %}">Generar Recetas</a></li>
+                        </ul>
+                    </li>
+            
+			</div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+		
+		<!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <!-- row -->
+			<div class="container-fluid">
+				<div class="form-head d-flex mb-3 mb-md-5 align-items-start">
+					<div class="mr-auto d-none d-lg-block">
+						<h3 class="text-primary font-w600">Bienvenido!</h3>
+						<p class="mb-0">Perfil Administrador</p>
+					</div>
+					
+					<div class="input-group search-area ml-auto d-inline-flex">
+						<input type="text" class="form-control" placeholder="Buscar">
+						<div class="input-group-append">
+							<a href="javascript:void(0)" class="input-group-text"><i class="flaticon-381-search-2"></i></a>
+						</div>
+					</div>
+					<a href="javascript:void(0);" class="btn btn-primary ml-3"><i class="flaticon-381-settings-2 mr-0"></i></a>
+				</div>
+               
+							<div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12">
+								<div class="card">
+									<div class="card-header border-0 pb-0">
+										<h4 class="card-title">Pacientes (%)</h4>
+										<select class="form-control style-1 default-select ">
+											<option>Semanal</option>
+											<option>Diario</option>
+											<option>Mensual</option>
+										</select>
+									</div>
+									<div class="card-body pt-2">
+										<h4 class="text-dark font-w400">Total Pacientes</h4>
+										<h3 class="text-primary font-w600">58 Pacientes</h3>
+										<div class="row mx-0 align-items-center">
+											<div class="col-sm-8 col-md-7  px-0">
+												<div id="chartCircle"></div>
+											</div>
+											<div class="col-sm-4 col-md-5 px-0">
+												<div class="patients-chart-deta">
+													<div class="col px-0">
+														<span class="bg-danger"></span>	
+														<div>
+															<p>Nuevos</p>
+															<h3>64%</h3>
+														</div>
+													</div>
+													<div class="col px-0">
+														<span class="bg-success"></span>	
+														<div>
+															<p>Peso Ideal</p>
+															<h3>73%</h3>
+														</div>
+													</div>
+													<div class="col px-0">
+														<span class="bg-warning"></span>	
+														<div>
+															<p>En Progreso</p>
+															<h3>48%</h3>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12">
+								<div class="card">
+									<div class="card-header border-0 pb-0">
+										<h4 class="card-title">Actividad Reciente</h4>
+										<div class="dropdown ml-auto">
+											<div class="btn-link" data-toggle="dropdown">
+												<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+											</div>
+											<div class="dropdown-menu dropdown-menu-right">
+												<a class="dropdown-item" href="#">Edit</a>
+												<a class="dropdown-item" href="#">Delete</a>
+											</div>
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="table-responsive ">
+											<table class="table patient-activity">
+												<tr>
+													<td>
+														<div class="media align-items-center">
+															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/1.jpg'%}" alt="DexignZone">
+															<div class="media-body">
+																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">Ana Lopez</h5></a>
+																<p class="mb-0">41 Años</p>
+															</div>
+														</div>
+													</td>
+													<td>
+														<p class="mb-0">Activo Desde</p>
+														<h5 class="my-0 text-primary">2 Años 5 Meses</h5>
+													</td>
+													<td>
+														<div class="d-flex align-items-center">
+															<div>
+																<p class="mb-1">Estado</p>
+																<h5 class="mt-0 mb-1 text-success">Peso Ideal</h5>
+																<small>22/03/2020 12:34 AM</small>
+															</div>
+															<div class="dropdown ml-auto">
+																<div class="btn-link" data-toggle="dropdown">
+																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
+																</div>
+																<div class="dropdown-menu dropdown-menu-right" >
+																	<a class="dropdown-item" href="#">Edit</a>
+																	<a class="dropdown-item" href="#">Delete</a>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="media align-items-center">
+															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/2.jpg'%}" alt="DexignZone">
+															<div class="media-body">
+																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">Angela Nurhayati</h5></a>
+																<p class="mb-0">21 Años</p>
+															</div>
+														</div>
+													</td>
+													<td>
+														<p class="mb-0">Activo Desde</p>
+														<h5 class="my-0 text-primary">5 meses</h5>
+													</td>
+													<td>
+														<div class="d-flex align-items-center">
+															<div>
+																<p class="mb-1">Estado</p>
+																<h5 class="mt-0 mb-1 text-danger">Nuevo paciente</h5>
+																<small>22/03/2020 12:34 AM</small>
+															</div>
+															<div class="dropdown ml-auto">
+																<div class="btn-link" data-toggle="dropdown">
+																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
+																</div>
+																<div class="dropdown-menu dropdown-menu-right">
+																	<a class="dropdown-item" href="#">Edit</a>
+																	<a class="dropdown-item" href="#">Delete</a>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr class="active">
+													<td>
+														<div class="media align-items-center">
+															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/3.jpg'%}" alt="DexignZone">
+															<div class="media-body">
+																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">James Robinson</h5></a>
+																<p class="mb-0">25 Años</p>
+															</div>
+														</div>
+													</td>
+													<td>
+														<p class="mb-0">Activo Desde</p>
+														<h5 class="my-0 text-primary">3 años 8 meses</h5>
+													</td>
+													<td>
+														<div class="d-flex align-items-center">
+															<div>
+																<p class="mb-1">Estado</p>
+																<h5 class="mt-0 mb-1 text-warning">En Progreso</h5>
+																<small>22/03/2020 12:34 AM</small>
+															</div>
+															<div class="dropdown ml-auto">
+																<div class="btn-link" data-toggle="dropdown">
+																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
+																</div>
+																<div class="dropdown-menu dropdown-menu-right">
+																	<a class="dropdown-item" href="#">Edit</a>
+																	<a class="dropdown-item" href="#">Delete</a>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="media align-items-center">
+															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/4.jpg'%}" alt="DexignZone">
+															<div class="media-body">
+																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">Thomas Jaja</h5></a>
+																<p class="mb-0">7 Años</p>
+															</div>
+														</div>
+													</td>
+													<td>
+														<p class="mb-0">Activo Desde</p>
+														<h5 class="my-0 text-primary">2 meses</h5>
+													</td>
+													<td>
+														<div class="d-flex align-items-center">
+															<div>
+																<p class="mb-1">Estado</p>
+																<h5 class="mt-0 mb-1 text-danger">Nuevo paciente</h5>
+																<small>22/03/2020 12:34 AM</small>
+															</div>
+															<div class="dropdown ml-auto">
+																<div class="btn-link" data-toggle="dropdown">
+																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
+																</div>
+																<div class="dropdown-menu dropdown-menu-right">
+																	<a class="dropdown-item" href="#">Edit</a>
+																	<a class="dropdown-item" href="#">Delete</a>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="media align-items-center">
+															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/5.jpg'%}" alt="DexignZone">
+															<div class="media-body">
+																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">Cindy Brownleee</h5></a>
+																<p class="mb-0">71 Años</p>
+															</div>
+														</div>
+													</td>
+													<td>
+														<p class="mb-0">Activo Desde</p>
+														<h5 class="my-0 text-primary">1 año 2 meses/h5>
+													</td>
+													<td>
+														<div class="d-flex align-items-center">
+															<div>
+																<p class="mb-1">Estado</p>
+																<h5 class="mt-0 mb-1 text-success">Peso Ideal</h5>
+																<small>22/03/2020 12:34 AM</small>
+															</div>
+															<div class="dropdown ml-auto">
+																<div class="btn-link" data-toggle="dropdown">
+																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
+																</div>
+																<div class="dropdown-menu dropdown-menu-right">
+																	<a class="dropdown-item" href="#">Edit</a>
+																	<a class="dropdown-item" href="#">Delete</a>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="media align-items-center">
+															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/6.jpg'%}" alt="DexignZone">
+															<div class="media-body">
+																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">Oconner Jr.</h5></a>
+																<p class="mb-0">17 Años</p>
+															</div>
+														</div>
+													</td>
+													<td>
+														<p class="mb-0">Activo Desde</p>
+														<h5 class="my-0 text-primary">1 mes</h5>
+													</td>
+													<td>
+														<div class="d-flex align-items-center">
+															<div>
+																<p class="mb-1">Estado</p>
+																<h5 class="mt-0 mb-1 text-warning">En Progreso</h5>
+																<small>22/03/2020 12:34 AM</small>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="{% static '/vendor/global/global.min.js'%}"></script>
+	<script src="{% static '/vendor/bootstrap-select/dist/js/bootstrap-select.min.js'%}"></script>
+    <script src="{% static '/js/custom.min.js'%}"></script>
+	<script src="{% static '/js/deznav-init.js'%}"></script>
+	<!-- Apex Chart -->
+	<script src="{% static '/vendor/apexchart/apexchart.js'%}"></script>
+	
+	
+	<!-- Dashboard 1 -->
+	<script src="{% static '/js/dashboard/dashboard-1.js'%}"></script>
+	
+	
+    
+</body>
+</html>
