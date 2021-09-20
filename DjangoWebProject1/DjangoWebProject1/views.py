@@ -6,8 +6,7 @@ def index(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'index.html',
-       
+        'index.html', 
     )
 
 def agendar(request):
@@ -16,7 +15,6 @@ def agendar(request):
     return render(
         request,
         'agendar.html',
-        
     )
 
 
@@ -26,7 +24,6 @@ def alimentos(request):
     return render(
         request,
         'alimentos.html',
-        
     )
 
 

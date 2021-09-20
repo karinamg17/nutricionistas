@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nutricion </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/images/favicon.png'%}">
+    <link href="{% static './vendor/lightgallery/css/lightgallery.min.css'%}" rel="stylesheet">
+    <link href="{% static '/vendor/fullcalendar/css/fullcalendar.min.css'%}" rel="stylesheet">
+    <link href="{% static './vendor/bootstrap-select/dist/css/bootstrap-select.min.css'%}" rel="stylesheet">
+    <link href="{% static './css/style.css'%}" rel="stylesheet">
+    <link href="{% static '/css/icomoon.css'%}" rel="stylesheet">
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <!--*******************
+           Preloader start
+       ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+    <!--**********************************
+        Nav header start
+    ***********************************-->
+          <div class="nav-header">
+                <img class="logo-abbr" src="{% static '/images/logo.png'%}" alt="">
+                <img class="logo-compact" src="{% static '/images/logo-text.png'%}" alt="">
+                <img class="brand-title" src="{% static '/images/logo-text.png'%}" alt="">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+
+            <!--**********************************
+            Nav header end
+        ***********************************-->
+            <!--**********************************
+            Sidebar start
+        ***********************************-->
+            <div class="deznav">
+                <div class="deznav-scroll">
+                    <ul class="metismenu" id="menu">
+                        <li>
+                            <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                                <i class="flaticon-381-networking"></i>
+                                <span class="nav-text">Pacientes</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                <li><a href="{% url 'index' %}">Panel</a></li>
+                                <li><a href="{% url 'contactos' %}">Contactos</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                                <i class="flaticon-381-television"></i>
+                                <span class="nav-text">Expedientes</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                <li><a href="{% url 'ver-expediente' %}">Ver Expedientes</a></li>
+                                <li><a href="{% url 'crear-expediente' %}">Crear expediente</a></li>
+                        </li>
+                    </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-controls-3"></i>
+                            <span class="nav-text">Agendar Citas</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'agendar' %}">Agendar</a></li>
+                            <li><a href="{% url 'buscar' %}">Buscar</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-internet"></i>
+                            <span class="nav-text">Alimentos</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'alimentos' %}">Administrar Alimentos</a></li>
+                            <li><a href="{% url 'recetas' %}">Generar Recetas</a></li>
+                        </ul>
+                    </li>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--**********************************
+        Sidebar end
+    ***********************************-->
+
+
+        <!--**********************************
+        Content body start
+    ***********************************-->
+        {% block content %}
+
+
+        <pre>Content Body Code goes here</pre>
+
+
+        {% endblock %}
+
+
+        <!--**********************************
+       Content Body Ends
+    ***********************************-->
+
+
+
+        <!--**********************************
+        Footer start
+     ***********************************-->
+        <!--**********************************
+       Sample Footer
+    <div class="footer">
+        <div class="copyright">
+            <p>Copyright © Designed &amp; Developed by <a href="http://dexignzone.com/" target="_blank">DexignZone</a> 2021</p>
+        </div>
+    </div>
+    ***********************************-->
+        <!--**********************************
+        Footer end
+    ***********************************-->
+
+
+        <!--**********************************
+        Scripts
+    ***********************************-->
+        <!-- Required vendors -->
+        <script src="{% static '/vendor/global/global.min.js'%}"></script>
+        <script src="{% static '/vendor/bootstrap-select/dist/js/bootstrap-select.min.js'%}"></script>
+        <script src="{% static '/vendor/chart.js/Chart.bundle.min.js'%}"></script>
+        <script src="{% static '/js/custom.min.js'%}"></script>
+        <script src="{% static '/js/deznav-init.js'%}"></script>
+
+        <!-- Apex Chart -->
+        <script src="{% static '/vendor/apexchart/apexchart.js'%}"></script>
+
+
+        <!-- Dashboard 1 -->
+        <script src="{% static '/js/dashboard/dashboard-1.js'%}"></script>
+
+        <!-- Vectormap -->
+        <!-- Chart piety plugin files -->
+        <script src="{% static '/vendor/peity/jquery.peity.min.js'%}"></script>
+
+        <!-- Chartist -->
+        <script src="{% static '/vendor/chartist/js/chartist.min.js'%}"></script>
+
+        <!-- Datatable -->
+        <script src="{% static './vendor/datatables/js/jquery.dataTables.min.js'%}"></script>
+        <script src="{% static './js/plugins-init/datatables.init.js'%}"></script>
+
+        <!-- Light Gallery -->
+        <script>
+            $('#lightgallery').lightGallery({
+                thumbnail: true,
+            });
+        </script>
+
+        <!-- Calendar -->
+        <script src="{%static '/vendor/jqueryui/js/jquery-ui.min.js'%}"></script>
+        <script src="{%static '/vendor/moment/moment.min.js'%}"></script>
+
+        <script src="{%static '/vendor/fullcalendar/js/fullcalendar.min.js'%}"></script>
+        <script src="{%static '/js/plugins-init/fullcalendar-init.js'%}"></script>
+
+</body>
+</html>
+

@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-STATICFILES_DIRS=['C:/Users/Veronica/source/Nutricionista/DjangoWebProject1/DjangoWebProject1/Plantilla/static']
+STATICFILES_DIRS=['C:/Users/Veronica/source/DiseñoProyectoFinal/DjangoWebProject1/DjangoWebProject1/Plantilla/static']
 
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'DjangoWebProject1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Veronica/source/Nutricionista/DjangoWebProject1/DjangoWebProject1/Plantilla'],
+        'DIRS': ['C:/Users/Veronica/source/DiseñoProyectoFinal/DjangoWebProject1/DjangoWebProject1/Plantilla'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
