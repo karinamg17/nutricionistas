@@ -72,6 +72,39 @@ def recetas(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'recetas.html',
-        
+        'recetas.html',      
+    )
+
+
+
+def pagbloqueada(request):
+    """Renders the about page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'pag-bloqueada.html',      
+    )
+
+def paginicio(request):
+    """Renders the about page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'pag-inicio.html',      
+    )
+
+def pagolvido(request):
+    """Renders the about page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'pag-olvido.html',      
+    )
+
+def pagregistro(request):
+    """Renders the about page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'pag-registro.html',      
     )

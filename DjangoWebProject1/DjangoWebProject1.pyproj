@@ -46,6 +46,7 @@
     <Content Include="DjangoWebProject1\Plantilla\contactos.html" />
     <Content Include="DjangoWebProject1\Plantilla\crear-expediente.html" />
     <Content Include="DjangoWebProject1\Plantilla\index.html" />
+    <Content Include="DjangoWebProject1\Plantilla\pag-master.html" />
     <Content Include="DjangoWebProject1\Plantilla\recetas.html" />
     <Content Include="DjangoWebProject1\Plantilla\static\ajax\best-doctors.html" />
     <Content Include="DjangoWebProject1\Plantilla\static\ajax\recent-reviews.html" />
@@ -2132,6 +2133,10 @@
     <Content Include="DjangoWebProject1\Plantilla\static\js\plugins-init\widgets-script-init.js" />
     <Content Include="DjangoWebProject1\Plantilla\static\js\settings.js" />
     <Content Include="DjangoWebProject1\Plantilla\masterpage.html" />
+    <Content Include="DjangoWebProject1\Plantilla\pag-bloqueada.html" />
+    <Content Include="DjangoWebProject1\Plantilla\pag-inicio.html" />
+    <Content Include="DjangoWebProject1\Plantilla\pag-olvido.html" />
+    <Content Include="DjangoWebProject1\Plantilla\pag-registro.html" />
     <Content Include="DjangoWebProject1\Plantilla\static\scss\abstracts\_abstracts.scss" />
     <Content Include="DjangoWebProject1\Plantilla\static\scss\abstracts\_bs-custom.scss" />
     <Content Include="DjangoWebProject1\Plantilla\static\scss\abstracts\_inheritance.scss" />

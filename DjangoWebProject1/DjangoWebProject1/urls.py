@@ -32,5 +32,9 @@ urlpatterns = [
     path('crear-expediente/',views.crearexpediente,name='crear-expediente'),
     path('ver-expediente/',views.verexpediente,name='ver-expediente'),
     path('recetas/',views.recetas,name='recetas'),
+    path('pag-bloqueada/',views.pagbloqueada,name='pag-bloqueada'),
+    path('pag-olvido/',views.pagolvido,name='pag-olvido'),
+    path('pag-inicio/',views.paginicio,name='pag-inicio'),
+    path('pag-registro/',views.pagregistro,name='pag-registro'),
     path('admin/', admin.site.urls),
 ]

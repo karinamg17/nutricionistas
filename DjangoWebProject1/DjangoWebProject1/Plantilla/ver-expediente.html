@@ -4,27 +4,16 @@
 
 {% load static %}
 
-{% block content %}
-        <!--**********************************
-            Header start
-        ***********************************-->
-        <div class="header">
-            <div class="header-content">
-                <nav class="navbar navbar-expand">
-                    <div class="collapse navbar-collapse justify-content-between">
-                        <div class="header-left">
-                            <div class="dashboard_bar">
-                                Ver Expedientes
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-		
+{% block title %}
+	<div class="dashboard_bar">
+	Ver Expedientes
+	</div>
+ {% endblock %}
+
+
+
+
+{% block content %}		
 
 		<!--**********************************
             Content body start
