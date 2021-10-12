@@ -17,59 +17,81 @@
     <!--**********************************
             Content body start
     ***********************************-->
-    
-		 <div class="content-body">
+    <div class="content-body">
             <div class="container-fluid">
-		<div class="col-lg-12">
-			<div class="card">
+               
+                <!-- row -->
+                <div class="row">
+                    <div class="col-xl-12 col-xxl-12">
+                        <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Datos Personales</h4>
+                                <h4 class="card-title">Primera visita</h4>
                             </div>
                             <div class="card-body">
-                                <div class="basic-form">
-                                    <form>
-										<div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Fecha de Ingreso</label>
-                                            <div class="col-sm-9">
-                                                <input type="date" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Nombre</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" placeholder="Nombre">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Cédula</label>
-                                            <div class="col-sm-9">
-                                                <input type="number" class="form-control" placeholder="Cédula">
-                                            </div>
-                                        </div>
-										<div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Teléfono</label>
-                                            <div class="col-sm-9">
-                                                <input type="number" class="form-control" placeholder="Teléfono">
-                                            </div>
-                                        </div>
-										<div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Correo</label>
-                                            <div class="col-sm-9">
-                                                <input type="email" class="form-control" placeholder="Correo">
-                                            </div>
-                                        </div>
-										<div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Ocupación</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" placeholder="Ocupación">
-                                            </div>
-                                        </div>
-										
-                                        <fieldset class="form-group">
-                                            <div class="row">
-                                                <label class="col-form-label col-sm-3 pt-0">Sexo</label>
-                                                <div class="col-sm-9">
-                                                    <div class="form-check">
+								<div id="smartwizard" class="form-wizard order-create">
+									<ul class="nav nav-wizard">
+										<li><a class="nav-link" href="#wizard_Service"> 
+											<span>1</span> 
+										</a></li>
+										<li><a class="nav-link" href="#wizard_Time">
+											<span>2</span>
+										</a></li>
+										<li><a class="nav-link" href="#wizard_Details">
+											<span>3</span>
+										</a></li>
+										<li><a class="nav-link" href="#wizard_Payment">
+											<span>4</span>
+										</a></li>
+									</ul>
+									<div class="tab-content">
+										<div id="wizard_Service" class="tab-pane" role="tabpanel">
+											<div class="row">
+												<div class="col-lg-6 mb-2">
+													<div class="form-group">
+														<label class="text-label">Fecha de Inngreso*</label>
+														<input type="date" class="form-control" placeholder="" required>
+													</div>
+												</div>
+												<div class="col-lg-6 mb-2">
+													<div class="form-group">
+														<label class="text-label">Correo*</label>
+														<input type="email" class="form-control" id="inputGroupPrepend2" aria-describedby="inputGroupPrepend2" placeholder="example@example.com.com" required>
+													</div>
+												</div>
+												<div class="col-lg-6 mb-2">
+													<div class="form-group">
+														<label class="text-label">Nombre*</label>
+														<input type="text" name="nombre" class="form-control" placeholder="" required>
+													</div>
+												</div>
+												<div class="col-lg-6 mb-2">
+													<div class="form-group">
+														<label class="text-label">Apellidos*</label>
+														<input type="text" name="" class="form-control" placeholder="" required>
+													</div>
+												</div>
+												<div class="col-lg-6 mb-2">
+													<div class="form-group">
+														<label class="text-label">Cédula*</label>
+														<input type="number" class="form-control" id=""  placeholder="" required>
+													</div>
+												</div>
+												<div class="col-lg-6 mb-2">
+													<div class="form-group">
+														<label class="text-label">Teléfono*</label>
+														<input type="number" name="phoneNumber" class="form-control" placeholder="" required>
+													</div>
+												</div>
+												<div class="col-lg-6 mb-2">
+													<div class="form-group">
+														<label class="text-label">Ocupación*</label>
+														<input type="text" class="form-control" id=""  placeholder="" required>
+													</div>
+												</div>
+												<div class="col-lg-6 mb-2">
+													<div class="form-group">
+														<label class="text-label">Sexo*</label>
+														<div class="form-check">
                                                         <input class="form-check-input" type="radio" name="gridRadios" value="option1" checked>
                                                         <label class="form-check-label">
                                                             Femenino
@@ -81,42 +103,20 @@
                                                             Masculino
                                                         </label>
                                                     </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </fieldset>
-										<div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Edad</label>
-                                            <div class="col-sm-9">
-                                                <input type="number" class="form-control" placeholder="Edad">
-                                            </div>
-                                        </div>
-										<div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Objetivo/Meta</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
-                                       <!-- <div class="form-group row">
-                                            <div class="col-sm-3">Checkbox</div>
-                                            <div class="col-sm-9">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox">
-                                                    <label class="form-check-label">
-                                                        Example checkbox
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div-->
-                                        
-                                    </form>
-                                </div>
-                            </div>
-				<div class="card-header">
-                                <h4 class="card-title">Indicadores Clínicos</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
+													</div>
+												</div>
+												<div class="col-lg-12 mb-3">
+													<div class="form-group">
+														<label class="text-label">Objetivo/Meta*</label>
+														<input type="text" name="" class="form-control" required>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="wizard_Time" class="tab-pane" role="tabpanel">
+											<div class="row">
+												<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
                                     <table class="table table-bordered verticle-middle table-responsive-sm">
                                         <thead>
                                             <tr>
@@ -309,409 +309,160 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div> 
-			<div class="card-header">
-                                <h4 class="card-title">Signos Fisicos</h4>
+											</div>
+										</div>
+																								</div>
+
+										<div id="wizard_Details" class="tab-pane" role="tabpanel">
+											<div class="row">
+												<div class="col-sm-4 mb-2">
+													<h4>Monday *</h4>
+												</div>
+												<div class="col-6 col-sm-4 mb-2">
+													<div class="form-group">
+														<input class="form-control" value="9.00" type="number" name="input1" id="input1">
+													</div>
+												</div>
+												<div class="col-6 col-sm-4 mb-2">
+													<div class="form-group">
+														<input class="form-control" value="6.00" type="number" name="input2" id="input2">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-4 mb-2">
+													<h4>Tuesday *</h4>
+												</div>
+												<div class="col-6 col-sm-4 mb-2">
+													<div class="form-group">
+														<input class="form-control" value="9.00" type="number" name="input3" id="input3">
+													</div>
+												</div>
+												<div class="col-6 col-sm-4 mb-2">
+													<div class="form-group">
+														<input class="form-control" value="6.00" type="number" name="input4" id="input4">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-4 mb-2">
+													<h4>Wednesday *</h4>
+												</div>
+												<div class="col-6 col-sm-4 mb-2">
+													<div class="form-group">
+														<input class="form-control" value="9.00" type="number" name="input5" id="input5">
+													</div>
+												</div>
+												<div class="col-6 col-sm-4 mb-2">
+													<div class="form-group">
+														<input class="form-control" value="6.00" type="number" name="input6" id="input6">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-4 mb-2">
+													<h4>Thrusday *</h4>
+												</div>
+												<div class="col-6 col-sm-4 mb-2">
+													<div class="form-group">
+														<input class="form-control" value="9.00" type="number" name="input7" id="input7">
+													</div>
+												</div>
+												<div class="col-6 col-sm-4 mb-2">
+													<div class="form-group">
+														<input class="form-control" value="6.00" type="number" name="input8" id="input8">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-4 mb-2">
+													<h4>Friday *</h4>
+												</div>
+												<div class="col-6 col-sm-4 mb-2">
+													<div class="form-group">
+														<input class="form-control" value="9.00" type="number" name="input9" id="input9">
+													</div>
+												</div>
+												<div class="col-6 col-sm-4 mb-2">
+													<div class="form-group">
+														<input class="form-control" value="6.00" type="number" name="input10" id="input10">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="wizard_Payment" class="tab-pane" role="tabpanel">
+											<div class="row emial-setup">
+												<div class="col-lg-3 col-sm-6 col-6">
+													<div class="form-group">
+														<label for="mailclient11" class="mailclinet mailclinet-gmail">
+															<input type="radio" name="emailclient" id="mailclient11">
+															<span class="mail-icon">
+																<i class="mdi mdi-google-plus" aria-hidden="true"></i>
+															</span>
+															<span class="mail-text">I'm using Gmail</span>
+														</label>
+													</div>
+												</div>
+												<div class="col-lg-3 col-sm-6 col-6">
+													<div class="form-group">
+														<label for="mailclient12" class="mailclinet mailclinet-office">
+															<input type="radio" name="emailclient" id="mailclient12">
+															<span class="mail-icon">
+																<i class="mdi mdi-office" aria-hidden="true"></i>
+															</span>
+															<span class="mail-text">I'm using Office</span>
+														</label>
+													</div>
+												</div>
+												<div class="col-lg-3 col-sm-6 col-6">
+													<div class="form-group">
+														<label for="mailclient13" class="mailclinet mailclinet-drive">
+															<input type="radio" name="emailclient" id="mailclient13">
+															<span class="mail-icon">
+																<i class="mdi mdi-google-drive" aria-hidden="true"></i>
+															</span>
+															<span class="mail-text">I'm using Drive</span>
+														</label>
+													</div>
+												</div>
+												<div class="col-lg-3 col-sm-6 col-6">
+													<div class="form-group">
+														<label for="mailclient14" class="mailclinet mailclinet-another">
+															<input type="radio" name="emailclient" id="mailclient14">
+															<span class="mail-icon">
+																<i class="fa fa-question-circle-o"
+																	aria-hidden="true"></i>
+															</span>
+															<span class="mail-text">Another Service</span>
+														</label>
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-12">
+													<div class="skip-email text-center">
+														<p>Or if want skip this step entirely and setup it later</p>
+														<a href="javascript:void(0)">Skip step</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
                             </div>
-                            <div class="card-body">
-                                <div class="basic-form">
-                                    <form>
-										
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">(cabello, ojos, piel, uñas, labios, encías, etc)</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                    </form>
-                                </div>
-                            </div>
-			
-			<!--Consumo de-->
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered verticle-middle table-responsive-sm">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Consumo de</th>
-                                                <th scope="col">Si/No</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Laxantes </td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-                                          <tr>
-                                                <td>Diuréticos </td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-											<tr>
-                                                <td>Antiácidos </td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-											<tr>
-                                                <td>Analgésicos </td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-											<tr>
-                                                <td> Vitaminas </td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div> 
-
-			<div class="card-header">
-                                <h4 class="card-title">Medicamentos</h4>
-                            </div>
-			 <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered verticle-middle table-responsive-sm">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Medicamento</th>
-                                                <th scope="col">Motivo</th>
-                                                <th scope="col">Consumo</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                                <td><input type="text" class="form-control" placeholder=""></td>
-                                                <td><input type="text" class="form-control" placeholder=""></td>
-                                               
-                                            </tr>
-                                          <tr>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                                <td><input type="text" class="form-control" placeholder=""></td>
-                                                <td><input type="text" class="form-control" placeholder=""></td>
-                                               
-                                            </tr><tr>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                                <td><input type="text" class="form-control" placeholder=""></td>
-                                                <td><input type="text" class="form-control" placeholder=""></td>
-                                               
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-			<div class="card-header">
-                                <h4 class="card-title">Indicadores Dietéticos</h4>
-                            </div>
-			 <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered verticle-middle table-responsive-sm">
-                                        <thead>
-										
-                                            <tr>
-                                                <th scope="col">Hábitos y preferencias alimentarias	</th>
-                                                <th scope="col"></th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>¿Presenta alguna alergia alimentaria? </td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-                                          <tr>
-                                                <td>¿Cúal presenta? </td>
-                                                 <td><input type="text" class="form-control" placeholder=""> </td>
-
-                                               
-                                            </tr>
-											<tr>
-                                                <td>¿Presenta alguna intolerancia alimentaria?
-</td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-                                          <tr>
-                                                <td>¿Cúal presenta? </td>
-                                                 <td><input type="text" class="form-control" placeholder=""> </td>
-
-                                               
-                                            </tr>
-											<tr>
-                                                <td>¿Dónde mayormente come? En casa o trabajo
- </td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">Casa</option>
-                                                    <option value="danger">Trabajo</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-                                          
-											<tr>
-                                                <td>¿Cocina o compra sus alimentos? </td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">Cocina</option>
-                                                    <option value="danger">Compra</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-                                          <tr>
-                                                <td>¿Cómo califica su alimentación?</td>
-                                                 <td><input type="text" class="form-control" placeholder=""> </td>
-
-                                               
-                                            </tr>
-											<tr>
-                                                <td>¿Cómo califica su apetito?</td>
-                                                 <td><input type="text" class="form-control" placeholder=""> </td>
-
-                                               
-                                            </tr>
-											<tr>
-                                                <td>¿Presenta ansiedad por la comida?</td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-
-                                               
-                                            </tr>
-											<tr>
-                                                <td>¿Qué consume para la ansiedad?</td>
-                                                 <td><input type="text" class="form-control" placeholder=""> </td>
-
-                                               
-                                            </tr>
-											<tr>
-                                                <td>¿Le añade sal a la comida ya preparada?</td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-
-                                               
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div> 
-			<div class="card-header">
-                                <h4 class="card-title">Comidas por día</h4>
-                            </div>
-			 <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered verticle-middle table-responsive-sm">
-                                        <thead>
-										
-                                            <tr>
-                                                <th scope="col">¿Comidas realizadas al día?</th>
-                                                <th scope="col"></th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Desayuno</td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-                                          <tr>
-                                                <td>Merienda</td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-											<tr>
-                                                <td>Almuerzo</td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td>Merienda </td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td>Cena</td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td>Colación Nocturna</td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td>Otro</td>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                               
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div> 
-            <div class="card-header">
-                                <h4 class="card-title">Hábitos Sociales 	</h4>
-                            </div>
-			 <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered verticle-middle table-responsive-sm">
-                                        <thead>
-										
-                                            <tr>
-                                                <th scope="col">Consumo</th>
-                                                <th scope="col">Si-No</th>
-                                                <th scope="col">Frecuencia</th>
-                                                <th scope="col">Tipo</th>
-                                                <th scope="col">Cantidad</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Alcohol</td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td>Tabaco</td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td>Drogas</td>
-                                                <td><select class="form-control form-white" data-placeholder="si/no" name="category-color">
-
-                                                    <option value="success">No</option>
-                                                    <option value="danger">Si</option>
-                                                  
-                                                </select></td>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                                <td><input type="text" class="form-control" placeholder=""> </td>
-                                               
-                                            </tr>
-                                          
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div> 
-            <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Horas de sueño</label>
-                                            <div class="col-sm-9">
-                                                <input type="number" class="form-control" placeholder="horas">
-                                            </div>
-                                        </div>
-			<div class="form-group row">
-                                            <div class="col-sm-10">
-                                                <button type="submit" class="btn btn-primary">Crear</button>
-                                            </div>
-                                        </div>
-                        </div> </div> </div>
-		 </div>
-
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	
 		
  
         <!--**********************************
             Content body end
         ***********************************-->
+
         
 {% endblock content %}
 

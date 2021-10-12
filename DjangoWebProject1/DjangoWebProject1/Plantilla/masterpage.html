@@ -1,4 +1,4 @@
-{% load static %}
+﻿{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +13,8 @@
     <link href="{% static './vendor/lightgallery/css/lightgallery.min.css'%}" rel="stylesheet">
     <link href="{% static '/vendor/fullcalendar/css/fullcalendar.min.css'%}" rel="stylesheet">
     <link href="{% static './vendor/bootstrap-select/dist/css/bootstrap-select.min.css'%}" rel="stylesheet">
+      <!-- Form step -->
+    <link href="{% static './vendor/jquery-smartwizard/dist/css/smart_wizard.min.css'%}" rel="stylesheet">
     <link href="{% static './css/style.css'%}" rel="stylesheet">
     <link href="{% static '/css/icomoon.css'%}" rel="stylesheet">
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
@@ -324,6 +326,21 @@
         <!-- Datatable -->
         <script src="{% static './vendor/datatables/js/jquery.dataTables.min.js'%}"></script>
         <script src="{% static './js/plugins-init/datatables.init.js'%}"></script>
+
+        <!-- Form validate init -->
+    <script src="{% static './js/plugins-init/jquery.validate-init.js'%}"></script>
+
+
+	
+   <!-- Form Steps -->
+	<script src="{% static './vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js'%}"></script>
+	
+    	<script>
+		$(document).ready(function(){
+			// SmartWizard initialize
+			$('#smartwizard').smartWizard(); 
+		});
+	</script>
 
         <!-- Light Gallery -->
         <script>
