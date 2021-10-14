@@ -1,0 +1,1528 @@
+﻿{% extends 'masterpage.html'%}
+
+
+{% load static %}
+
+{% block title %}
+<div class="dashboard_bar">
+	Crear Expediente
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+
+<!--**********************************
+            Content body start
+    ***********************************-->
+<div class="content-body">
+	<div class="container-fluid">
+
+		<!-- row -->
+		<div class="row">
+			<div class="col-xl-12 col-xxl-12">
+				<div class="card">
+					<div class="card-header">
+						<h4 class="card-title">Primera visita</h4>
+					</div>
+					<div class="card-body">
+						<div id="smartwizard" class="form-wizard order-create">
+							<ul class="nav nav-wizard">
+								<li><a class="nav-link" href="#wizard_Service">
+										<span>1</span>
+									</a></li>
+								<li><a class="nav-link" href="#wizard_Time">
+										<span>2</span>
+									</a></li>
+								<li><a class="nav-link" href="#wizard_Details">
+										<span>3</span>
+									</a></li>
+								<li><a class="nav-link" href="#wizard_Payment">
+										<span>4</span>
+									</a></li>
+								<li><a class="nav-link" href="#wizard_Payment">
+										<span>5</span>
+									</a></li>
+								<li><a class="nav-link" href="#wizard_Payment">
+										<span>6</span>
+									</a></li>
+								<li><a class="nav-link" href="#wizard_Payment">
+										<span>7</span>
+									</a></li>
+							</ul>
+							<div class="tab-content">
+								<div id="wizard_Service" class="tab-pane" role="tabpanel">
+									<div class="row">
+										<div class="col-lg-6 mb-2">
+											<div class="form-group">
+												<label class="text-label">Fecha de Ingreso*</label>
+												<input type="date" class="form-control" placeholder="" required>
+											</div>
+										</div>
+										<div class="col-lg-6 mb-2">
+											<div class="form-group">
+												<label class="text-label">Correo*</label>
+												<input type="email" class="form-control" id="inputGroupPrepend2"
+													aria-describedby="inputGroupPrepend2"
+													placeholder="example@example.com.com" required>
+											</div>
+										</div>
+										<div class="col-lg-6 mb-2">
+											<div class="form-group">
+												<label class="text-label">Nombre*</label>
+												<input type="text" name="nombre" class="form-control" placeholder=""
+													required>
+											</div>
+										</div>
+										<div class="col-lg-6 mb-2">
+											<div class="form-group">
+												<label class="text-label">Apellidos*</label>
+												<input type="text" name="" class="form-control" placeholder="" required>
+											</div>
+										</div>
+										<div class="col-lg-6 mb-2">
+											<div class="form-group">
+												<label class="text-label">Cédula*</label>
+												<input type="number" class="form-control" id="" placeholder="" required>
+											</div>
+										</div>
+										<div class="col-lg-6 mb-2">
+											<div class="form-group">
+												<label class="text-label">Teléfono*</label>
+												<input type="number" name="phoneNumber" class="form-control"
+													placeholder="" required>
+											</div>
+										</div>
+										<div class="col-lg-6 mb-2">
+											<div class="form-group">
+												<label class="text-label">Ocupación*</label>
+												<input type="text" class="form-control" id="" placeholder="" required>
+											</div>
+										</div>
+										<div class="col-lg-6 mb-2">
+											<div class="form-group">
+												<label class="text-label">Sexo*</label>
+												<div class="form-check">
+													<input class="form-check-input" type="radio" name="gridRadios"
+														value="option1" checked>
+													<label class="form-check-label">
+														Femenino
+													</label>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="radio" name="gridRadios"
+														value="option2">
+													<label class="form-check-label">
+														Masculino
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-12 mb-3">
+											<div class="form-group">
+												<label class="text-label">Objetivo/Meta*</label>
+												<input type="text" name="" class="form-control" required>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="wizard_Time" class="tab-pane" role="tabpanel">
+									<div class="row">
+										<div class="col-lg-12 mb-3">
+											<h4>INDICADORES CLINICOS </h4>
+											<div class="table-responsive">
+												<table class="table table-bordered verticle-middle table-responsive-sm">
+													<thead>
+														<tr>
+															<th scope="col">Antecedentes</th>
+															<th scope="col">Personales</th>
+															<th scope="col">Familiares</th>
+
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Dislipidemias</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+														</tr>
+														<tr>
+															<td>Hipertensión
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+														</tr>
+														<tr>
+															<td>Diabetes Mellitus
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+														</tr>
+														<tr>
+															<td>ECV
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+														</tr>
+														<tr>
+															<td>Enfermedades de Tiroides
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+														</tr>
+														<tr>
+															<td>Cáncer
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+														</tr>
+														<tr>
+															<td>Estreñimiento
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+														</tr>
+														<tr>
+															<td>Diarreas
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+														</tr>
+														<tr>
+															<td>Vomitos
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+														</tr>
+														<tr>
+															<td>SII: Estreñimiento, diarrea,calambres,gases, inflamación
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+														</tr>
+														<tr>
+															<td>Problemas de Peso
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+														</tr>
+														<tr>
+															<td>Ansiedad-Depresión
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="col-lg-6 mb-3">
+											<h4>ASPECTOS GINECOLÓGICOS </h4>
+											<div class="table-responsive">
+												<table class="table table-bordered verticle-middle table-responsive-sm">
+
+													<tbody>
+														<tr>
+															<td>Anticonceptivos </td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>¿Cuáles? </td>
+															<td><input type="text" name="" class="form-control"></td>
+
+														</tr>
+														<tr>
+															<td>Embarazo actual </td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="col-lg-6 mb-3">
+											<h4>Periodo Menstrual </h4>
+											<div class="table-responsive">
+												<table class="table table-bordered verticle-middle table-responsive-sm">
+
+													<tbody>
+														<tr>
+															<td>Días de menstruación </td>
+															<td><input type="text" name="" class="form-control"></td>
+
+														</tr>
+														<tr>
+															<td>Fecha de ultima menstruación </td>
+															<td><input type="text" name="" class="form-control"></td>
+
+														</tr>
+														<tr>
+															<td>Sintomas Antes </td>
+															<td><input type="text" name="" class="form-control"></td>
+
+														</tr>
+														<tr>
+															<td>Sintomas Durante </td>
+															<td><input type="text" name="" class="form-control"></td>
+
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="col-lg-12 mb-3">
+											<h4>SIGNOS FISICOS</h4>
+											<div class="form-group">
+												<label class="text-label">(cabello, ojos, piel, uñas, labios, encías,
+													etc)</label>
+												<input type="text" name="" class="form-control" required>
+											</div>
+										</div>
+
+										<div class="col-lg-12 mb-3">
+											<h4>MEDICAMENTOS</h4>
+											<div class="table-responsive">
+												<table class="table table-bordered verticle-middle table-responsive-sm">
+													<thead>
+														<tr>
+															<th scope="col">Medicamento</th>
+															<th scope="col">Motivo</th>
+															<th scope="col">Consumo</th>
+
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+
+														</tr>
+														<tr>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+
+														</tr>
+														<tr>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+
+										<div class="col-lg-12 mb-3">
+											<h4>CONSUMO DE</h4>
+											<div class="table-responsive">
+												<table class="table table-bordered verticle-middle table-responsive-sm">
+													<thead>
+														<tr>
+															<th scope="col">Consumo de</th>
+															<th scope="col">Si/No</th>
+
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Laxantes </td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Diuréticos </td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Antiácidos </td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Analgésicos </td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td> Vitaminas </td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div id="wizard_Details" class="tab-pane" role="tabpanel">
+									<div class="row">
+										<div class="col-lg-12 mb-3">
+											<h4>INDICADORES DIETETICOS</h4>
+											<div class="table-responsive">
+												<table class="table table-bordered verticle-middle table-responsive-sm">
+													<thead>
+
+														<tr>
+															<th scope="col">Hábitos y preferencias alimentarias </th>
+															<th scope="col"></th>
+
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>¿Presenta alguna alergia alimentaria? </td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>¿Cúal presenta? </td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+
+
+														</tr>
+														<tr>
+															<td>¿Presenta alguna intolerancia alimentaria?
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>¿Cúal presenta? </td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+
+
+														</tr>
+														<tr>
+															<td>¿Dónde mayormente come? En casa o trabajo
+															</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">Casa</option>
+																	<option value="danger">Trabajo</option>
+
+																</select></td>
+
+														</tr>
+
+														<tr>
+															<td>¿Cocina o compra sus alimentos? </td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">Cocina</option>
+																	<option value="danger">Compra</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>¿Cómo califica su alimentación?</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+
+
+														</tr>
+														<tr>
+															<td>¿Cómo califica su apetito?</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+
+
+														</tr>
+														<tr>
+															<td>¿Presenta ansiedad por la comida?</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+
+														</tr>
+														<tr>
+															<td>¿Qué consume para la ansiedad?</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+
+
+														</tr>
+														<tr>
+															<td>¿Le añade sal a la comida ya preparada?</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-12 mb-3">
+											<div class="table-responsive">
+												<table class="table table-bordered verticle-middle table-responsive-sm">
+													<thead>
+
+														<tr>
+															<th scope="col">¿Comidas realizadas al día?</th>
+															<th scope="col">5</th>
+
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Desayuno</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Merienda</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Almuerzo</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Merienda </td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Cena</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Colación Nocturna</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Otro</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+
+									</div>
+									<div class="row">
+										<div class="col-lg-12 mb-3">
+											<h4>HABITOS SOCIALES</h4>
+											<div class="table-responsive">
+												<table class="table table-bordered verticle-middle table-responsive-sm">
+													<thead>
+
+														<tr>
+															<th scope="col">Consumo</th>
+															<th scope="col">Si-No</th>
+															<th scope="col">Frecuencia</th>
+															<th scope="col">Tipo</th>
+															<th scope="col">Cantidad</th>
+
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Alcohol</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+
+														</tr>
+														<tr>
+															<td>Tabaco</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+
+														</tr>
+														<tr>
+															<td>Drogas</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+															<td><input type="text" class="form-control" placeholder="">
+															</td>
+
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+										</div>
+
+									</div>
+									<div class="row">
+
+										<div class="col-6 mb-3">
+											<label>Horas de sueño</label>
+											<input type="number" class="form-control" placeholder="horas">
+										</div>
+									</div>
+
+
+									<div class="row">
+										<div class="col-lg-6 mb-3">
+											<h4>Método de Cocción </h4>
+											<div class="table-responsive">
+												<table class="table table-bordered verticle-middle table-responsive-sm">
+
+													<tbody>
+														<tr>
+															<td>Frito</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Hervido</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>A la plancha</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Al vapor </td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Al horno</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>A la parrilla</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Freidora de Aire</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+
+										<div class="col-lg-6 mb-3">
+											<h4>Tipo de grasa de cocción </h4>
+											<div class="table-responsive">
+												<table class="table table-bordered verticle-middle table-responsive-sm">
+
+													<tbody>
+														<tr>
+															<td>Aceite</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Mantequilla</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Margarina</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>Spray</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-12 mb-3">
+											<h4>Fines de semana </h4>
+											<div class="table-responsive">
+												<table class="table table-bordered verticle-middle table-responsive-sm">
+
+													<tbody>
+														<tr>
+															<td>Sus comidas cambian los fines de semana</td>
+															<td><select class="form-control form-white"
+																	data-placeholder="si/no" name="category-color">
+
+																	<option value="success">No</option>
+																	<option value="danger">Si</option>
+
+																</select></td>
+
+														</tr>
+														<tr>
+															<td>¿Qué consume usualmente? </td>
+															<td><input type="number" class="form-control"
+																	placeholder="horas"></td>
+
+														</tr>
+
+
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="wizard_Payment" class="tab-pane" role="tabpanel">
+									<h4> FRECUENCIA DE CONSUMO</h4>
+									<div class="table-responsive">
+										<table class="table table-bordered verticle-middle table-responsive-sm">
+											<thead>
+												<tr>
+													<th scope="col">Clasificación</th>
+													<th scope="col">Alimento</th>
+													<th scope="col">Le gusta?</th>
+
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td rowspan="4">Leches
+													</td>
+													<td>Leche Pinito</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Leche Evaporada </td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Leche Condensada </td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Yogurt</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+
+
+												<!--Frutas-->
+
+												<tr>
+													<td rowspan="6">Frutas</td>
+													<td>Manzana</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Banano </td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Papaya </td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Sandía</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Piña</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Mandarina</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+
+												<!--Verduras-->
+
+												<tr>
+													<td rowspan="9">Verduras</td>
+													<td>Brócoli</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+
+												<tr>
+													<td>Chayote </td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Zanahoria</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Pepino</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Lechuga</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Repollo</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Tomate</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Yuca</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Papa</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+
+
+												<!--Harinas-->
+
+												<tr>
+													<td rowspan="11">Harinas</td>
+													<td>Arroz</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Frijoles </td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Lentejas </td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Garbanzos</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Pan Cuadrado</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Pan Baguette</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Pastas</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Avena</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Tortila</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Galletas</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+
+												<tr>
+													<td>Cereales</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+
+
+												<!--Carnes-->
+
+												<tr>
+													<td rowspan="10">Carnes</td>
+													<td>Huevo</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+
+												<tr>
+													<td>Embutidos </td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Jamon</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Atún</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Pollo</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Carne Molida</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Chuletas</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Bistec</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Salmon-Pescado</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+												<tr>
+													<td>Mariscos</td>
+													<td><select class="form-control form-white" data-placeholder="si/no"
+															name="category-color">
+
+															<option value="success">No</option>
+															<option value="danger">Si</option>
+
+														</select></td>
+
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div id="wizard_Payment" class="tab-pane" role="tabpanel">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!--**********************************
+            Content body end
+        ***********************************-->
+
+
+{% endblock content %}

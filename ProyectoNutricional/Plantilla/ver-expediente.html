@@ -1,0 +1,209 @@
+﻿
+{% extends 'masterpage.html'%}
+
+
+{% load static %}
+
+{% block title %}
+	<div class="dashboard_bar">
+	Ver Expedientes
+	</div>
+ {% endblock %}
+
+
+
+
+{% block content %}		
+
+		<!--**********************************
+            Content body start
+		***********************************-->
+		
+		 <!--**********************************
+            Table start
+        ***********************************-->
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-header">
+					<h4 class="card-title">Lista Pacientes</h4>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table id="example3" class="display" style="min-width: 845px">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Nombre</th>
+									<th>ID</th>
+									<th>Genero</th>
+									<th>Telefono</th>
+									<th>Correo</th>
+									<th>Paciente Desde</th>
+									<th>Accion</th>
+									<th>Abrir</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><img class="rounded-circle" width="35" src="images/profile/small/pic1.jpg" alt=""></td>
+									<td>ADRIANA CAROLINA HERNANDEZ MONTERROZA</td>
+									<td>302433399</td>
+									<td>F</td>
+									<td><a href="javascript:void(0);"><strong>82887923</strong></a></td>
+									<td><a href="javascript:void(0);"><strong>adriana@correo.com</strong></a></td>
+									<td>2011/04/25</td>
+									<td>
+										<div class="d-flex">
+											<a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+										</div>												
+									</td>	
+									<td>
+										<button type="button" class="btn btn-secondary">Abrir</button>
+
+									</td>
+								</tr>
+								<tr>
+									<td><img class="rounded-circle" width="35" src="images/profile/small/pic2.jpg" alt=""></td>
+									<td>ALEJANDRO ABONDANO ACEVEDO </td>
+									<td>358002380
+</td>
+									<td>M</td>
+									<td><a href="javascript:void(0);"><strong>84166030
+</a></strong></td>
+									<td><a href="javascript:void(0);"><strong>alejandro@correo.com</a></strong></td>
+									<td>2011/07/25</td>
+									<td>
+										<div class="d-flex">
+											<a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+										</div>
+									</td>
+									<td>
+										<button type="button" class="btn btn-secondary">Abrir</button>
+
+									</td>
+								</tr>
+								<tr>
+									<td><img class="rounded-circle" width="35" src="images/profile/small/pic3.jpg" alt=""></td>
+									<td>BRIGITE POLANCO RUIZ</td>
+									<td>619983883
+</td>
+									<td>F</td>
+									<td><a href="javascript:void(0);"><strong>86700480
+</a></strong></td>
+									<td><a href="javascript:void(0);"><strong>brigite@correo.com</a></strong></td>
+									<td>2009/01/12</td>
+									<td>
+										<div class="d-flex">
+											<a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+										</div>
+									</td>
+									<td>
+										<button type="button" class="btn btn-secondary">Abrir</button>
+
+									</td>
+								</tr>
+								<tr>
+									<td><img class="rounded-circle" width="35" src="images/profile/small/pic4.jpg" alt=""></td>
+									<td>DANIELLA PUERTO NAVIA</td>
+									<td>305448004
+</td>
+									<td>F</td>
+									<td><a href="javascript:void(0);"><strong>86945952
+</a></strong></td>
+									<td><a href="javascript:void(0);"><strong>daniella@correo.com</a></strong></td>
+									<td>2012/03/29</td>
+									<td>
+										<div class="d-flex">
+											<a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+										</div>
+									</td>
+									<td>
+										<button type="button" class="btn btn-secondary">Abrir</button>
+
+									</td>
+								</tr>
+								<tr>
+									<td><img class="rounded-circle" width="35" src="images/profile/small/pic5.jpg" alt=""></td>
+									<td>DANIEL GÓMEZ DELGADO </td>
+									<td>325422902
+</td>
+									<td>F</td>
+									<td><a href="javascript:void(0);"><strong>83315418
+</a></strong></td>
+									<td><a href="javascript:void(0);"><strong>daniel@correo.com</a></strong></td>
+									<td>2008/11/28</td>
+									<td>
+										<div class="d-flex">
+											<a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+										</div>
+									</td>
+									<td>
+										<button type="button" class="btn btn-secondary">Abrir</button>
+
+									</td>
+								</tr>
+								<tr>
+									<td><img class="rounded-circle" width="35" src="images/profile/small/pic6.jpg" alt=""></td>
+									<td>JULIANA GAVIRIA GARCIA</td>
+									<td>661634199
+</td>
+									<td>F</td>
+									<td><a href="javascript:void(0);"><strong>85316120
+</a></strong></td>
+									<td><a href="javascript:void(0);"><strong>juliana@correo.com</a></strong></td>
+									<td>2012/12/02</td>
+									<td>
+										<div class="d-flex">
+											<a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+										</div>
+									</td>
+									<td>
+										<button type="button" class="btn btn-secondary">Abrir</button>
+
+									</td>
+								</tr>
+								<tr>
+									<td><img class="rounded-circle" width="35" src="images/profile/small/pic7.jpg" alt=""></td>
+									<td>PABLO URIBE ANTIA</td>
+									<td>179974350
+</td>
+									<td>M</td>
+									<td><a href="javascript:void(0);"><strong>80165861
+</a></strong></td>
+									<td><a href="javascript:void(0);"><strong>pablo@correo.com</a></strong></td>
+									<td>2012/08/06</td>
+									<td>
+										<div class="d-flex">
+											<a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+										</div>
+									</td>
+									<td>
+										<button type="button" class="btn btn-secondary">Abrir</button>
+
+									</td>
+								</tr>
+								
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+		 <!--**********************************
+            Table end
+        ***********************************-->
+		
+
+        <!--**********************************
+            Content body end
+        ***********************************-->
+	{% endblock content %}
+
