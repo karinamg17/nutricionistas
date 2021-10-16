@@ -75,8 +75,8 @@
             keyRight: [39] // Right key code
         },
         lang: { // Language variables for button
-            next: 'Next',
-            previous: 'Previous'
+            next: 'Siguiente',
+            previous: 'Anterior'
         },
         disabledSteps: [], // Array Steps disabled
         errorSteps: [], // Highlight step with errors
