@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ProyectoNutricional'
+    'ProyectoNutricional',
+    'crispy_forms'
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Middleware framework
 # https://docs.djangoproject.com/en/2.1/topics/http/middleware/

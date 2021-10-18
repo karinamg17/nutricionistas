@@ -1,5 +1,10 @@
-from django.shortcuts import render
+from django import forms
+from django.shortcuts import redirect, render
 from django.http import HttpRequest
+
+
+from .forms import RecetaForm
+from .models import Recetas
 
 def index(request):
     """Renders the home page."""
@@ -68,11 +73,17 @@ def verexpediente(request):
     )
 
 def recetas(request):
-    """Renders the about page."""
+    """Renders the about page. cambiado para DB"""
+    recetas= Recetas.objects.all()
+    context={
+        'recetas': recetas
+    }
     assert isinstance(request, HttpRequest)
+    
     return render(
         request,
-        'recetas.html',      
+        'recetas.html', 
+        context    , 
     )
 
 
@@ -108,3 +119,20 @@ def pagregistro(request):
         request,
         'pag-registro.html',      
     )
+
+def receta_form(request):
+    if request.method == "GET":
+        form = RecetaForm()
+        assert isinstance(request, HttpRequest)
+        return render(
+            request,
+            'receta_form.html',{'form':form})
+    else:
+        form = RecetaForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect(recetas)
+
+        
+        
+    

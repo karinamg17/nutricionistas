@@ -36,5 +36,6 @@ urlpatterns = [
     path('pag-olvido/',views.pagolvido,name='pag-olvido'),
     path('pag-inicio/',views.paginicio,name='pag-inicio'),
     path('pag-registro/',views.pagregistro,name='pag-registro'),
+    path('receta_form',views.receta_form,name='receta_form'),
     path('admin/', admin.site.urls),
 ]

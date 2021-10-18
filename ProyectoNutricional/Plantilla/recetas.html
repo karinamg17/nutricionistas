@@ -23,8 +23,8 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Recetario</h4>
-                                <a href="javascript:void()" data-toggle="modal" data-target="#add-receta" class="btn btn-primary btn-event w-25">
-                                    <span class="align-middle"><i class="ti-plus"></i></span> Agregar     </a>
+                                <a href="{% url 'receta_form' %}" class="btn btn-primary btn-event w-25">
+                                    Agregar     </a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -62,10 +62,11 @@
                 </div>
             </div>
         </div>
-                               
+                     
         
+    
 
-        <!-- Agregar Receta -->
+        <!-- Agregar Receta
         <div class="modal fade none-border" id="add-receta">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -73,25 +74,26 @@
                         <h4 class="modal-title"><strong>Receta</strong></h4>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="" method="post" autocomplete="off">
+                            
                             <div class="row">
                                 <div class="col-md-12">
                                     <label class="control-label">Titulo</label>
-                                    <input class="form-control form-white" placeholder="" type="text" name="category-name">
+                                    <input class="form-control form-white" placeholder="" type="text" name="titulo">
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Ingredientes</label>
-                                    <input class="form-control form-white" placeholder="" type="text" name="category-name">
+                                    <input class="form-control form-white" placeholder="" type="text" name="ingredientes">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <label class="control-label">Instrucciones</label>
-                                    <input class="form-control form-white" placeholder="" type="text" name="category-name">
+                                    <input class="form-control form-white" placeholder="" type="text" name="instrucciones">
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Notas</label>
-                                    <input class="form-control form-white" placeholder="" type="text" name="category-name">
+                                    <input class="form-control form-white" placeholder="" type="text" name="notas">
 
                                 </div>
                             </div>
@@ -99,11 +101,11 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
+                        <button type="submit" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
  
 		<!--**********************************
             Table Start
