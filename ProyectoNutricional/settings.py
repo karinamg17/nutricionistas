@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-STATICFILES_DIRS=['/Users/nekar/Documents/nutricionista/ProyectoNutricional/Plantilla/static']
+STATICFILES_DIRS=['/Users/RadioShack Multi/Documents/nutricionista/ProyectoNutricional/Plantilla/static']
+
 
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
@@ -64,7 +65,7 @@ ROOT_URLCONF = 'ProyectoNutricional.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/nekar/Documents/nutricionista/ProyectoNutricional/Plantilla'],
+        'DIRS': ['/Users/RadioShack Multi/Documents/nutricionista/ProyectoNutricional/Plantilla'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
