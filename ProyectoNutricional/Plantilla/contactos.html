@@ -6,7 +6,7 @@
 
 {% block title %}
 	<div class="dashboard_bar">
-	Contactos
+	Pacientes
 	</div>
  {% endblock %}
 
@@ -30,7 +30,7 @@
 					</div>
 					<div class="dropdown ml-3 d-inline-block">
 						<div class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
-							<i class="flaticon-381-controls-3 mr-2"></i> Filtrar
+							<i class="flaticon-381-controls-3 mr-2"></i> Filtrar Paciente
 						</div>
 						<div class="dropdown-menu dropdown-menu-left">
 							<a class="dropdown-item" href="#">De la A a la Z </a>
@@ -41,51 +41,66 @@
 						<option>Mas Nuevo</option>
 						<option>Mas Viejo</option>
 					</select>
+					<!--Comento menú hamburgueda por si más adelante nos es útil
 					<a href="javascript:void(0);" class="btn btn-outline-primary ml-3"><i class="flaticon-381-menu-1 mr-0"></i></a>
+				    -->
 				</div>
-				<!-- Add Doctor -->
+				<!-- Agregar Paciente -->
 				<div class="modal fade" id="addDoctorModal">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title">Add Doctor</h5>
+								<h5 class="modal-title">Agregar Paciente</h5>
 								<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
 								</button>
 							</div>
 							<div class="modal-body">
 								<form>
 									<div class="form-group">
-										<label class="text-black font-w500">Doctor Name</label>
+										<label class="text-black font-w500">Nombre</label>
 										<input type="text" class="form-control">
 									</div>
 									<div class="form-group">
-										<label class="text-black font-w500">Doctor ID</label>
+										<label class="text-black font-w500">Primer Apellido</label>
 										<input type="text" class="form-control">
 									</div>
 									<div class="form-group">
-										<label class="text-black font-w500">Specialist</label>
+										<label class="text-black font-w500">Email</label>
 										<input type="text" class="form-control">
 									</div>
 									<div class="form-group">
-										<label class="text-black font-w500">Appointment Date</label>
+										<label class="text-black font-w500">Teléfono</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label class="text-black font-w500">Identificación</label>
+										<input type="text" class="form-control">
+									</div>
+										<div class="form-group">
+										<label class="text-black font-w500">Fecha de Nacimiento</label>
 										<input type="date" class="form-control">
 									</div>
 									<div class="form-group">
-										<button type="button" class="btn btn-primary">CREATE</button>
+										<label class="text-black font-w500">Sexo</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<button type="button" class="btn btn-primary">CREAR</button>
 									</div>
 								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-                <div class="row">
+				<!--A quí inicia el A-->
+                <div class="row"> 
 					<div class="col-xl-12">
 						<div id="accordion-one" class="accordion doctor-list ">
 							<div class="accordion__item">
 								<div class="accordion__header rounded-lg" data-toggle="collapse" data-target="#default_collapseOne">
 									<span class="accordion__header-alphabet">A</span>
 									<span class="accordion__header-line flex-grow-1"></span>
-									<span class="accordion__header--text">5 Doctors</span>
+									<span class="accordion__header--text">Pacientes</span>
 									<span class="accordion__header--indicator style_two"></span>
 								</div>
 								<div id="default_collapseOne" class="collapse accordion__body show" data-parent="#accordion-one">
@@ -113,7 +128,44 @@
 							   	</div>
 							</div>
                         </div>				
-				</div>
+				</div> <!--Aquí termina código para A-->
+				<!--Aquí empeiza el código para la B -->
+				<div class="row">
+					<div class="col-xl-12">
+						<div id="accordion-one" class="accordion doctor-list ">
+							<div class="accordion__item">
+								<div class="accordion__header rounded-lg" data-toggle="collapse" data-target="#default_collapseOne">
+									<span class="accordion__header-alphabet">B</span>
+									<span class="accordion__header-line flex-grow-1"></span>
+									<span class="accordion__header--text">Pacientes</span>
+									<span class="accordion__header--indicator style_two"></span>
+								</div>
+								<div id="default_collapseOne" class="collapse accordion__body show" data-parent="#accordion-one">
+										<div class="widget-media best-doctor pt-4">
+											<div class="timeline row">
+												<div class="col-lg-6">
+													<div class="timeline-panel bg-white p-4 mb-4">
+														<div class="media mr-4">
+															<img alt="image" width="90" src="{% static 'images/avatar/1.jpg'%}">
+														</div>
+														<div class="media-body">
+															<a href="doctors-details.html"><h4 class="mb-2">Brimar Rojas</h4></a>
+															<p class="mb-2 text-primary">Activo</p>
+														</div>
+														<div class="social-media">
+															<a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fa fa-instagram btn-sm"></a>
+															<a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fa fa-twitter btn-sm"></a>
+															<a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fa fa-facebook btn-sm"></a>
+														</div>
+													</div>
+												</div>
+												</div>
+											</div>
+										</div>
+							   	</div>
+							</div>
+                        </div>				
+				</div> <!--Aquí termina el código para paciente B-->
             </div>
         </div>
         <!--**********************************
