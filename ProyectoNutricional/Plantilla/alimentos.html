@@ -34,7 +34,9 @@
 				                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Carnes</h4>
+                                <h4 class="card-title">Alimentos</h4>
+                                <a href="{% url 'alimento_form' %}" class="btn btn-primary btn-event w-20">
+                                    Agregar     </a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -42,106 +44,23 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Alimento</th>
-                                                <th scope="col">Carb</th>
-                                                <th scope="col">Prote</th>
-                                                <th scope="col">Grasas</th>
-												<th scope="col">Kcal</th>
-												<th scope="col">Porción</th>
+                                                <th scope="col">Categoria</th>
+                                                
                                                 <th scope="col">Accción</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for alimento in alimento %}
                                             <tr>
-                                                <td>Alimento1</td>
-                                                <td><span class="badge badge-primary light">0%</span></td>
-                                                <td><span class="badge badge-success">0%</span></td>
-                                                <td><span class="badge badge-dark light">0%</span></td>
-												<td><span class="badge badge-danger">0%</span></td>
-												 <td>1</td>
-                                                <td>
-                                                    <span>
-                                                        <a href="javascript:void()" class="mr-4" data-toggle="tooltip"
-                                                            data-placement="top" title="Edit"><i
-                                                                class="fa fa-pencil color-muted"></i> </a>
-                                                        <a href="javascript:void()" data-toggle="tooltip"
-                                                            data-placement="top" title="Close"><i
-                                                                class="fa fa-close color-danger"></i></a>
-                                                    </span>
-                                                </td>
+                                                <td>{{alimento.nombrealimento}}</td>
+                                                <td>{{alimento.categoria}}</td>
+                                                
+                                                <td><div class="d-flex">
+                                                    <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                    <a href="#"  class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                </div></td>
                                             </tr>
-                                            <tr>
-                                                <td>Alimento2</td>
-                                                <td><span class="badge badge-primary light">0%</span></td>
-                                                <td><span class="badge badge-success">0%</span></td>
-                                                <td><span class="badge badge-dark light">0%</span></td>
-												<td><span class="badge badge-danger">0%</span></td>
-												 <td>1</td>
-                                                <td>
-                                                    <span>
-                                                        <a href="javascript:void()" class="mr-4" data-toggle="tooltip"
-                                                            data-placement="top" title="Edit"><i
-                                                                class="fa fa-pencil color-muted"></i> </a>
-                                                        <a href="javascript:void()" data-toggle="tooltip"
-                                                            data-placement="top" title="Close"><i
-                                                                class="fa fa-close color-danger"></i></a>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                            <td>Alimento3</td>
-                                                <td><span class="badge badge-primary light">0%</span></td>
-                                                <td><span class="badge badge-success">0%</span></td>
-                                                <td><span class="badge badge-dark light">0%</span></td>
-												<td><span class="badge badge-danger">0%</span></td>
-												 <td>1</td>
-                                                <td>
-                                                    <span>
-                                                        <a href="javascript:void()" class="mr-4" data-toggle="tooltip"
-                                                            data-placement="top" title="Edit"><i
-                                                                class="fa fa-pencil color-muted"></i> </a>
-                                                        <a href="javascript:void()" data-toggle="tooltip"
-                                                            data-placement="top" title="Close"><i
-                                                                class="fa fa-close color-danger"></i></a>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                            <td>Alimento4</td>
-                                                <td><span class="badge badge-primary light">0%</span></td>
-                                                <td><span class="badge badge-success">0%</span></td>
-                                                <td><span class="badge badge-dark light">0%</span></td>
-												<td><span class="badge badge-danger">0%</span></td>
-												 <td>1</td>
-                                                <td>
-                                                    <span>
-                                                        <a href="javascript:void()" class="mr-4" data-toggle="tooltip"
-                                                            data-placement="top" title="Edit"><i
-                                                                class="fa fa-pencil color-muted"></i> </a>
-                                                        <a href="javascript:void()" data-toggle="tooltip"
-                                                            data-placement="top" title="Close"><i
-                                                                class="fa fa-close color-danger"></i></a>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                            <tr>
-                                            <td>Alimento5</td>
-                                                <td><span class="badge badge-primary light">0%</span></td>
-                                                <td><span class="badge badge-success">0%</span></td>
-                                                <td><span class="badge badge-dark light">0%</span></td>
-												<td><span class="badge badge-danger">0%</span></td>
-												 <td>1</td>
-                                                <td>
-                                                    <span>
-                                                        <a href="javascript:void()" class="mr-4" data-toggle="tooltip"
-                                                            data-placement="top" title="Edit"><i
-                                                                class="fa fa-pencil color-muted"></i> </a>
-                                                        <a href="javascript:void()" data-toggle="tooltip"
-                                                            data-placement="top" title="Close"><i
-                                                                class="fa fa-close color-danger"></i></a>
-                                                    </span>
-                                                </td>
-                                            </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>

@@ -3,8 +3,8 @@ from django.shortcuts import redirect, render
 from django.http import HttpRequest
 
 
-from .forms import RecetaForm
-from .models import Recetas
+from .forms import AlimentoForm, RecetaForm,Alimento
+from .models import Recetas,Alimento
 
 def index(request):
     """Renders the home page."""
@@ -20,15 +20,6 @@ def agendar(request):
     return render(
         request,
         'agendar.html',
-    )
-
-
-def alimentos(request):
-    """Renders the about page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'alimentos.html',
     )
 
 
@@ -71,6 +62,20 @@ def verexpediente(request):
         'ver-expediente.html',
         
     )
+
+def alimentos(request):
+    """Renders the about page."""
+    alimento= Alimento.objects.all()
+    context={
+        'alimento': alimento
+    }
+
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'alimentos.html',
+    )
+
 
 def recetas(request):
     """Renders the about page. cambiado para DB"""
@@ -148,6 +153,32 @@ def receta_delete(request, id):
     return redirect('recetas')
 
 
-        
+
+def alimento_form(request, id=0):
+    if request.method == "GET":
+        if id==0:  
+            form = AlimentoForm()
+        else:    
+            alimento = Recetas.objects.get(pk=id)
+            form = AlimentoForm(instance=alimento)
+        assert isinstance(request, HttpRequest)
+        return render(
+            request,
+            'alimentos_form.html',{'form':form})
+    else:
+        if id==0:
+            form = AlimentoForm(request.POST)
+        else:
+            alimento = Alimento.objects.get(pk=id)
+            form= AlimentoForm(request.POST, instance=alimento)
+        if form.is_valid():
+            form.save()
+        return redirect('alimentos')
+
+
+def alimento_delete(request, id):
+    alimento = Alimento.objects.get(pk=id)
+    alimento.delete()
+    return redirect('alimentos')        
         
     
