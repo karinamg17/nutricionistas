@@ -31,11 +31,13 @@ urlpatterns = [
     path('contactos/',views.contactos,name='contactos'),
     path('crear-expediente/',views.crearexpediente,name='crear-expediente'),
     path('ver-expediente/',views.verexpediente,name='ver-expediente'),
-    path('recetas/',views.recetas,name='recetas'),
+    path('recetas/',views.recetas,name='recetas'), #ver recetas
     path('pag-bloqueada/',views.pagbloqueada,name='pag-bloqueada'),
     path('pag-olvido/',views.pagolvido,name='pag-olvido'),
     path('pag-inicio/',views.paginicio,name='pag-inicio'),
     path('pag-registro/',views.pagregistro,name='pag-registro'),
-    path('receta_form',views.receta_form,name='receta_form'),
+    path('receta_form',views.receta_form,name='receta_form'), #agregar recetas
+    path('<int:id>/',views.receta_form,name='receta_update'), #actualizar recetas
+    path('delete/<int:id>/',views.receta_delete,name='receta_delete'), #actualizar recetas
     path('admin/', admin.site.urls),
 ]

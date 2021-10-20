@@ -120,18 +120,33 @@ def pagregistro(request):
         'pag-registro.html',      
     )
 
-def receta_form(request):
+def receta_form(request, id=0):
     if request.method == "GET":
-        form = RecetaForm()
+        if id==0:  
+            form = RecetaForm()
+        else:    
+            recetas = Recetas.objects.get(pk=id)
+            form = RecetaForm(instance=recetas)
         assert isinstance(request, HttpRequest)
         return render(
             request,
             'receta_form.html',{'form':form})
     else:
-        form = RecetaForm(request.POST)
+        if id==0:
+            form = RecetaForm(request.POST)
+        else:
+            recetas = Recetas.objects.get(pk=id)
+            form= RecetaForm(request.POST, instance=recetas)
         if form.is_valid():
             form.save()
-        return redirect(recetas)
+        return redirect('recetas')
+
+
+def receta_delete(request, id):
+    recetas = Recetas.objects.get(pk=id)
+    recetas.delete()
+    return redirect('recetas')
+
 
         
         
