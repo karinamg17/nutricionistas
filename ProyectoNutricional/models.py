@@ -78,7 +78,7 @@ class AuthUser(models.Model):
     last_login = models.DateTimeField(blank=True, null=True)
     is_superuser = models.BooleanField()
     username = models.CharField(unique=True, max_length=150)
-    first_name = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
     email = models.CharField(max_length=254)
     is_staff = models.BooleanField()
@@ -370,12 +370,12 @@ class Expediente(models.Model):
     idcomidas = models.ForeignKey(Comidasrealizadas, models.DO_NOTHING, db_column='idcomidas')
     idsignosfisicos = models.ForeignKey('Signosfisicos', models.DO_NOTHING, db_column='idsignosfisicos')
     iddistribucionmacro = models.ForeignKey(Distribuicionmacronutrientes, models.DO_NOTHING, db_column='iddistribucionmacro')
-    idplan = models.ForeignKey('Plan', models.DO_NOTHING, db_column='idplan')
     fechaingreso = models.DateField()
-    idvaloracion = models.ForeignKey('Valoracionantropometrica', models.DO_NOTHING, db_column='idvaloracion')
+    idplan = models.ForeignKey('Plan', models.DO_NOTHING, db_column='idplan')
     horassueno = models.IntegerField(blank=True, null=True)
     comidafinsemana = models.CharField(max_length=1, blank=True, null=True)
     comidafinsemanadesc = models.CharField(max_length=800, blank=True, null=True)
+    idvaloracion = models.ForeignKey('Valoracionantropometrica', models.DO_NOTHING, db_column='idvaloracion')
 
     class Meta:
         managed = False
@@ -631,19 +631,6 @@ class Plannutricional(models.Model):
         db_table = 'plannutricional'
 
 
-class Recetas(models.Model):
-    idreceta = models.AutoField(primary_key=True)
-    titulo = models.CharField(max_length=800, blank=True, null=True)
-    ingredientes = models.CharField(max_length=800, blank=True, null=True)
-    instrucciones = models.CharField(max_length=800, blank=True, null=True)
-    notas = models.CharField(max_length=800, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'recetas'
-
-
-
 class Preferenciasalimentarias(models.Model):
     idpreferenciaa = models.AutoField(primary_key=True)
     alegiaalimentaria = models.CharField(max_length=1, blank=True, null=True)
@@ -661,6 +648,18 @@ class Preferenciasalimentarias(models.Model):
     class Meta:
         managed = False
         db_table = 'preferenciasalimentarias'
+
+
+class Recetas(models.Model):
+    idreceta = models.AutoField(primary_key=True)
+    titulo = models.CharField(max_length=800)
+    ingredientes = models.CharField(max_length=800)
+    instrucciones = models.CharField(max_length=800)
+    notas = models.CharField(max_length=800, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'recetas'
 
 
 class Roles(models.Model):

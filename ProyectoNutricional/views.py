@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.http import HttpRequest
 
 
-from .forms import AlimentoForm, RecetaForm,Alimento
+from .forms import AlimentoForm, RecetaForm
 from .models import Recetas,Alimento
 
 def index(request):
@@ -74,6 +74,7 @@ def alimentos(request):
     return render(
         request,
         'alimentos.html',
+        context,
     )
 
 
@@ -154,7 +155,7 @@ def receta_delete(request, id):
 
 
 
-def alimento_form(request, id=0):
+def alimentos_form(request, id=0):
     if request.method == "GET":
         if id==0:  
             form = AlimentoForm()
