@@ -756,6 +756,7 @@ class Usuarios(models.Model):
     edad = models.IntegerField(blank=True, null=True)
     idrol = models.ForeignKey(Roles, models.DO_NOTHING, db_column='idrol')
     estado = models.CharField(max_length=800, blank=True, null=True)
+    fecha_creacion = models.DateField(blank=True, null=True)
 
     class Meta:
         managed = False

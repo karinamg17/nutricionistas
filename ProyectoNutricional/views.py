@@ -4,7 +4,7 @@ from django.http import HttpRequest
 
 
 from .forms import AlimentoForm, RecetaForm
-from .models import Recetas,Alimento
+from .models import *
 
 def index(request):
     """Renders the home page."""
@@ -35,12 +35,19 @@ def buscar(request):
 
 def contactos(request):
     """Renders the about page."""
+    usuarios= Usuarios.objects.all()
+    context={
+        'usuarios': usuarios
+    }
     assert isinstance(request, HttpRequest)
+    
     return render(
         request,
-        'contactos.html',
-        
+        'contactos.html', 
+        context    , 
     )
+
+    
 
 
 def crearexpediente(request):
