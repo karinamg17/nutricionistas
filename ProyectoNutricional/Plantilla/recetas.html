@@ -17,19 +17,22 @@
         <!--**********************************
             Content body start
         ***********************************-->
+
+        
         <div class="content-body">
             <div class="container-fluid">
-		        <div class="col-lg-12">
+                <div class="row page-titles mx-0">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Recetario</h4>
                                 <a href="{% url 'receta_form' %}" class="btn btn-primary btn-event w-25">
-                                    Agregar     </a>
+                                    Agregar     </a>                        
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table primary-table-bordered">
-                                        <thead class="thead-primary">
+                                    <table id="example3" class="display" style="min-width: 845px">
+                                        <thead>
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Titulo</th>
