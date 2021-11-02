@@ -814,3 +814,17 @@ class Valoracionantropometrica(models.Model):
     class Meta:
         managed = False
         db_table = 'valoracionantropometrica'
+
+
+
+class uniontablas(models.Model):
+    nombre=models.CharField(max_length=800)
+    primerapellido = models.CharField(max_length=800)
+    segundoapellido = models.CharField(max_length=800)
+    email = models.CharField(max_length=800, blank=True, null=True)
+    telefono = models.IntegerField(blank=True, null=True)
+    fecha_creacion = models.DateField(blank=True, null=True)
+    fechacita = models.DateField()
+    estado = models.CharField(max_length=800, blank=True, null=True)
+
+

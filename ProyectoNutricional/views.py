@@ -1,4 +1,5 @@
 from django import forms
+from django.db import connection
 from django.shortcuts import redirect, render
 from django.http import HttpRequest
 
@@ -35,9 +36,14 @@ def buscar(request):
 
 def contactos(request):
     """Renders the about page."""
-    usuarios= Usuarios.objects.all()
-    context={
-        'usuarios': usuarios
+    "usuarios= Usuarios.objects.all()"
+    cursor = connection.cursor()
+    cursor.execute("select usuarios.nombre,usuarios.primerapellido,usuarios.segundoapellido,usuarios.email,usuarios.telefono,usuarios.fecha_creacion,usuarios.estado , citas.fechacita from usuarios join citas on usuarios.idusuario=1")
+    results= cursor.fetchall()
+    return render(request,'contactos.html', {'uniontablas': results})
+
+    """context={
+        'usuarios': usuarios,
     }
     assert isinstance(request, HttpRequest)
     
@@ -45,7 +51,7 @@ def contactos(request):
         request,
         'contactos.html', 
         context    , 
-    )
+    ) """
 
     
 
