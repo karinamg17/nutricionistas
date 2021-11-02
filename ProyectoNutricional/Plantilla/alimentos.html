@@ -28,10 +28,10 @@
        <!--**********************************
            Carnes 
         ***********************************-->
-		     <div class="content-body">
+        <div class="content-body">
             <div class="container-fluid">
-				 <div class="row">
-				                    <div class="col-lg-12">
+                <div class="row page-titles mx-0">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Alimentos</h4>
@@ -40,24 +40,26 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered verticle-middle table-responsive-sm">
+                                    <table id="example3" class="display" style="min-width: 845px">
                                         <thead>
                                             <tr>
+                                                <th scope="col">#</th>
                                                 <th scope="col">Alimento</th>
                                                 <th scope="col">Categoria</th>
                                                 
-                                                <th scope="col">Accción</th>
+                                                <th scope="col">Acción</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {% for alimento in alimento %}
                                             <tr>
+                                                <td>{{alimento.idalimento}}</td>
                                                 <td>{{alimento.nombrealimento}}</td>
                                                 <td>{{alimento.categoria}}</td>
                                                 
                                                 <td><div class="d-flex">
-                                                    <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                    <a href="#"  class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                    <a href="{% url 'alimento_update' alimento.idalimento %}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                    <a href="{% url 'alimento_delete' alimento.idalimento %}"  class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                                 </div></td>
                                             </tr>
                                             {% endfor %}

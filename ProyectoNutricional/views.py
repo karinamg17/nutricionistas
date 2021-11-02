@@ -160,7 +160,7 @@ def alimentos_form(request, id=0):
         if id==0:  
             form = AlimentoForm()
         else:    
-            alimento = Recetas.objects.get(pk=id)
+            alimento = Alimento.objects.get(pk=id)
             form = AlimentoForm(instance=alimento)
         assert isinstance(request, HttpRequest)
         return render(

@@ -28,8 +28,8 @@ urlpatterns = [
     path('agendar/',views.agendar,name='agendar'),
     path('alimentos/',views.alimentos,name='alimentos'),
     path('alimentos_form',views.alimentos_form,name='alimentos_form'), #agregar alimentos
-    path('<int:id>/',views.alimentos_form,name='alimento_update'), #actualizar alimentos
-    path('delete/<int:id>/',views.alimento_delete,name='alimento_delete'), #actualizar alimentos
+    path('alimentos/<int:id>/',views.alimentos_form,name='alimento_update'), #actualizar alimentos
+    path('alimentos/delete/<int:id>/',views.alimento_delete,name='alimento_delete'), #actualizar alimentos
     path('buscar/',views.buscar,name='buscar'),
     path('contactos/',views.contactos,name='contactos'),
     path('crear-expediente/',views.crearexpediente,name='crear-expediente'),
@@ -39,8 +39,8 @@ urlpatterns = [
     path('pag-olvido/',views.pagolvido,name='pag-olvido'),
     path('pag-inicio/',views.paginicio,name='pag-inicio'),
     path('pag-registro/',views.pagregistro,name='pag-registro'),
-    path('receta_form',views.receta_form,name='receta_form'), #agregar recetas
-    path('<int:id>/',views.receta_form,name='receta_update'), #actualizar recetas
-    path('delete/<int:id>/',views.receta_delete,name='receta_delete'), #actualizar recetas
+    path('recetas/receta_form',views.receta_form,name='receta_form'), #agregar recetas
+    path('recetas/<int:id>/',views.receta_form,name='receta_update'), #actualizar recetas
+    path('recetas/delete/<int:id>/',views.receta_delete,name='receta_delete'), #actualizar recetas
     path('admin/', admin.site.urls),
 ]
