@@ -5,6 +5,7 @@ from django.http import HttpRequest
 
 from .forms import AlimentoForm, RecetaForm
 from .models import Recetas,Alimento
+from django.db import connection
 
 def index(request):
     """Renders the home page."""
@@ -35,12 +36,21 @@ def buscar(request):
 
 def contactos(request):
     """Renders the about page."""
+    "usuarios= Usuarios.objects.all()"
+    cursor = connection.cursor()
+    cursor.execute("select usuarios.nombre,usuarios.primerapellido,usuarios.segundoapellido,usuarios.email,usuarios.telefono,usuarios.fecha_creacion,usuarios.estado , citas.fechacita from usuarios join citas on usuarios.idusuario=citas.idusuario")
+    results= cursor.fetchall()
+    return render(request,'contactos.html', {'uniontablas': results})
+    """context={
+        'usuarios': usuarios,
+    }
     assert isinstance(request, HttpRequest)
+   
     return render(
         request,
         'contactos.html',
-        
-    )
+        context    ,
+    ) """
 
 
 def crearexpediente(request):

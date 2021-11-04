@@ -19,11 +19,12 @@
         <div class="content-body">
             <!-- row -->
 			<div class="container-fluid">
-                <div class="form-head d-flex mb-3  mb-lg-5   align-items-start">
+                <!--Filtros - revisar como hacerlos funcionar
+				<div class="form-head d-flex mb-3  mb-lg-5   align-items-start">-->
 					<!--Formulario "Nuevo Paciente". Lo dejo comentado por si nos es útil en el futuro
 					<a href="javascript:void(0)" class="btn btn-danger" data-toggle="modal" data-target="#addDoctorModal">Nuevo Paciente</a>
 					-->
-					<div class="input-group search-area ml-auto d-inline-flex">
+					<!--<div class="input-group search-area ml-auto d-inline-flex">
 						<input type="text" class="form-control" placeholder="Buscar">
 						<div class="input-group-append">
 							<a href="javascript:void(0)" class="input-group-text"><i class="flaticon-381-search-2"></i></a>
@@ -41,147 +42,23 @@
 					<select class="form-control style-2 ml-3 default-select ">
 						<option>Mas Nuevo</option>
 						<option>Mas Viejo</option>
-					</select>
+					</select>-->
 					<!--Comento menú hamburgueda por si más adelante nos es útil
 					<a href="javascript:void(0);" class="btn btn-outline-primary ml-3"><i class="flaticon-381-menu-1 mr-0"></i></a>
 				    -->
-				</div>
-				<!-- Agregar Paciente -->
-				<div class="modal fade" id="addDoctorModal">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">Agregar Paciente</h5>
-								<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form>
-									<div class="form-group">
-										<label class="text-black font-w500">Nombre</label>
-										<input type="text" class="form-control">
-									</div>
-									<div class="form-group">
-										<label class="text-black font-w500">Primer Apellido</label>
-										<input type="text" class="form-control">
-									</div>
-									<div class="form-group">
-										<label class="text-black font-w500">Email</label>
-										<input type="text" class="form-control">
-									</div>
-									<div class="form-group">
-										<label class="text-black font-w500">Teléfono</label>
-										<input type="text" class="form-control">
-									</div>
-									<div class="form-group">
-										<label class="text-black font-w500">Identificación</label>
-										<input type="text" class="form-control">
-									</div>
-										<div class="form-group">
-										<label class="text-black font-w500">Fecha de Nacimiento</label>
-										<input type="date" class="form-control">
-									</div>
-									<div class="form-group">
-										<label class="text-black font-w500">Sexo</label>
-										<input type="text" class="form-control">
-									</div>
-									<div class="form-group">
-										<button type="button" class="btn btn-primary">CREAR</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--A quí inicia el A
-                <div class="row"> 
-					<div class="col-xl-12">
-						<div id="accordion-one" class="accordion doctor-list ">
-							<div class="accordion__item">
-								<div class="accordion__header rounded-lg" data-toggle="collapse" data-target="#default_collapseOne">
-									<span class="accordion__header-alphabet">A</span>
-									<span class="accordion__header-line flex-grow-1"></span>
-									<span class="accordion__header--text">Contactos</span>
-									<span class="accordion__header--indicator style_two"></span>
-								</div>
-								<div id="default_collapseOne" class="collapse accordion__body show" data-parent="#accordion-one">
-										<div class="widget-media best-doctor pt-4">
-											<div class="timeline row">
-												<div class="col-lg-6">
-													<div class="timeline-panel bg-white p-4 mb-4">
-														<div class="media mr-4">
-															<img alt="image" width="90" src="{% static 'images/avatar/1.jpg'%}">
-														</div>
-														<div class="media-body">
-															<a href="doctors-details.html"><h4 class="mb-2">Olimar Rojas</h4></a>
-															<p class="mb-2 text-primary">Activo</p>
-														</div>
-														<div class="social-media">
-															<a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fa fa-instagram btn-sm"></a>
-															<a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fa fa-twitter btn-sm"></a>
-															<a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fa fa-facebook btn-sm"></a>
-														</div>
-													</div>
-												</div>
-												</div>
-											</div>
-										</div>
-							   	</div>
-							</div>
-                        </div>				
-				</div> Aquí termina código para A
-				Aquí empeiza el código para la B 
-				<div class="row">
-					<div class="col-xl-12">
-						<div id="accordion-one" class="accordion doctor-list ">
-							<div class="accordion__item">
-								<div class="accordion__header rounded-lg" data-toggle="collapse" data-target="#default_collapseOne">
-									<span class="accordion__header-alphabet">B</span>
-									<span class="accordion__header-line flex-grow-1"></span>
-									<span class="accordion__header--text">Contactos</span>
-									<span class="accordion__header--indicator style_two"></span>
-								</div>
-								<div id="default_collapseOne" class="collapse accordion__body show" data-parent="#accordion-one">
-										<div class="widget-media best-doctor pt-4">
-											<div class="timeline row">
-												<div class="col-lg-6">
-													<div class="timeline-panel bg-white p-4 mb-4">
-														<div class="media mr-4">
-															<img alt="image" width="90" src="{% static 'images/avatar/1.jpg'%}">
-														</div>
-														<div class="media-body">
-															<a href="doctors-details.html"><h4 class="mb-2">Brimar Rojas</h4></a>
-															<p class="mb-2 text-primary">Activo</p>
-														</div>
-														<div class="social-media">
-															<a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fa fa-instagram btn-sm"></a>
-															<a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fa fa-twitter btn-sm"></a>
-															<a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fa fa-facebook btn-sm"></a>
-														</div>
-													</div>
-												</div>
-												</div>
-											</div>
-										</div>
-							   	</div>
-							-->
+				<!--</div> -->
+				
+			
 							<div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12">
 								<div class="card">
 									<div class="card-header border-0 pb-0">
 										<h4 class="card-title">Lista de contactos</h4>
-										<div class="dropdown ml-auto">
-											<div class="btn-link" data-toggle="dropdown">
-												<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-											</div>
-											<div class="dropdown-menu dropdown-menu-right">
-												<a class="dropdown-item" href="#">Edit</a>
-												<a class="dropdown-item" href="#">Delete</a>
-											</div>
-										</div>
+										
 									</div>
 									<div class="card-body">
 										<div class="table-responsive ">
 											<table class="table patient-activity">
+												{% for uniontablas in uniontablas %}
 												<tr>
 													<td>
 														<div class="media align-items-center">
@@ -196,6 +73,12 @@
 														<p class="mb-0">Teléfono</p>
 														<h5 class="my-0 text-primary">7089-9087</h5>
 													</td>
+													<td>
+														<p class="mb-0">Paciente desde</p>
+														<h5 class="my-0 text-primary">22/03/2020 </h5>
+
+													</td>
+													<!-- Segunda opcion en lugar de paciente desde
 													<td>
 														<div class="d-flex align-items-center">
 															<div>
@@ -212,28 +95,48 @@
 																</div>
 															</div>
 														</div>
-													</td>
+														<div class="d-flex align-items-center">
+															<div>
+																<p class="mb-1">Estado</p>
+																<h5 class="mt-0 mb-1 text-danger">Nuevo paciente</h5>
+																<small>22/03/2020 12:34 AM</small>
+															</div>
+															<div class="dropdown ml-auto">
+																<div class="btn-link" data-toggle="dropdown">
+																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
+																</div>
+																<div class="dropdown-menu dropdown-menu-right">
+																	<a class="dropdown-item" href="#">Edit</a>
+																	<a class="dropdown-item" href="#">Delete</a>
+																</div>
+															</div>
+														</div>
+													</td>-->
 												</tr>
 												<tr>
 													<td>
 														<div class="media align-items-center">
 															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/2.jpg'%}" alt="DexignZone">
 															<div class="media-body">
-																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">Angela Nurhayati</h5></a>
-																<p class="mb-0">21 Años</p>
+																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">{{uniontablas.0}} {{uniontablas.1}}  {{uniontablas.2}}</h5></a>
+																<p class="mb-0">{{uniontablas.3}}</p>
 															</div>
 														</div>
 													</td>
 													<td>
-														<p class="mb-0">Activo Desde</p>
-														<h5 class="my-0 text-primary">5 meses</h5>
+														<p class="mb-0">Teléfono</p>
+														<h5 class="my-0 text-primary">{{uniontablas.4}}</h5>
+													</td>
+													<td>
+														<p class="mb-1">Próxima Cita</p>
+														<h5 class="mt-0 mb-1 text-success"><small>{{uniontablas.5}}</small></h5>
 													</td>
 													<td>
 														<div class="d-flex align-items-center">
 															<div>
-																<p class="mb-1">Estado</p>
-																<h5 class="mt-0 mb-1 text-danger">Nuevo paciente</h5>
-																<small>22/03/2020 12:34 AM</small>
+																<p class="mb-1">Activo Desde</p>
+																<h5 class="mt-0 mb-1 text-danger">{{uniontablas.7}}</h5>
+																<small>{{uniontablas.6}}</small>
 															</div>
 															<div class="dropdown ml-auto">
 																<div class="btn-link" data-toggle="dropdown">
@@ -247,130 +150,8 @@
 														</div>
 													</td>
 												</tr>
-												<tr class="active">
-													<td>
-														<div class="media align-items-center">
-															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/3.jpg'%}" alt="DexignZone">
-															<div class="media-body">
-																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">James Robinson</h5></a>
-																<p class="mb-0">25 Años</p>
-															</div>
-														</div>
-													</td>
-													<td>
-														<p class="mb-0">Activo Desde</p>
-														<h5 class="my-0 text-primary">3 años 8 meses</h5>
-													</td>
-													<td>
-														<div class="d-flex align-items-center">
-															<div>
-																<p class="mb-1">Estado</p>
-																<h5 class="mt-0 mb-1 text-warning">En Progreso</h5>
-																<small>22/03/2020 12:34 AM</small>
-															</div>
-															<div class="dropdown ml-auto">
-																<div class="btn-link" data-toggle="dropdown">
-																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
-																</div>
-																<div class="dropdown-menu dropdown-menu-right">
-																	<a class="dropdown-item" href="#">Edit</a>
-																	<a class="dropdown-item" href="#">Delete</a>
-																</div>
-															</div>
-														</div>
-													</td>
-												</tr>
-												<!--Aquí-->
-												<tr>
-													<td>
-														<div class="media align-items-center">
-															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/4.jpg'%}" alt="DexignZone">
-															<div class="media-body">
-																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">Thomas Jaja</h5></a>
-																<p class="mb-0">7 Años</p>
-															</div>
-														</div>
-													</td>
-													<td>
-														<p class="mb-0">Activo Desde</p>
-														<h5 class="my-0 text-primary">2 meses</h5>
-													</td>
-													<td>
-														<div class="d-flex align-items-center">
-															<div>
-																<p class="mb-1">Estado</p>
-																<h5 class="mt-0 mb-1 text-danger">Nuevo paciente</h5>
-																<small>22/03/2020 12:34 AM</small>
-															</div>
-															<div class="dropdown ml-auto">
-																<div class="btn-link" data-toggle="dropdown">
-																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
-																</div>
-																<div class="dropdown-menu dropdown-menu-right">
-																	<a class="dropdown-item" href="#">Edit</a>
-																	<a class="dropdown-item" href="#">Delete</a>
-																</div>
-															</div>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="media align-items-center">
-															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/5.jpg'%}" alt="DexignZone">
-															<div class="media-body">
-																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">Cindy Brownleee</h5></a>
-																<p class="mb-0">71 Años</p>
-															</div>
-														</div>
-													</td>
-													<td>
-														<p class="mb-0">Activo Desde</p>
-														<h5 class="my-0 text-primary">1 año 2 meses/h5>
-													</td>
-													<td>
-														<div class="d-flex align-items-center">
-															<div>
-																<p class="mb-1">Estado</p>
-																<h5 class="mt-0 mb-1 text-success">Peso Ideal</h5>
-																<small>22/03/2020 12:34 AM</small>
-															</div>
-															<div class="dropdown ml-auto">
-																<div class="btn-link" data-toggle="dropdown">
-																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
-																</div>
-																<div class="dropdown-menu dropdown-menu-right">
-																	<a class="dropdown-item" href="#">Edit</a>
-																	<a class="dropdown-item" href="#">Delete</a>
-																</div>
-															</div>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="media align-items-center">
-															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/6.jpg'%}" alt="DexignZone">
-															<div class="media-body">
-																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">Oconner Jr.</h5></a>
-																<p class="mb-0">17 Años</p>
-															</div>
-														</div>
-													</td>
-													<td>
-														<p class="mb-0">Activo Desde</p>
-														<h5 class="my-0 text-primary">1 mes</h5>
-													</td>
-													<td>
-														<div class="d-flex align-items-center">
-															<div>
-																<p class="mb-1">Estado</p>
-																<h5 class="mt-0 mb-1 text-warning">En Progreso</h5>
-																<small>22/03/2020 12:34 AM</small>
-															</div>
-														</div>
-													</td>
-												</tr>
+												{% endfor %}
+
 											</table>
 										</div>
 									</div>
