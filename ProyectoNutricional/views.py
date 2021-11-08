@@ -52,14 +52,20 @@ def contactos(request):
         context    ,
     ) """
 
+def crearusuario(request):
+    """Renders the about page."""
+    "usuarios= Usuarios.objects.all()"
+    cursor = connection.cursor()
+    cursor.execute("select usuarios.nombre,usuarios.primerapellido,usuarios.segundoapellido,usuarios.email,usuarios.telefono,usuarios.estado, citas.fechacita from usuarios join citas on usuarios.idusuario=citas.idusuario")
+    results= cursor.fetchall()
+    return render(request,'contactos.html', {'uniontablas': results})
 
 def crearexpediente(request):
     """Renders the about page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'crear-expediente.html',
-        
+        'crear-expediente.html',        
     )
 
 

@@ -371,8 +371,8 @@ class Expediente(models.Model):
     idsignosfisicos = models.ForeignKey('Signosfisicos', models.DO_NOTHING, db_column='idsignosfisicos')
     iddistribucionmacro = models.ForeignKey(Distribuicionmacronutrientes, models.DO_NOTHING, db_column='iddistribucionmacro')
     idvaloracion = models.ForeignKey('Valoracionantropometrica', models.DO_NOTHING, db_column='idvaloracion')
+    sexo = models.CharField(max_length=1, blank=True, null=True)
     fechaingreso = models.DateField()
-    meta = models.CharField(max_length=1)
     horassueno = models.IntegerField(blank=True, null=True)
     comidafinsemana = models.CharField(max_length=1, blank=True, null=True)
     comidafinsemanadesc = models.CharField(max_length=1, blank=True, null=True)
@@ -753,6 +753,7 @@ class Usuarios(models.Model):
     email = models.CharField(max_length=1)
     fechanacimiento = models.DateField()
     estado = models.CharField(max_length=1, blank=True, null=True)
+    #idrol = models.AutoField()
 
     class Meta:
         managed = False
