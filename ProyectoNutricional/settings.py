@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-STATICFILES_DIRS=['/Users/Veronica/nutricionista/ProyectoNutricional/Plantilla/static']
+STATICFILES_DIRS=['C:/Users/RadioShack Multi/Documents/nutricionista/ProyectoNutricional/Plantilla/static']
 
 
 # Application references
@@ -65,7 +65,7 @@ ROOT_URLCONF = 'ProyectoNutricional.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/Veronica/nutricionista/ProyectoNutricional/Plantilla'],
+        'DIRS': ['C:/Users/RadioShack Multi/Documents/nutricionista/ProyectoNutricional/Plantilla'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
