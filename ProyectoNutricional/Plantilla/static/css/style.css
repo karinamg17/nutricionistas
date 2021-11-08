@@ -27512,7 +27512,7 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
           padding: 0px 7px; }
 
 .auth-form {
-  padding: 50px 50px; }
+  padding: 100px 100px; }
   @media only screen and (max-width: 575px) {
     .auth-form {
       padding: 30px; } }

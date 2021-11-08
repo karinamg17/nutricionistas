@@ -2,7 +2,7 @@
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
 #   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
+#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
@@ -25,8 +25,8 @@ class Actividadfisica(models.Model):
 
 class Alimento(models.Model):
     idalimento = models.AutoField(primary_key=True)
-    nombrealimento = models.CharField(max_length=800)
-    categoria = models.CharField(max_length=800)
+    nombrealimento = models.CharField(max_length=1)
+    categoria = models.CharField(max_length=1)
 
     class Meta:
         managed = False
@@ -36,7 +36,7 @@ class Alimento(models.Model):
 class Aspectosginecologicos(models.Model):
     idginecologico = models.AutoField(primary_key=True)
     anticonceptipos = models.CharField(max_length=1, blank=True, null=True)
-    anticoncepdescrip = models.CharField(max_length=800, blank=True, null=True)
+    anticoncepdescrip = models.CharField(max_length=1, blank=True, null=True)
     embarazadoactual = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
@@ -123,11 +123,11 @@ class Calculonutrientes(models.Model):
 class Citas(models.Model):
     idcita = models.AutoField(primary_key=True)
     idusuario = models.ForeignKey('Usuarios', models.DO_NOTHING, db_column='idusuario')
-    nombre = models.CharField(max_length=800)
-    primerapellido = models.CharField(max_length=800)
+    nombre = models.CharField(max_length=1)
+    primerapellido = models.CharField(max_length=1)
     fechacita = models.DateField()
     horacita = models.TimeField()
-    asunto = models.CharField(max_length=800)
+    asunto = models.CharField(max_length=1)
 
     class Meta:
         managed = False
@@ -142,7 +142,7 @@ class Comidasrealizadas(models.Model):
     meriendatarde = models.CharField(max_length=1, blank=True, null=True)
     cena = models.CharField(max_length=1, blank=True, null=True)
     colacionnocturna = models.CharField(max_length=1, blank=True, null=True)
-    otro = models.CharField(max_length=800, blank=True, null=True)
+    otro = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -208,13 +208,13 @@ class Datosantropometricos(models.Model):
 
 class Deporte(models.Model):
     iddeporte = models.AutoField(primary_key=True)
-    tipodeporte = models.CharField(max_length=800, blank=True, null=True)
+    tipodeporte = models.CharField(max_length=1, blank=True, null=True)
     diassemana = models.IntegerField(blank=True, null=True)
     diasdescanso = models.IntegerField(blank=True, null=True)
     duracion = models.IntegerField(blank=True, null=True)
-    horario = models.CharField(max_length=800, blank=True, null=True)
-    meriendapre = models.CharField(max_length=800, blank=True, null=True)
-    meriendapost = models.CharField(max_length=800, blank=True, null=True)
+    horario = models.CharField(max_length=1, blank=True, null=True)
+    meriendapre = models.CharField(max_length=1, blank=True, null=True)
+    meriendapost = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -370,12 +370,12 @@ class Expediente(models.Model):
     idcomidas = models.ForeignKey(Comidasrealizadas, models.DO_NOTHING, db_column='idcomidas')
     idsignosfisicos = models.ForeignKey('Signosfisicos', models.DO_NOTHING, db_column='idsignosfisicos')
     iddistribucionmacro = models.ForeignKey(Distribuicionmacronutrientes, models.DO_NOTHING, db_column='iddistribucionmacro')
+    idvaloracion = models.ForeignKey('Valoracionantropometrica', models.DO_NOTHING, db_column='idvaloracion')
     fechaingreso = models.DateField()
-    idplan = models.ForeignKey('Plan', models.DO_NOTHING, db_column='idplan')
+    meta = models.CharField(max_length=1)
     horassueno = models.IntegerField(blank=True, null=True)
     comidafinsemana = models.CharField(max_length=1, blank=True, null=True)
-    comidafinsemanadesc = models.CharField(max_length=800, blank=True, null=True)
-    idvaloracion = models.ForeignKey('Valoracionantropometrica', models.DO_NOTHING, db_column='idvaloracion')
+    comidafinsemanadesc = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -470,17 +470,17 @@ class Gastocalorico(models.Model):
 class Habitossociales(models.Model):
     idhabitosocial = models.AutoField(primary_key=True)
     consumoalcohol = models.CharField(max_length=1, blank=True, null=True)
-    frecuenciaalcohol = models.CharField(max_length=800, blank=True, null=True)
-    tipoalcohol = models.CharField(max_length=800, blank=True, null=True)
-    cantidadalcohol = models.CharField(max_length=800, blank=True, null=True)
+    frecuenciaalcohol = models.CharField(max_length=1, blank=True, null=True)
+    tipoalcohol = models.CharField(max_length=1, blank=True, null=True)
+    cantidadalcohol = models.CharField(max_length=1, blank=True, null=True)
     consumotabaco = models.CharField(max_length=1, blank=True, null=True)
-    frecuenciatabaco = models.CharField(max_length=800, blank=True, null=True)
-    tipotabaco = models.CharField(max_length=800, blank=True, null=True)
-    cantidadtabaco = models.CharField(max_length=800, blank=True, null=True)
+    frecuenciatabaco = models.CharField(max_length=1, blank=True, null=True)
+    tipotabaco = models.CharField(max_length=1, blank=True, null=True)
+    cantidadtabaco = models.CharField(max_length=1, blank=True, null=True)
     consumodrogas = models.CharField(max_length=1, blank=True, null=True)
-    frecuenciadrogas = models.CharField(max_length=800, blank=True, null=True)
-    tipodrogas = models.CharField(max_length=800, blank=True, null=True)
-    cantidaddrogas = models.CharField(max_length=800, blank=True, null=True)
+    frecuenciadrogas = models.CharField(max_length=1, blank=True, null=True)
+    tipodrogas = models.CharField(max_length=1, blank=True, null=True)
+    cantidaddrogas = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -522,12 +522,12 @@ class Historiaclinica(models.Model):
 class Indicadorbioquimico(models.Model):
     idindicadorb = models.AutoField(primary_key=True)
     fecha = models.DateField()
-    colesterol = models.CharField(max_length=800, blank=True, null=True)
-    trigliceridos = models.CharField(max_length=800, blank=True, null=True)
-    hdl = models.CharField(max_length=800, blank=True, null=True)
-    ldl = models.CharField(max_length=800, blank=True, null=True)
-    glucosaayunas = models.CharField(max_length=800, blank=True, null=True)
-    hemoglobina = models.CharField(max_length=800, blank=True, null=True)
+    colesterol = models.CharField(max_length=1, blank=True, null=True)
+    trigliceridos = models.CharField(max_length=1, blank=True, null=True)
+    hdl = models.CharField(max_length=1, blank=True, null=True)
+    ldl = models.CharField(max_length=1, blank=True, null=True)
+    glucosaayunas = models.CharField(max_length=1, blank=True, null=True)
+    hemoglobina = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -536,8 +536,8 @@ class Indicadorbioquimico(models.Model):
 
 class Medicamento(models.Model):
     idmedicamento = models.AutoField(primary_key=True)
-    motivo = models.CharField(max_length=800, blank=True, null=True)
-    consumo = models.CharField(max_length=800, blank=True, null=True)
+    motivo = models.CharField(max_length=1, blank=True, null=True)
+    consumo = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -562,7 +562,7 @@ class Metodocomidas(models.Model):
 class Observacion(models.Model):
     idobservacion = models.AutoField(primary_key=True)
     fechaobservacion = models.DateField()
-    observacion = models.CharField(max_length=800)
+    observacion = models.CharField(max_length=1)
 
     class Meta:
         managed = False
@@ -572,7 +572,7 @@ class Observacion(models.Model):
 class Ocupacion(models.Model):
     idocupacion = models.AutoField(primary_key=True)
     idusuario = models.ForeignKey('Usuarios', models.DO_NOTHING, db_column='idusuario')
-    tipoindustria = models.CharField(max_length=800, blank=True, null=True)
+    tipoindustria = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -581,10 +581,10 @@ class Ocupacion(models.Model):
 
 class Periodomenstrual(models.Model):
     idperiodom = models.AutoField(primary_key=True)
-    diasmenstruacion = models.CharField(max_length=800, blank=True, null=True)
+    diasmenstruacion = models.CharField(max_length=1, blank=True, null=True)
     fechaultimamenstruacion = models.DateField(blank=True, null=True)
-    sintomasantes = models.CharField(max_length=800, blank=True, null=True)
-    sintomasdespues = models.CharField(max_length=800, blank=True, null=True)
+    sintomasantes = models.CharField(max_length=1, blank=True, null=True)
+    sintomasdespues = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -596,7 +596,7 @@ class Plan(models.Model):
     idusuario = models.ForeignKey('Usuarios', models.DO_NOTHING, db_column='idusuario')
     inicio = models.DateField()
     fin = models.DateField()
-    meta = models.CharField(max_length=800)
+    meta = models.CharField(max_length=1)
 
     class Meta:
         managed = False
@@ -623,7 +623,7 @@ class Planalimento(models.Model):
 class Plannutricional(models.Model):
     idnutricional = models.AutoField(primary_key=True)
     idplan = models.ForeignKey(Plan, models.DO_NOTHING, db_column='idplan')
-    idplanalimento = models.ForeignKey(Planalimento, models.DO_NOTHING, db_column='idplanalimento')
+    idplanalimento = models.OneToOneField(Planalimento, models.DO_NOTHING, db_column='idplanalimento')
     iddatos = models.ForeignKey(Datosantropometricos, models.DO_NOTHING, db_column='iddatos')
 
     class Meta:
@@ -634,16 +634,16 @@ class Plannutricional(models.Model):
 class Preferenciasalimentarias(models.Model):
     idpreferenciaa = models.AutoField(primary_key=True)
     alegiaalimentaria = models.CharField(max_length=1, blank=True, null=True)
-    alergiaalimentariadesc = models.CharField(max_length=800, blank=True, null=True)
+    alergiaalimentariadesc = models.CharField(max_length=1, blank=True, null=True)
     intoleranciaalimentaria = models.CharField(max_length=1, blank=True, null=True)
-    intoleranciaalimentariadesc = models.CharField(max_length=800, blank=True, null=True)
-    lugarcomida = models.CharField(max_length=800, blank=True, null=True)
+    intoleranciaalimentariadesc = models.CharField(max_length=1, blank=True, null=True)
+    lugarcomida = models.CharField(max_length=1, blank=True, null=True)
     cocinaalimento = models.CharField(max_length=1, blank=True, null=True)
     compraalimento = models.CharField(max_length=1, blank=True, null=True)
     calificacionalimentacion = models.IntegerField(blank=True, null=True)
     calificacionapetito = models.IntegerField(blank=True, null=True)
     ansiedadcomida = models.CharField(max_length=1, blank=True, null=True)
-    consumoansiedad = models.CharField(max_length=800, blank=True, null=True)
+    consumoansiedad = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -652,10 +652,10 @@ class Preferenciasalimentarias(models.Model):
 
 class Recetas(models.Model):
     idreceta = models.AutoField(primary_key=True)
-    titulo = models.CharField(max_length=800)
-    ingredientes = models.CharField(max_length=800)
-    instrucciones = models.CharField(max_length=800)
-    notas = models.CharField(max_length=800, blank=True, null=True)
+    titulo = models.CharField(max_length=1)
+    ingredientes = models.CharField(max_length=1)
+    instrucciones = models.CharField(max_length=1)
+    notas = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -673,7 +673,7 @@ class Roles(models.Model):
 
 class Signosfisicos(models.Model):
     idsignosfisicos = models.AutoField(primary_key=True)
-    aspectogeneral = models.CharField(max_length=800, blank=True, null=True)
+    aspectogeneral = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -682,8 +682,8 @@ class Signosfisicos(models.Model):
 
 class Suplemento(models.Model):
     idsuplemento = models.AutoField(primary_key=True)
-    nombresuplemento = models.CharField(max_length=800, blank=True, null=True)
-    marca = models.CharField(max_length=800, blank=True, null=True)
+    nombresuplemento = models.CharField(max_length=1, blank=True, null=True)
+    marca = models.CharField(max_length=1, blank=True, null=True)
     vecesdia = models.IntegerField(blank=True, null=True)
     diassemana = models.IntegerField(blank=True, null=True)
     dosis = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
@@ -743,19 +743,16 @@ class Tipograsas(models.Model):
 
 class Usuarios(models.Model):
     idusuario = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=800)
-    primerapellido = models.CharField(max_length=800)
-    segundoapellido = models.CharField(max_length=800, blank=True, null=True)
-    usuario = models.CharField(max_length=800)
-    clave = models.CharField(max_length=800)
-    email = models.CharField(max_length=800, blank=True, null=True)
-    telefono = models.IntegerField(blank=True, null=True)
-    identificacion = models.CharField(max_length=800, blank=True, null=True)
-    fechanacimiento = models.DateField(blank=True, null=True)
-    sexo = models.CharField(max_length=1, blank=True, null=True)
-    edad = models.IntegerField(blank=True, null=True)
-    idrol = models.ForeignKey(Roles, models.DO_NOTHING, db_column='idrol')
-    estado = models.CharField(max_length=800, blank=True, null=True)
+    identificacion = models.CharField(max_length=1)
+    usuario = models.CharField(max_length=1)
+    clave = models.CharField(max_length=1)
+    nombre = models.CharField(max_length=1)
+    primerapellido = models.CharField(max_length=1)
+    segundoapellido = models.CharField(max_length=1, blank=True, null=True)
+    telefono = models.IntegerField()
+    email = models.CharField(max_length=1)
+    fechanacimiento = models.DateField()
+    estado = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -769,7 +766,7 @@ class Valoracionantropometrica(models.Model):
     idtipoactividad = models.ForeignKey(Tipoactividad, models.DO_NOTHING, db_column='idtipoactividad')
     idtmb = models.ForeignKey(Tasametabolicabasal, models.DO_NOTHING, db_column='idtmb')
     idestrategian = models.ForeignKey(Estrategianutricional, models.DO_NOTHING, db_column='idestrategian')
-    nombre = models.CharField(max_length=800, blank=True, null=True)
+    nombre = models.CharField(max_length=1, blank=True, null=True)
     sexo = models.CharField(max_length=1, blank=True, null=True)
     pesokg = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
     tallamts = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
@@ -796,11 +793,11 @@ class Valoracionantropometrica(models.Model):
     calculoagua_litros = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
     calculoagua_porc = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
     imc_valor = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
-    imc_diagnostico = models.CharField(max_length=800, blank=True, null=True)
+    imc_diagnostico = models.CharField(max_length=1, blank=True, null=True)
     circabdominal_valor = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
-    circabdominal_diagnostico = models.CharField(max_length=800, blank=True, null=True)
+    circabdominal_diagnostico = models.CharField(max_length=1, blank=True, null=True)
     rcinturacadera_valor = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
-    rcinturacadera_diagnostico = models.CharField(max_length=800, blank=True, null=True)
+    rcinturacadera_diagnostico = models.CharField(max_length=1, blank=True, null=True)
     composicioncorporal_valor = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
     pesoideal_pequena = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
     pesoideal_mediana = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
