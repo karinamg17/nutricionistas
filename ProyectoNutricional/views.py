@@ -38,7 +38,7 @@ def contactos(request):
     """Renders the about page."""
     "usuarios= Usuarios.objects.all()"
     cursor = connection.cursor()
-    cursor.execute("select usuarios.nombre,usuarios.primerapellido,usuarios.segundoapellido,usuarios.email,usuarios.telefono,usuarios.estado, citas.fechacita from usuarios join citas on usuarios.idusuario=citas.idusuario")
+    cursor.execute("select u.nombre,u.primerapellido,u.segundoapellido,u.email,u.telefono,u.estado , c.f from (select idusuario , max(fechacita) as f from citas group by idusuario) c join usuarios u on u.idusuario=c.idusuario")
     results= cursor.fetchall()
     return render(request,'contactos.html', {'uniontablas': results})
     """context={
