@@ -59,25 +59,7 @@
 										<div class="table-responsive ">
 											<table class="table patient-activity">
 												{% for uniontablas in uniontablas %}
-												<tr>
-													<td>
-														<div class="media align-items-center">
-															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/1.jpg'%}" alt="DexignZone">
-															<div class="media-body">
-																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">Ana Lopez</h5></a>
-																<h5 class="my-0 text-primary">ana@gmail.com</h5>
-															</div>
-														</div>
-													</td>
-													<td>
-														<p class="mb-0">Teléfono</p>
-														<h5 class="my-0 text-primary">7089-9087</h5>
-													</td>
-													<td>
-														<p class="mb-0">Paciente desde</p>
-														<h5 class="my-0 text-primary">22/03/2020 </h5>
-
-													</td>
+												
 													<!-- Segunda opcion en lugar de paciente desde
 													<td>
 														<div class="d-flex align-items-center">
@@ -112,7 +94,6 @@
 															</div>
 														</div>
 													</td>-->
-												</tr>
 												<tr>
 													<td>
 														<div class="media align-items-center">
@@ -129,14 +110,15 @@
 													</td>
 													<td>
 														<p class="mb-1">Próxima Cita</p>
-														<h5 class="mt-0 mb-1 text-success"><small>{{uniontablas.5}}</small></h5>
+														<small>{{uniontablas.6}}</small>
 													</td>
 													<td>
 														<div class="d-flex align-items-center">
 															<div>
 																<p class="mb-1">Activo Desde</p>
 																<h5 class="mt-0 mb-1 text-danger">Creado</h5>
-																<small>{{uniontablas.6}}</small>
+																<h5 class="mt-0 mb-1 text-success"><small>{{uniontablas.5}}</small></h5>
+
 															</div>
 															<div class="dropdown ml-auto">
 																<div class="btn-link" data-toggle="dropdown">

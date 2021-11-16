@@ -1,7 +1,16 @@
+from os import kill
+import re
+from django.contrib.admin import options
+import psycopg2
+
 from django import forms
+from django.contrib import auth
 from django.shortcuts import redirect, render
 from django.http import HttpRequest
-
+from django.contrib.auth import login,authenticate
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from operator import itemgetter
 
 from .forms import AlimentoForm, RecetaForm
 from .models import Recetas,Alimento,Usuarios
@@ -118,13 +127,96 @@ def pagbloqueada(request):
         'pag-bloqueada.html',      
     )
 
+
+"""
 def paginicio(request):
-    """Renders the about page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'pag-inicio.html',      
-    )
+    if request.method == "GET":
+        return render(
+                request,
+                'pag-inicio.html',      
+            )
+    else:
+        if request.method =='POST':
+            email = request.POST.get('email')
+            clave = request.POST.get('clave')
+
+            try:
+                user = Usuarios.empAuth_objects.get(email=email, clave=clave)
+                if user is not None:
+                    return render(
+                request,
+                'contactos.html',      
+            )
+                else:
+                    print("Ingreso fallid")
+                    return render(
+                request,
+                'crear-expediente.html',      
+            )
+            except Exception as identifier:
+                return render(
+                request,
+                'recetas.html',      
+            )
+        else:
+            return render(
+                request,
+                'alimentos.html',      
+            )
+
+
+"""
+def paginicio(request):
+    if request.method == "GET":
+        return render(
+                request,
+                'pag-inicio.html',      
+            )
+    else:
+        conn = psycopg2.connect(host="ec2-34-233-105-94.compute-1.amazonaws.com",
+                                database="de6iseaflka80v",
+                                user="lylnlnksouqxtc",
+                                password="2c3fd1bac949f41306ba4d8857fdda5975091b8bbb4f95d2dfa7b0e8b37ddd41",
+                                options="-c search_path=pln_schema")
+        cursor = conn.cursor()
+        conn2 = psycopg2.connect(host="ec2-34-233-105-94.compute-1.amazonaws.com",
+                                database="de6iseaflka80v",
+                                user="lylnlnksouqxtc",
+                                password="2c3fd1bac949f41306ba4d8857fdda5975091b8bbb4f95d2dfa7b0e8b37ddd41",
+                                options="-c search_path=pln_schema")
+        cursor2 = conn2.cursor()
+     
+        cursor.execute("select usuario from usuarios;")
+        cursor2.execute("select clave from usuarios;")
+        e=[]
+        p=[]
+        for i in cursor:
+            e.append(i)
+        for j in cursor2:
+            p.append(j)
+       
+        res = list(map(itemgetter(0),e))
+        res2 = list(map(itemgetter(0),p))
+        print (res)
+        print(res2)
+        if request.method =='POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            print('esto esta tomando el post' + username)
+            print('esto esta tomando el post' + password)
+            i=0
+            k=len(res)
+            while i<k:
+                print ('esto esta tomando el while' + res[i])
+                print ('esto esta tomando el while' +res2[i])
+                if res[i] == username and res2[i]==password:
+                    return render(request, 'index.html', {'username':username})
+                    break
+                i+=1
+            else:
+                return redirect('agendar')
+
+            
 
 def pagolvido(request):
     """Renders the about page."""

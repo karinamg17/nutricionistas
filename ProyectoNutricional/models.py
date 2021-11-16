@@ -755,6 +755,7 @@ class Usuarios(models.Model):
     estado = models.CharField(max_length=1, blank=True, null=True)
     #idrol = models.AutoField()
 
+
     class Meta:
         managed = False
         db_table = 'usuarios'
