@@ -41,7 +41,7 @@
 										<th>Correo</th>
 										<th>Fecha Ingreso</th>
 										<th>Estado</th>
-										<th colspan=2>Accion</th>
+										<th >Accion</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -51,10 +51,10 @@
 										<td>ADRIANA CAROLINA HERNANDEZ MONTERROZA</td>
 										<td width="10%">F</td>
 										<td width="10%"><a href="#"><strong>82887923</strong></a></td>
-										<td  width="20%"><a href="#"><strong>adriana@correo.com</strong></a></td>
+										<td width="20%"><a href="#"><strong>adriana@correo.com</strong></a></td>
 										<td width="15%">2011/04/25</td>
 										<td width="10%">Activo</td>
-										<td >
+										<td>
 											<div class="d-flex">
 												<a  href="javascript:void()" data-toggle="modal" data-target="#expediente"  class="btn btn-primary shadow btn-xs sharp mr-1"><i
 														class="fa fa-pencil"></i></a>
@@ -101,7 +101,7 @@
 												class="nav-link">Frecuencia Consumo</a>
 										</li>
 										<li class="nav-item"><a href="#actividad-fisica" data-toggle="tab"
-												class="nav-link">Actividad Física</a>
+												class="nav-link">Estilo de Vida</a>
 										</li>
 										<li class="nav-item"><a href="#notas" data-toggle="tab"
 												class="nav-link">Notas</a>
@@ -318,6 +318,9 @@
 													<table
 														class="table table-bordered verticle-middle table-responsive-sm">
 														<thead>
+															<tr>
+																<th colspan="3"><strong>Historia Clinica</strong></th>
+															</tr>
 															<tr>
 																<th scope="col">Antecedentes</th>
 																<th scope="col">Personales</th>
@@ -671,7 +674,7 @@
 													</table>
 												</div>
 											</div>
-										</div> aqui
+										</div> 
 									</div>
 
 
@@ -689,9 +692,8 @@
 														<thead>
 
 															<tr>
-																<th scope="col">Hábitos y preferencias alimentarias
+																<th colspan="2">Hábitos y preferencias alimentarias
 																</th>
-																<th scope="col"></th>
 
 															</tr>
 														</thead>
@@ -1167,7 +1169,7 @@
 															</tr>
 															<tr>
 																<td>¿Qué consume usualmente? </td>
-																<td><input type="number" class="form-control"
+																<td><input type="text" class="form-control"
 																		placeholder="horas"></td>
 
 															</tr>
@@ -1869,82 +1871,205 @@
 									<div id="actividad-fisica" class="tab-pane fade">
 										<div class="profile-actividad-fisica">
 											<div class="pt-4 border-bottom-1 pb-3">
-												<h4 class="text-primary">Actividad Fisica</h4>
+												<h4 class="text-primary">Estilo de Vida</h4>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-lg-12 mb-3">
 												<div class="table-responsive">
-													<table
-														class="table table-bordered verticle-middle table-responsive-sm">
+													<table class="table table-bordered verticle-middle table-responsive-sm">
+														<h3>Actividad Fisica</h3>
 														<tbody>
 															<tr>
-																<td>Muy ligera (trabajo de escritorio, choferes) </td>
+																<td>Muy ligera (trabajo de escritorio, choferes)															</td>
 																<td><select class="form-control form-white"
 																		data-placeholder="si/no" name="category-color">
-
+	
 																		<option value="success">No</option>
 																		<option value="danger">Si</option>
-
+	
 																	</select></td>
-
+	
 															</tr>
 															<tr>
-																<td>Ligera (trabajo de poco esfuerzo) </td>
+																<td>Ligera (trabajo de poco esfuerzo)															</td>
 																<td><select class="form-control form-white"
 																		data-placeholder="si/no" name="category-color">
-
+	
 																		<option value="success">No</option>
 																		<option value="danger">Si</option>
-
+	
 																	</select></td>
-
+	
 															</tr>
 															<tr>
-																<td>Moderada (carpinteros,estudiantes, área médica,
-																	maestro) </td>
+																<td>Moderada (carpinteros,estudiantes, área médica, maestro)															</td>
 																<td><select class="form-control form-white"
 																		data-placeholder="si/no" name="category-color">
-
+	
 																		<option value="success">No</option>
 																		<option value="danger">Si</option>
-
+	
 																	</select></td>
-
+	
 															</tr>
 															<tr>
-																<td>Pesada (mecánicos, obreros, albañiles, deportistas)
-																</td>
+																<td>Pesada (mecánicos, obreros, albañiles, deportistas)															</td>
 																<td><select class="form-control form-white"
 																		data-placeholder="si/no" name="category-color">
-
+	
 																		<option value="success">No</option>
 																		<option value="danger">Si</option>
-
+	
 																	</select></td>
-
+	
 															</tr>
 															<tr>
-																<td>Exhaustiva (campesinos, deportistas de alto
-																	rendimiento) </td>
+																<td>Exhaustiva (campesinos, deportistas de alto rendimiento)															</td>
 																<td><select class="form-control form-white"
 																		data-placeholder="si/no" name="category-color">
-
+	
 																		<option value="success">No</option>
 																		<option value="danger">Si</option>
-
+	
 																	</select></td>
-
+	
 															</tr>
-
+															
 														</tbody>
 													</table>
 												</div>
 											</div>
-
+	
 										</div>
-									</div>
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">
+														<h3>Ejercicio</h3>
+														<tbody>
+															<tr>
+																<td>¿Realiza Ejercicio?															</td>
+																<td><select class="form-control form-white"
+																		data-placeholder="si/no" name="category-color">
+	
+																		<option value="success">No</option>
+																		<option value="danger">Si</option>
+	
+																	</select></td>
+	
+															</tr>
+															<tr>
+																<td>Fecha de Ingreso</td>
+																<td><input type="date" class="form-control" placeholder="" required>															</td>
+	
+															</tr>
+															
+															
+														</tbody>
+													</table>
+												</div>
+											</div>
+	
+										</div>
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">
+														<h3>A nivel nutricional</h3>														
+														<tbody>
+															<tr>
+																<td>¿Utiliza algún suplemento?															</td>
+																<td><select class="form-control form-white"
+																		data-placeholder="si/no" name="category-color">
+	
+																		<option value="success">No</option>
+																		<option value="danger">Si</option>
+	
+																	</select></td>
+	
+															</tr>
+															
+																		
+																	</tbody>
+																</table>
+															</div>
+															
+															
+														
+												</div>
+										</div>
 
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">
+														<thead>
+															<tr>
+																<th>
+																	¿Cuál utiliza?
+																</th> 
+																<th>
+																	Marca
+																</th> 
+																<th>
+																	Veces al dia
+																</th> 
+																<th>
+																	Dias/Semana
+																</th> 
+																<th>
+																	Dosis
+																</th> 
+																</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><input type="text" class="form-control" placeholder="">	</td>
+																<td><input type="text" class="form-control" placeholder="">	</td>
+																<td><input type="number" class="form-control" placeholder="">	</td>
+																<td><input type="number" class="form-control" placeholder="">	</td>
+																<td><input type="text" class="form-control" placeholder="">	</td>
+																
+	
+															</tr>
+															<tr>
+																<td><input type="text" class="form-control" placeholder="">	</td>
+																<td><input type="text" class="form-control" placeholder="">	</td>
+																<td><input type="number" class="form-control" placeholder="">	</td>
+																<td><input type="number" class="form-control" placeholder="">	</td>
+																<td><input type="text" class="form-control" placeholder="">	</td>
+																
+	
+															</tr><tr>
+																<td><input type="text" class="form-control" placeholder="">	</td>
+																<td><input type="text" class="form-control" placeholder="">	</td>
+																<td><input type="number" class="form-control" placeholder="">	</td>
+																<td><input type="number" class="form-control" placeholder="">	</td>
+																<td><input type="text" class="form-control" placeholder="">	</td>
+																
+	
+															</tr><tr>
+																<td><input type="text" class="form-control" placeholder="">	</td>
+																<td><input type="text" class="form-control" placeholder="">	</td>
+																<td><input type="number" class="form-control" placeholder="">	</td>
+																<td><input type="number" class="form-control" placeholder="">	</td>
+																<td><input type="text" class="form-control" placeholder="">	</td>
+																
+	
+															</tr>
+															
+															
+														</tbody>
+													</table>
+												</div>														
+																	
+											</div>
+										</div>
+
+	
+										</div>
+	
 
 									<div id="notas" class="tab-pane fade">
 										<div class="profile-notas">

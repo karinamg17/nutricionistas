@@ -166,6 +166,9 @@ def paginicio(request):
 
 
 """
+
+"""login"""
+
 def paginicio(request):
     if request.method == "GET":
         return render(
