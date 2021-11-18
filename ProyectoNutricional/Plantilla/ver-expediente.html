@@ -84,7 +84,7 @@
 						<form>
 							<!-- Profile Tab-->
 							<div class="profile-tab">
-								<!-- custom Tab-->
+								<!-- Todos los Tabs del expediente-->
 								<div class="custom-tab-1">
 									<ul class="nav nav-tabs">
 										<ul class="nav nav-tabs">
@@ -109,6 +109,9 @@
 										</li>
 										<li class="nav-item"><a href="#antro" data-toggle="tab"
 											class="nav-link">Antro</a>
+										</li>
+										<li class="nav-item"><a href="#macros" data-toggle="tab"
+											class="nav-link">Macros</a>
 										</li>
 										<li class="nav-item"><a href="#notas" data-toggle="tab"
 											class="nav-link">Notas</a>
@@ -2244,8 +2247,1102 @@
 												<h4 class="text-primary">MEDICIONES CORPORALES</h4>
 											</div>
 										</div>
-										<p> Notas 2 </p>
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">
+														<thead>
+															<tr>
+																<th>Mediciones</th>
+																<th>Fecha</th>
+																<th><input type="date" class="form-control" placeholder="" ></th>
+																<th><input type="date" class="form-control" placeholder="" ></th>
+																<th><input type="date" class="form-control" placeholder="" ></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Balanza-->
+															<tr>
+																
+																<td rowspan="11">Balanza</td>
+																<td>Peso</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>	
+															</tr>
+															<tr>
+																<td>Peso Recomendado		</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+															<tr>
+																<td>Talla</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+															<tr>
+																<td>IMC kg/m2</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+	
+															</tr>
+															<tr>
+																<td>Porcentaje de Grasa		</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+
+															<tr>
+																<td>Porcentaje de Musculo Esqueletico</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+
+															<tr>
+																<td>TMB</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+
+															<tr>
+																<td>Edad metabólica
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+
+															<tr>
+																<td>Grasa visceral 
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+
+															<!--Calculos deben ser en backend-->
+
+															<tr>
+																<td>Masa Grasa Kg
+																</td>
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+															</tr>
+
+															<!--Calculos deben ser en backend-->
+
+															<tr>
+																<td>Masa Libre de Grasa (MLG)
+																</td>
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+															</tr>
+															
+															<!--Composicion corporal-->
+															<tr>
+																<td rowspan="5">Composicion Corporal</td>
+																<td>Masa grasa
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>	
+															</tr>
+															<tr>
+																<td>Masa musculo 
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+															<tr>
+																<td>Masa Residual
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+
+															<!--Calculos deben ser en backend-->
+															<tr>
+																<td>Masa Ósea
+																</td>
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+	
+															</tr>
+
+															<!--Calculos deben ser en backend-->
+															<tr>
+																<td>Total</td>
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+	
+															</tr>
+
+															<!--Pliegues-->
+															<tr>
+																<td rowspan="4">Pliegues</td>
+																<td>Tríceps
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>	
+															</tr>
+															<tr>
+																<td>Subescapular 
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+															<tr>
+																<td>Suprailíaco
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+
+															<tr>
+																<td> Abdominal
+																</td>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+	
+															</tr>
+
+
+															<!--Perimetros (Circunferencias)-->
+															<tr>
+																
+																<td rowspan="9">Perimetros (Circunferencias)</td>
+																<td>Brazo Relajado
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>	
+															</tr>
+															<tr>
+																<td>Brazo tensionado
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+															<tr>
+																<td>Muñeca
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>														
+															<tr>
+																<td>Pecho
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+
+															<tr>
+																<td>Cintura
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+
+															<tr>
+																<td>Abdomen
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+
+															<tr>
+																<td>Glúteos
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+
+															<tr>
+																<td>Muslo
+																</td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+																<td><input type="number" class="form-control" placeholder=""></td>
+															</tr>
+
+															<tr>
+																<td>Pantorrilla
+																</td>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+															</tr>
+
+														</tbody>
+													</table>
+												</div>
+											</div>
+	
+										</div>
+
+
+										<div class="row">
+											<div class="col-lg-6 mb-3">
+												<h4>VALORACIÓN ANTROPOMÉTRICA	</h4>
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">
+														
+														<tbody>
+															<tr>
+																<td >Sexo</td>
+																<!--Se autollena basado en el usuario-->
+																<td ><input type="text" class="form-control" placeholder="" disabled></td>
+
+															</tr>
+														</tbody>
+
+
+													</table>
+												</div>
+											</div>
+										</div>	
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">											
+
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">
+														<thead>
+															<tr>
+																<th>Peso (KG)</th>
+																<th>Talla (mts)</th>
+																<th>Edad (Años)</th>
+																<th>PM (KG)</th>
+																<th>CM (CM)</th>
+																<th>CC (CM)</th>
+																<th>CA (CM)</th>
+																<th>CCA (CM)</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+																<!--Se autollena segun formula-->
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+																<td><input type="number" class="form-control" placeholder="" ></td>
+
+															</tr>
+														</tbody>
+
+
+													</table>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">
+														
+														<tbody>
+															<tr>
+																<td rowspan="2">Pliegues</td>
+																<td >Triceps</td>
+																<td >Subescapular</td>
+																<td >Cresta Iliaca</td>
+																<td >Abdominal 	</td>
+																<td >Total	</td>
+
+															</tr>
+															<tr>
+																<td ><input type="number" class="form-control" placeholder=""></td>
+																<td ><input type="number" class="form-control" placeholder=""></td>
+																<td ><input type="number" class="form-control" placeholder=""></td>
+																<td ><input type="number" class="form-control" placeholder=""></td>
+																<!--Se autollena basado en el usuario-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>
+
+															</tr>
+
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">
+														
+														<tbody>
+															<tr>
+																<td style="background-color:#cdbffb"><strong>Grasa</strong> </td>
+																<td style="background-color:#cdbffb"><strong>Kg</strong> </td>
+																<td style="background-color:#cdbffb"><strong>%</strong> </td>														
+															</tr>
+															<tr>
+																<td >Masa Grasa según Faulkner Mujer</td>
+																<!--Se autollenan con formulas-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+															</tr>
+
+															<tr>
+																<td style="background-color:#cdbffb" >Masa Muscular</td>
+																<td style="background-color:#cdbffb"></td>
+																<td style="background-color:#cdbffb" ></td>														
+															</tr>
+															<tr>
+																<td >Formula de Lee (2000)</td>
+																<!--Se autollenan con formulas-->
+																<td><input type="number" class="form-control" placeholder="" disabled></td>
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+															</tr>
+
+															<tr>
+																<td style="background-color:#cdbffb" >Masa Residual</td>
+																<td style="background-color:#cdbffb" ></td>
+																<td  style="background-color:#cdbffb"></td>														
+															</tr>
+															<tr>
+																<td>Masa Residual según Würch Mujer	</td>
+																<!--Se autollenan con formulas-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+															</tr>
+
+															<tr>
+																<td style="background-color:#cdbffb">Masa Ósea 																</td>
+																<td style="background-color:#cdbffb">Kg</td>
+																<td style="background-color:#cdbffb" >%</td>														
+															</tr>
+															<tr>
+																<td >Diferencia</td>
+																<!--Se autollenan con formulas-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+															</tr>
+															<tr>
+																<td style="background-color:#cdbffb">Total</td>
+																<!--Se autollenan con formulas-->													
+																<td style="background-color:#cdbffb">Kg</td>
+																<td style="background-color:#cdbffb" >%</td>														
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">
+														<thead>
+															<tr>
+																<th style="background-color:#b6a1fa">Calculo de ACT </th>
+																<th style="background-color:#b6a1fa">Litros</th>
+																<th style="background-color:#b6a1fa">% </th>
+															</tr>
+														</thead>
+														
+														<tbody>
+															<tr>
+																<td style="background-color:#cdbffb">Fórmula de Watson</td>
+																<!--Se autollenan con formulas-->													
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+													
+															</tr>
+															<tr>
+																<td style="background-color:#cdbffb">Fórmula de Hume</td>
+																<!--Se autollenan con formulas-->													
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+													
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														
+														<tbody>
+																<tr>
+																	<td style="background-color:#cdbffb">Calculo de agua </td>
+																	<td ><select class="form-control default-select" id="sel1">
+																		<option>30</option>
+																		<option>35</option>
+																	</select></td>															
+																	<!--Se autollena con formulas-->													
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+														
+																</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														<thead>
+															<th style="background-color:#b6a1fa">Evaluación Nutricional</th>
+															<th style="background-color:#b6a1fa">Valor</th>
+															<th style="background-color:#b6a1fa">Diagnostico </th>
+														</thead>
+														<tbody>
+																<tr>
+																	<td>IMC</td>
+																	<!--Se autollenan con formulas-->													
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																</tr>
+
+																<tr>
+																	<td>Circuferencia Abdominal
+																	</td>
+																	<!--Se autollenan con formulas-->													
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																</tr>
+
+																<tr>
+																	<td>Relacion de cintura /cadera
+																	</td>
+																	<!--Se autollenan con formulas-->													
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">	
+														<tbody>
+																<tr>
+																	<td>Composición corporal</td>
+																	<!--Se autollena con formulas-->													
+																	<td><input type="number" class="form-control" placeholder="" disabled></td>															
+																</tr>
+
+																<tr>
+																	<td colspan="2" style="background-color:#cdbffb">Peso Ideal según composicion corporal</td>
+																</tr>
+
+																<tr>
+																	<td>Peso Ideal (Pequeña) Kg
+																	</td>
+																	<!--Se autollenan con formulas-->													
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																</tr>
+
+																<tr>
+																	<td>Peso Ideal (Mediana) Kg
+																	</td>
+																	<!--Se autollenan con formulas-->													
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																</tr>
+
+																<tr>
+																	<td>Peso Ideal (Grande) Kg
+																	</td>
+																	<!--Se autollenan con formulas-->													
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																</tr>
+
+																<tr>
+																	<td colspan="2" style="background-color:#cdbffb">Peso Ideal según ADA</td>
+																</tr>
+
+																<tr>
+																	<td>Mujer
+																	</td>
+																	<!--Se autollenan con formulas-->													
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																</tr>
+
+																<tr>
+																	<td colspan="2" style="background-color:#cdbffb">Peso Ajustado</td>
+																</tr>
+
+																<tr>
+																	<td>Mujer
+																	</td>
+																	<!--Se autollenan con formulas-->													
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>															
+																</tr>	
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														<thead>
+															<th style="background-color:#b6a1fa">Gasto Calorico Semanal</th>
+															<th style="background-color:#b6a1fa">N°</th>
+															<th style="background-color:#b6a1fa">Gasto CAL Semanal	</th>
+														</thead>
+														<tbody>
+																<tr>
+																	<td>Dias de entrenamiento</td>
+																	<td ><select class="form-control default-select" id="sel1">
+																		<option>0</option>
+																		<option>1</option>
+																		<option>2</option>
+																		<option>3</option>
+																		<option>4</option>
+																		<option>5</option>
+																		<option>6</option>
+																		<option>7</option>
+																	</select></td>															
+																	<td ><input type="number" class="form-control" placeholder=""></td>															
+																</tr>
+
+																<tr>
+																	<td>Dias de descanso</td>
+																	<td ><select class="form-control default-select" id="sel1">
+																		<option>0</option>
+																		<option>1</option>
+																		<option>2</option>
+																		<option>3</option>
+																		<option>4</option>
+																		<option>5</option>
+																		<option>6</option>
+																		<option>7</option>
+																	</select></td>															
+																	<td ><input type="number" class="form-control" placeholder=""></td>															
+																</tr>
+
+																<tr>
+																	<td>Promedio de Calorias</td>
+																	<!--Se autollenan con formulas-->													
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>													
+																	<td ><input type="number" class="form-control" placeholder=""></td>															
+																</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														
+														<tbody>
+															<tr>
+																<td colspan="2" style="background-color:#b6a1fa">1 MET es el consumo calórico en reposo.</td>
+															</tr>
+															<tr>
+																<th colspan="2" style="background-color:#b6a1fa">1 MET = 1 kcal/kg/h = 3,5 ml/kg/min de O2	</th>
+															</tr>
+															<tr><td  style="background-color:#cdbffb">Minutos AF:</td>	
+																<td ><input type="number" class="form-control" placeholder="" value="30" disabled></td>	
+															</tr>
+															<!--Se autollenan con formulas-->													
+															<tr><td  style="background-color:#cdbffb">GE:</td>	
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+															</tr>
+
+															<tr><td  style="background-color:#cdbffb">Minutos Semana</td>	
+																<td ><input type="number" class="form-control" placeholder="" value="120" disabled></td>	
+															</tr>
+
+															<tr><td  style="background-color:#cdbffb">Dias</td>	
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+															</tr>
+
+															<tr><td  style="background-color:#cdbffb">Gasto Semanal</td>	
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+															</tr>
+																													
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														
+														<tbody>
+																<tr>
+																	<td style="background-color:#cdbffb">Diferencia de peso (Kg)</td>
+																	<!--Se autollena con formulas-->													
+																	<td ><input type="number" class="form-control" placeholder="" disabled></td>																
+																	
+																</tr>
+
+																<tr>
+																	<td style="background-color:#cdbffb">Peso Meta (Kg)</td>
+																	<!--Se autollena con formulas-->													
+																	<td ><input type="number" class="form-control" placeholder="" ></td>																
+																	
+																</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														
+														<tbody>
+															<tr>
+																<td style="background-color:#b6a1fa">Tipo de Actividad</td>
+																<td style="background-color:#b6a1fa">FA</td>
+															</tr>											
+															<!--Son numeros quemados-->																	
+															<tr>
+																<td  style="background-color:#cdbffb">Reposo</td>	
+																<td ><input type="number" class="form-control" placeholder="" value="1.2" disabled></td>	
+															</tr>
+															<tr>
+																<td  style="background-color:#cdbffb">Muy ligera</td>	
+																<td ><input type="number" class="form-control" placeholder="" value="1.3" disabled></td>	
+															</tr>
+
+															<tr>
+																<td  style="background-color:#cdbffb">Ligera</td>	
+																<td ><input type="number" class="form-control" placeholder="" value="1.4" disabled></td>	
+															</tr>
+
+															<tr>
+																<td  style="background-color:#cdbffb">Moderado</td>	
+																<td ><input type="text" class="form-control" placeholder="" value="1,5-1,7" disabled></td>	
+															</tr>
+
+															<tr>
+																<td  style="background-color:#cdbffb">Severo</td>	
+																<td ><input type="text" class="form-control" placeholder="" value="1,8-2" disabled></td>	
+															</tr>																													
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														
+														<tbody>
+																									
+															<!--Son numeros quemados-->																	
+															<tr>
+																<td  style="background-color:#cdbffb">F. Estrés	</td>	
+																<td ><input type="number" class="form-control" placeholder="" value="0.1" disabled></td>	
+															</tr>
+															<tr>
+																<td  style="background-color:#cdbffb">F. Actividad</td>	
+																<td ><select class="form-control default-select" id="sel1">
+																	<option>1,2</option>
+																	<option>1,3</option>
+																	<option>1,4</option>
+																	<option>1,5</option>
+																	<option>1,6</option>
+																	<option>1,7</option>
+																	<option>1,8</option>
+																	<option>1,9</option>
+																	<option>2</option>
+																	<option>2,5</option>
+																</select></td>	
+															</tr>
+
+															<tr>
+																<td  style="background-color:#cdbffb">F. Térmico de los alimentos	</td>	
+																<td ><input type="number" class="form-control" placeholder="" value="0.1" disabled></td>	
+															</tr>
+
+															<tr>
+																<td  style="background-color:#cdbffb">Suma</td>	
+																<!--Calculos deben hacerse en el backend-->																	
+																<td ><input type="text" class="form-control" placeholder=""  disabled></td>	
+															</tr>
+
+																																											
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														
+														<tbody>																								
+																																
+															<tr>
+																<td  style="background-color:#cdbffb">Masa Grasa</td>	
+																<td ><input type="number" class="form-control" placeholder=""></td>	
+															</tr>
+															<tr>
+																<td  style="background-color:#cdbffb">Masa Libre de Grasa</td>	
+																<td ><input type="number" class="form-control" placeholder=""></td>	
+															</tr>																										
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														
+														<tbody>
+															<tr>
+																<td colspan="3" style="background-color:#b6a1fa">Tasa Metabolica Basal (TMB)</td>
+															</tr>
+															<tr>
+																<td style="background-color:#b6a1fa">Formulas: TMB</td>
+																<td style="background-color:#b6a1fa">TMB</td>
+																<td style="background-color:#b6a1fa">GET</td>
+															</tr>
+															<tr><td  style="background-color:#cdbffb">Harris-Benedict</td>	
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+															</tr>
+															<tr><td  style="background-color:#cdbffb">Mifflin-St. Jeor</td>	
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+															</tr>
+															<tr><td  style="background-color:#cdbffb">Muller (Personas Físicamente Activas)</td>	
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+															</tr>
+																													
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														
+														<tbody>
+															<tr>
+																<td colspan="4" style="background-color:#b6a1fa">REGLA DEL PULGAR</td>
+															</tr>
+															<tr>
+																<td style="background-color:#b6a1fa">Días de inactividad física:</td>
+																<td ><select class="form-control default-select" id="sel1">
+																	<option>Perdida</option>
+																	<option>Mantener</option>
+																	<option>Aumentar</option>																	
+																</select></td>
+																<td ><select class="form-control default-select" id="sel1">
+																	<option>30</option>
+																	<option>25</option>																																	
+																</select></td>
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+																
+															</tr>
+															<tr>
+																<td style="background-color:#b6a1fa">Días de actividad física:</td>
+																<td ><select class="form-control default-select" id="sel1">
+																	<option>Perdida</option>
+																	<option>Mantener</option>
+																	<option>Aumentar</option>																	
+																</select></td>
+																<td ><select class="form-control default-select" id="sel1">
+																	<option>30</option>
+																	<option>25</option>																																	
+																</select></td>
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+																
+															</tr>
+																													
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														
+														<tbody>
+															<tr>
+																<td style="background-color:#b6a1fa">METABOLISMO BASAL (MASA MAGRA): </td>
+																<td style="background-color:#b6a1fa">TMB </td>
+																<td style="background-color:#b6a1fa">GET</td>
+															</tr>
+															
+															<tr><td  style="background-color:#cdbffb">CUNNINGHAM:	</td>	
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+															</tr>
+															<tr><td  style="background-color:#cdbffb">McAERDLE, KATCH):</td>	
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+															</tr>
+																													
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-lg-6 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														
+														<tbody>
+															
+															<tr><td  style="background-color:#cdbffb">IOM (2005) </td>	
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+															</tr>
+															
+																													
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-lg-12 mb-3">
+												<div class="table-responsive">
+													<table class="table table-bordered verticle-middle table-responsive-sm">													
+														
+														<tbody>
+															<tr>
+																<td colspan="2" style="background-color:#b6a1fa">Estrategia Nutricional</td>
+															</tr>
+															<tr>
+																<td style="background-color:#b6a1fa"><select class="form-control default-select" id="sel1" style="background-color:#b6a1fa">
+																	<option>Superávit</option>
+																	<option>Isocalórico</option>
+																	<option>Déficit </option>																	
+																</select> </td>
+																<td><select class="form-control default-select" id="sel1">
+																	<option>-0,0.5</option>
+																	<option>-0,1</option>
+																	<option>-0,15 </option>																	
+																</select> </td>
+															</tr>
+															<tr><td >Vet:</td>	
+																<!--Numero quemado-->
+																<td ><input type="number" class="form-control" placeholder="" value="2000" disabled></td>	
+															</tr>
+															<tr><td  style="background-color:#cdbffb">Kcal Totales</td>	
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder="" disabled></td>	
+															</tr>
+															
+																													
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+
+
 									</div>
+
+									<div id="macros" class="tab-pane fade">
+										<div class="profile-macros">
+											<div class="pt-4 border-bottom-1 pb-3">
+												<h4 class="text-primary">Macros</h4>
+											</div>
+											<div class="row">
+												<div class="col-lg-12 mb-3">
+													<div class="table-responsive">
+														<table
+															class="table table-bordered verticle-middle table-responsive-sm">
+															<thead>
+																<tr><th colspan="2">Cálculo de Nutrientes	</th></tr>
+															</thead>
+
+															<tbody>
+																<tr>
+																	<td>Peso</td>
+																	<!--Numero quemado-->
+																	<td ><input type="number" class="form-control" placeholder="" value="70" disabled></td>	
+																</tr>
+																<tr>
+																	<td>Kcal VET</td>
+																	<!--Numero quemado-->
+																	<td ><input type="number" class="form-control" placeholder="" value="2200" disabled></td>	
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-lg-12 mb-3">
+													<div class="table-responsive">
+														<table
+															class="table table-bordered verticle-middle table-responsive-sm">
+															<thead>
+																<tr><th colspan="5">Distribución de Macronutrientes por %</th></tr>
+															</thead>
+
+															<tbody>
+																<tr>
+																	<td>DISTRIBUCIÓN </td>
+																	<td>g/kg </td>
+																	<td>Gramos</td>
+																	<td>Kcal</td>
+																	<td>% </td>
+																</tr>
+																<tr>
+																	<td>Proteinas</td>
+																	<td><select class="form-control default-select" id="sel1">
+																		<option>0,8</option>
+																		<option>0,9</option>
+																		<option>1 </option>																	
+																		<option>1,1 </option>																	
+																		<option>1,2 </option>																	
+																		<option>1,3 </option>																	
+																		<option>1,4 </option>																	
+																		<option>1,5 </option>																	
+																		<option>1,6 </option>																	
+																		<option>1,7 </option>																	
+																		<option>1,8 </option>																	
+																		<option>1,9 </option>
+																		<option>2</option>																	
+																	
+																	</select></td>
+																
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder="" value="2200" disabled></td>	
+																<td ><input type="number" class="form-control" placeholder="" value="2200" disabled></td>	
+																<td ><input type="number" class="form-control" placeholder="" value="2200" disabled></td>	
+																</tr>
+
+																<tr>
+																	<td>Grasas</td>
+																	
+
+																	<td><select class="form-control default-select" id="sel1">
+																		<option>0,5</option>
+																		<option>0,6</option>
+																		<option>0,7</option>
+																		<option>0,8</option>
+																		<option>0,9</option>
+																		<option>1 </option>																	
+																		<option>1,1 </option>																	
+																		<option>1,2 </option>																	
+																		<option>1,3 </option>																	
+																		<option>1,4 </option>																	
+																		<option>1,5 </option>
+																	</select></td>
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder=""  disabled></td>	
+																<td ><input type="number" class="form-control" placeholder=""  disabled></td>	
+																<td ><input type="number" class="form-control" placeholder=""  disabled></td>	
+																</tr>
+
+																<tr>
+																	<td>Carbohidratos</td>
+																	
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder=""  disabled></td>	
+																<td ><input type="number" class="form-control" placeholder=""  disabled></td>	
+																<td ><input type="number" class="form-control" placeholder=""  disabled></td>	
+																<td ><input type="number" class="form-control" placeholder=""  disabled></td>	
+																</tr>
+
+																<tr>
+																	<td colspan="2">Total</td>
+																	
+																<!--Calculos deben hacerse en el backend-->
+																<td ><input type="number" class="form-control" placeholder=""  disabled></td>	
+																<td ><input type="number" class="form-control" placeholder=""  disabled></td>	
+																<td ><input type="number" class="form-control" placeholder=""  disabled></td>	
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+
+
+										</div>
+									</div>
+
+										
 
 
 									<div id="notas" class="tab-pane fade">
