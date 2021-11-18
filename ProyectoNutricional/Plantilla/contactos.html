@@ -58,47 +58,14 @@
 									<div class="card-body">
 										<div class="table-responsive ">
 											<table class="table patient-activity">
-												{% for uniontablas in uniontablas %}
-												
-													<!-- Segunda opcion en lugar de paciente desde
-													<td>
-														<div class="d-flex align-items-center">
-															<div>
-																<p class="mb-1">Próxima Cita</p>
-																<h5 class="mt-0 mb-1 text-success"><small>22/03/2020 12:34 AM</small></h5>
-															</div>
-															<div class="dropdown ml-auto">
-																<div class="btn-link" data-toggle="dropdown">
-																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
-																</div>
-																<div class="dropdown-menu dropdown-menu-right" >
-																	<a class="dropdown-item" href="#">Edit</a>
-																	<a class="dropdown-item" href="#">Delete</a>
-																</div>
-															</div>
-														</div>
-														<div class="d-flex align-items-center">
-															<div>
-																<p class="mb-1">Estado</p>
-																<h5 class="mt-0 mb-1 text-danger">Nuevo paciente</h5>
-																<small>22/03/2020 12:34 AM</small>
-															</div>
-															<div class="dropdown ml-auto">
-																<div class="btn-link" data-toggle="dropdown">
-																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
-																</div>
-																<div class="dropdown-menu dropdown-menu-right">
-																	<a class="dropdown-item" href="#">Edit</a>
-																	<a class="dropdown-item" href="#">Delete</a>
-																</div>
-															</div>
-														</div>
-													</td>-->
+												{% for uniontablas in uniontablas %}											
+							
 												<tr>
 													<td>
 														<div class="media align-items-center">
-															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/2.jpg'%}" alt="DexignZone">
+															<img class="mr-3 img-fluid rounded" width="78" src="{% static '/images/avatar/user.png'%}" alt="DexignZone">
 															<div class="media-body">
+																
 																<a href="{% static 'patient-details.html'%}"><h5 class="mt-0 mb-1">{{uniontablas.0}} {{uniontablas.1}}  {{uniontablas.2}}</h5></a>
 																<p class="mb-0">{{uniontablas.3}}</p>
 															</div>
