@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}Perfil - Actualización e datos{% endblock %}
+
+
+{% block title_page %}Perfil del usuario{% endblock title_page %} 
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'vendor/pickadate/themes/default.css' %}">
+<link rel="stylesheet" href="{% static 'vendor/pickadate/themes/default.date.css' %}">
+{% endblock css %}
+  
+
+{% block breadcrumb %}
+<div class="row page-titles mx-0">
+  <div class="col-sm-6 p-md-0">
+    <div class="welcome-text">
+      <h4>Actualización datos del perfil</h4>
+      <p class="mb-0">{{user.first_name}}, {{user.last_name}}</p>
+    </div>
+  </div>
+  <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Panel</a></li>
+      <li class="breadcrumb-item active"><a href="{% url 'nutri_app:user_profile_detail' %}">Perfil</a></li>
+      <li class="breadcrumb-item active"><a href="javascript:void(0)">Actualizar datos</a></li>
+    </ol>
+  </div>
+</div>
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+<div class="card">
+  <div class="card-body">
+   
+      <div>
+
+        <form name="perfil" id="perfil" role="form" method="post" enctype="multipart/form-data" action="">
+          {% csrf_token %}
+          {{ form|crispy }}
+
+          <div class="btn-group">
+            <button class="btn btn-primary" type="submit">
+              <i class="fa fa-check"></i> Grabar
+            </button>
+
+            <a class="btn btn-primary" href="{% url 'nutri_app:user_profile_detail' %}" class="btn btn-default"><i
+                class="fa fa-times"></i> Cancelar</a>
+          </div>
+
+        </form>
+
+      </div>
+
+   
+  </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'vendor/pickadate/picker.js' %}"></script>
+<script src="{% static 'vendor/pickadate/picker.date.js' %}"></script>
+
+<script>
+
+  // MAterial Date picker
+  $('#id_fecha_nacimiento').pickadate({
+    format: 'dd/mm/yyyy',
+    formatSubmit: 'dd/mm/yyyy',
+    });
+
+</script>
+
+{% endblock js %}
+
+

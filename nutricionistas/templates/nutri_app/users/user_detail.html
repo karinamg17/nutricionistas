@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}Nutricionistas - Detalle de usuarios{% endblock %}
+
+{% block title_page %}Usuarios{% endblock title_page %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block breadcrumb %}
+<div class="row page-titles mx-0">
+  <div class="col-sm-6 p-md-0">
+    <div class="welcome-text">
+      <h4>Detalle de usuario</h4>
+      <p>{{ object.first_name }}, {{object.last_name}}</p>
+    </div>
+  </div>
+  <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Panel</a></li>
+      <li class="breadcrumb-item active"><a href="{% url 'nutri_app:users_list' %}">Listado de usuarios</a></li>
+      <li class="breadcrumb-item active"><a href="javascript:void(0)">Detalle</a></li>
+    </ol>
+  </div>
+</div>
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+
+<div class="row">
+  <div class="col-md-12 text-center">
+
+    {% if not object.foto_usuario %}
+    <img src="{% static 'images/user.png' %}" class="img-circle" height="100" width="100"
+      alt="No photo">
+    {% else %}
+    <img src="{{ user.foto_usuario.thumbnail.140x140 }}" class="img-circle" alt="User photo" />
+    {% endif %}
+    <br>
+
+  </div>
+</div>
+
+<br><br>
+
+
+<div class="row">
+  <div class="col-sm-12">
+
+
+    <table class="table">
+
+      <thead>
+        <tr>
+          <th colspan="3">Información geneal</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        
+        <tr>
+          <td>Nombres:</td>
+          <td>{{ object.first_name }}, {{ object.last_name }} </td>
+        </tr>
+
+        <tr>
+          <td>Documento:</td>
+          <td>{{ object.tipo_docimento }} {{ object.nro_documento }} </td>
+        </tr>
+
+        <tr>
+          <td>Fecha de nacimiento:</td>
+          <td>{{ object.fecha_nacimiento }}. Edad: {{ object.edad }} </td>
+        </tr>
+        
+        <tr>
+          <td>Correo electrónico:</td>
+          <td>{{ object.email }} </td>
+        </tr>
+
+        <tr>
+          <td>Sexo:</td>
+          <td>{{ object.sexo }} </td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <a href="{% url 'nutri_app:users_list' %}" class="btn btn-primary btn-sm"><i
+                class="fa fa-reply"></i> {% trans 'Regresar al listado' %}</a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <br>
+
+  </div>
+</div>
+
+
+{% endblock content %}
+
+

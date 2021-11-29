@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}Listado de usuarios{% endblock %}
+
+{% block title_page %}Usuarios{% endblock title_page %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block breadcrumb %}
+<div class="row page-titles mx-0">
+  <div class="col-sm-6 p-md-0">
+    <div class="welcome-text">
+      <h4>Listado general</h4>
+    </div>
+  </div>
+  <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Panel</a></li>
+      <li class="breadcrumb-item active"><a href="javascript:void(0)">Listado de usuarios</a></li>
+    </ol>
+  </div>
+</div>
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+
+<h6>Filtar por:</h6>
+<form method="get">
+  {{ filter.form }}
+  <input class="btn btn-primary btn-sm" type="submit" value="Filtrar" />
+</form>
+<br>
+
+
+<div class="row">
+  <div class="col-md-12 space20">
+
+    <a href="{% url 'nutri_app:usuario_create' %}" title="Add user" class="btn btn-primary btn-sm">
+      <i class="fa fa-plus"></i> {% trans 'Agregar usuario' %}</a>
+  </div>
+</div>
+<br>
+
+
+<div class="table-responsive">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>{% trans 'Foto' %}</th>
+        <th>{% trans 'Nombre' %}</th>
+        <th>{% trans 'Teléfono' %}</th>
+        <th>{% trans 'Grupo' %}</th>
+        <th>{% trans 'Acciones' %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ope in object_list %}
+      <tr>
+        <td>
+          {% if ope.foto_usuario %}
+          <img src="{{ ope.foto_usuario.thumbnail.40x40 }}" />
+          <!--ope.foto.crop.25x25 -->
+          {% else %}
+          {% trans 'Sin foto' %}
+          {% endif %}
+        </td>
+        <td>{{ ope.last_name }} {{ ope.first_name }}</td>
+        <td>{{ ope.nro_telefono }}</td>
+        <td>
+          {% for group in ope.groups.all %}
+          {{ group.name }}
+          {% endfor %}
+        </td>
+
+        <td class="text-nowrap">
+
+          <a class="btn btn-primary btn-sm" href="{% url 'nutri_app:usuario_detail' ope.pk %}" alt="Detalles de usuario">
+            <i class="fa fa-eye"></i></a>
+
+          <a class="btn btn-primary btn-sm" href="{% url 'nutri_app:usuario_edit' ope.pk %}">
+            <i class="fa fa-edit" alt="Edit"></i></a>
+
+          <a class="btn btn-primary btn-sm" href="{% url 'nutri_app:usuario_change_passwd' ope.pk %}">
+            <i class="fa fa-key"></i>
+          </a>
+
+          <a class="btn btn-primary btn-sm" href="{% url 'nutri_app:usuario_delete' ope.pk %}" alt="Eliminar">
+            <i class="fa fa-trash-o"></i> </a>
+        </td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include "_pagination.html" %}
+</div>
+
+
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}

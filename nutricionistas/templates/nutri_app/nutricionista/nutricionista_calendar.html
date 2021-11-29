@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Control de citas{% endblock %}
+
+{% block title_page %}Control de Citas{% endblock title_page %}
+
+{% block css %}
+<link href="{% static 'vendor/fullcalendar/css/fullcalendar.min.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block breadcrumb %}
+<div class="row page-titles mx-0">
+  <div class="col-sm-6 p-md-0">
+    <div class="welcome-text">
+      <h4>Calendario de citas de pacientes</h4>
+      <p class="mb-0">{{user.first_name}}, {{user.last_name}}</p>
+    </div>
+  </div>
+  <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Panel</a></li>
+      <li class="breadcrumb-item active"><a href="javascript:void(0)">Perfil</a></li>
+    </ol>
+  </div>
+</div>
+
+{% endblock breadcrumb %}
+
+{% block content %}
+<!--**********************************
+    Content body start
+***********************************-->
+
+<div class="row">
+  <div class="col-xl-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-intro-title">Agenda</h4>
+
+        <div class="">
+          <div id="external-events" class="my-3">
+            <p>Seleccione un paciente para ver el expediente</p>
+
+          </div>
+
+          <div id="external-events" class="my-3">
+            <div class="external-event" data-class="bg-success"><i class="fa fa-move"></i>Completadas</div>
+            <div class="external-event" data-class="bg-warning"><i class="fa fa-move"></i>Pendientes</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-9">
+    <div class="card">
+      <div class="card-body">
+        <div id="calendar" class="app-fullcalendar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEGIN MODAL -->
+  <div class="modal fade none-border" id="event-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><strong>Agregar nueva cita</strong></h4>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-success save-event waves-effect waves-light">Crear</button>
+
+          <button type="button" class="btn btn-danger delete-event waves-effect waves-light"
+            data-dismiss="modal">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Add Category -->
+  <div class="modal fade none-border" id="add-category">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><strong>Tipo de Cita</strong></h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="row">
+              <div class="col-md-6">
+                <label class="control-label">Descripción</label>
+                <input class="form-control form-white" placeholder="Ingrese un nombre" type="text" name="category-name">
+              </div>
+              <div class="col-md-6">
+                <label class="control-label">Elegir Categoría</label>
+                <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+                  <option value="success">Cita Recurrente</option>
+                  <option value="danger">Cita Unica</option>
+                  <!--<option value="info">Bloquear espacio</option>
+                                            <option value="pink">Bloqueo de día</option>-->
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label class="control-label">Descripción</label>
+                <input class="form-control form-white" placeholder="Ingrese un nombre" type="text" name="category-name">
+              </div>
+              <div class="col-md-6">
+                <label class="control-label">Elegir Categoría</label>
+                <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+                  <option value="success">Cita por primera vez</option>
+                  <option value="danger">Cita Regular</option>
+                  <!-- <option value="info">Bloquear espacio</option>
+                                            <option value="pink">Bloqueo de día</option>-->
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-danger waves-effect waves-light save-category"
+            data-dismiss="modal">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+
+{% endblock content %}
+
+
+{% block js %}
+
+<script src="{% static 'vendor/moment/moment.min.js' %}"></script>
+<script src="{% static 'vendor/fullcalendar/js/fullcalendar.min.js' %}"></script>
+<script src="{% static 'vendor/fullcalendar/locale/es.js' %}"></script>
+
+<script>
+  let c = '{{ csrf_token }}';
+  let ajax_header = {
+    'X-CSRFToken': c
+  };
+
+  let dTable;
+
+
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+
+    lang: 'es',
+    //timezone: 'local',
+    editable: true,
+    selectable: true,
+    eventLimit: true, // allow "more" link when too many events
+
+    defaultView: $(window).width() < 765 ? 'basicDay' : 'month',
+
+    eventSources: [{
+        url: "/nutri_app/pacientes/data/calendar/pendiente",
+        headers: ajax_header,
+        timezone: "UTC",
+        dataType: "json",
+        type: "get",
+        error: function () {
+          alert('error downloading data from server calendar user');
+        },
+        color: "#EE520E",
+        textColor: '#696969',
+      },{
+        url: "/nutri_app/pacientes/data/calendar/completado",
+        headers: ajax_header,
+        timezone: "UTC",
+        dataType: "json",
+        type: "get",
+        error: function () {
+          alert('error downloading data from server calendar user');
+        },
+        color: "#05BB47",
+        textColor: '#696969',
+      },
+
+    ],
+
+
+    // eventRender eventAfterRender  eventAfterAllRender
+    eventAfterAllRender: function (event, element) {
+      // Evento al cargar
+      //getBalance();
+
+    },
+    //   eventOrder: 'paid',
+
+    eventClick: function (event, element) {
+      console.log(event)
+
+    },
+
+
+  });
+
+</script>
+
+{% endblock js %}

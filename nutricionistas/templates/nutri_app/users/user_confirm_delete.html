@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}Nutricionistas - Detalle de usuarios{% endblock %}
+
+{% block title_page %}Usuarios{% endblock title_page %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block breadcrumb %}
+<div class="row page-titles mx-0">
+  <div class="col-sm-6 p-md-0">
+    <div class="welcome-text">
+      <h4>Detalle de usuario</h4>
+      <p>{{ object.first_name }}, {{object.last_name}}</p>
+    </div>
+  </div>
+  <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Panel</a></li>
+      <li class="breadcrumb-item active"><a href="{% url 'nutri_app:users_list' %}">Listado de usuarios</a></li>
+      <li class="breadcrumb-item active"><a href="javascript:void(0)">Edición</a></li>
+    </ol>
+  </div>
+</div>
+
+{% endblock breadcrumb %}
+
+
+{% block content %}
+
+
+<!-- start: PAGE CONTENT -->
+
+{% csrf_token %}
+
+
+<table class="table table-bordered">
+
+  <tr>
+    <td><b>{% trans 'Nombre' %}</b></td>
+    <td>{{ object.last_name }} {{ object.first_name }}</td>
+  </tr>
+  <tr>
+    <td><b>{% trans 'Nro. Telefono' %}</b></td>
+    <td>{{object.nro_telefono}}</td>
+  </tr>
+  <tr>
+
+    <td><b>{% trans 'Foto' %}</b></td>
+    <td>
+      {% if not object.foto_usuario %}
+      <img src="{% static 'images/user.png' %}" class="img-circle" height="100" width="100"
+        alt="No photo">
+      {% else %}
+      <img src="{{ object.foto_usuario.thumbnail.140x140 }}" class="img-circle" alt="User photo" />
+      {% endif %}
+    </td>
+  </tr>
+</table>
+
+<p>{% trans '¿Está seguro de eliminar este usuario?' %}</p>
+
+<a href="" onclick="document.forms[0].submit();return false;" class="btn btn-danger btn-sm">
+  <i class="fa fa-trash-o"></i> {% trans 'Borrar' %}</a>
+<a href="{% url 'nutri_app:users_list' %}" class="btn btn-primary btn-sm"><i class="fa fa-times"></i>
+  {% trans 'Cancelar' %}</a>
+
+</div>
+
+</form>
+<!-- end: FROM -->
+
+
+
+{% endblock content %}

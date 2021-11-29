@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=nutricionistas
+POSTGRES_USER=JixKDCzbjmBWsjAvlyrMUTwofAbEGjFr
+POSTGRES_PASSWORD=ntAZe9Cx02PF8RFtRocZf8sGrwdQMKkxBfeQuUwkrlMnOOLrtDWkSovE5Vyu9Mwr
