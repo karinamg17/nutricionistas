@@ -1,3 +1,5 @@
+import re
+
 from allauth.account.forms import SignupForm
 from django import forms as form2
 from django.contrib.auth import forms as admin_forms
@@ -18,6 +20,19 @@ class UserCreationForm(admin_forms.UserCreationForm):
 
         error_messages = {
             "username": {"unique": _("This username has already been taken.")}
+        }
+
+
+class DateInput(form2.DateInput):
+    input_type = 'date'
+
+
+class UserProfileForm(form2.ModelForm):
+    class Meta:
+        model = User
+        fields = 'first_name', 'last_name', 'nro_telefono',  'nro_telefono', 'sexo', 'fecha_nacimiento'
+        widgets = {
+            'fecha_nacimiento': DateInput(), 'sexo': form2.Select(attrs={'class': 'form-control default-select'}),
         }
 
 

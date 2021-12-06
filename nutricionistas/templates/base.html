@@ -182,6 +182,7 @@
 
 
 
+          {% if user.is_admin  %} 
           <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
               <i class="flaticon-381-network"></i>
               <span class="nav-text">Usuarios</span>
@@ -202,6 +203,8 @@
             </ul>
           </li>
 
+          {% endif %}
+
 
           <li>
             <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -210,7 +213,7 @@
             </a>
             <ul aria-expanded="false">
               <li><a href="{% url 'nutri_app:paciente_calendar' %}">Calendario de citas</a></li>
-              <li><a href="#">Alimentación</a></li>
+              <!-- <li><a href="#">Alimentación</a></li> -->
             </ul>
           </li>
 

@@ -33,6 +33,10 @@ class User(AbstractUser):
     )
 
     @property
+    def is_admin(self):
+        return self.groups.filter(name='Administrador').exists()
+
+    @property
     def get_user_profile(self):
         user_profile = 'Ninguno'
         if self.groups.filter(name='Administrador').exists():

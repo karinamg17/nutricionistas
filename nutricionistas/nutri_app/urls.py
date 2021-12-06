@@ -7,11 +7,16 @@ from nutricionistas.nutri_app.views import (
 
 app_name = "nutri_app"
 
+
 router = DefaultRouter()
 router.register(r'pacientes', pacientes.UsersViewSet)
-router.register(r'paciente_cita/(?P<user_id>\d+)', pacientes.CitaViewSet)
 router.register(r'paciente_cita_cal', pacientes.CitaCalViewSet)
-
+router.register(r'paciente_cita/(?P<user_id>\d+)', pacientes.CitaViewSet)
+router.register(r'frecuencia_de_consumo/(?P<user_id>\d+)', pacientes.FrecuenciaDeConsumoViewSet)
+router.register(r'deportes/(?P<user_id>\d+)', pacientes.DeporteViewSet)
+router.register(r'suplementos/(?P<user_id>\d+)', pacientes.SuplementoViewSet)
+router.register(r'paciente/indicador_bioquimico/(?P<user_id>\d+)', pacientes.IndicadorBioquimicoViewSet)
+router.register(r'paciente/datos_biomedicos', pacientes.DatosBiomedicosViewSet)
 
 urlpatterns = [
 
@@ -32,6 +37,8 @@ urlpatterns = [
     path('paciente/', paciente_calendar.PacienteCalendarTemplateView.as_view(), name='paciente_calendar'),
     path('paciente/data/calendar/pendiente', paciente_calendar.CitaPacientePendienteCalJsonView.as_view(), name='paciente_data_calendar_pendiente'),
     path('paciente/data/calendar/completado', paciente_calendar.CitaPacienteCompletadoCalJsonView.as_view(), name='paciente_data_calendar_completado'),
+    path('paciente/data/calendar/cancelado', paciente_calendar.CitaPacienteCanceladaCalJsonView.as_view(), name='paciente_data_calendar_cancelado'),
+    path('paciente/data/calendar/disponibilidad', paciente_calendar.DisponibilidadCalJsonView.as_view(), name='paciente_data_calendar_disponibilidad'),
     
     path('nutricionista/', nutricionista_calendar.NutricionistaCalendarTemplateView.as_view(), name='nutricionista_calendar'),
 

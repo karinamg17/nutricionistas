@@ -7,15 +7,15 @@
 {% block title_page %}Pacientes{% endblock title_page %}
 
 {% block css %}
-
+<link href="{% static 'vendor/datatables/css/jquery.dataTables.min.css' %}" rel="stylesheet">
 {% endblock css %}
 
 {% block breadcrumb %}
 <div class="row page-titles mx-0">
   <div class="col-sm-6 p-md-0">
     <div class="welcome-text">
-      <h4>Detalle de Pacientes</h4>
-      <p>{{ object.first_name }}, {{object.last_name}}</p>
+      <h4>Expediente de Pacientes</h4>
+      <p>{{ paciente.first_name }}, {{paciente.last_name}}</p>
     </div>
   </div>
   <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -33,91 +33,122 @@
 
 
 <div class="row">
-  <div class="col-md-12 text-center">
-
-    {% if not object.foto_usuario %}
-    <img src="{% static 'images/user.png' %}" class="img-circle" height="100" width="100" alt="No photo">
-    {% else %}
-    <img src="{{ user.foto_usuario.thumbnail.140x140 }}" class="img-circle" alt="User photo" />
-    {% endif %}
-    <br>
-
-  </div>
-</div>
-
-<br><br>
-
-
-<div class="row">
   <div class="col-sm-12">
-
-
-    <table class="table">
-
-      <thead>
-        <tr>
-          <th colspan="3">Información geneal</th>
-        </tr>
-      </thead>
-
-      <tbody>
-
-        <tr>
-          <td>Nombres:</td>
-          <td>{{ object.first_name }}, {{ object.last_name }} </td>
-        </tr>
-
-        <tr>
-          <td>Documento:</td>
-          <td>{{ object.tipo_docimento }} {{ object.nro_documento }} </td>
-        </tr>
-
-        <tr>
-          <td>Fecha de nacimiento:</td>
-          <td>{{ object.fecha_nacimiento }}. Edad: {{ object.edad }} </td>
-        </tr>
-
-        <tr>
-          <td>Correo electrónico:</td>
-          <td>{{ object.email }} </td>
-        </tr>
-
-        <tr>
-          <td>Sexo:</td>
-          <td>{{ object.sexo }} </td>
-        </tr>
-
-      </tbody>
-    </table>
-
 
     <div class="row">
       <div class="col-xl-12">
         <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">Expediente</h4>
-          </div>
+
           <div class="card-body">
             <!-- Nav tabs -->
             <div class="default-tab">
               <ul class="nav nav-tabs" role="tablist">
+
                 <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#home"><i class="la la-home mr-2"></i> Citas</a>
+                  <a class="nav-link active show" data-toggle="tab" href="#datos-personales"><i
+                      class="la la-user mr-2"></i></i> Datos Personales</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#citas"><i class="la la-calendar-o"></i> Citas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#profile"><i class="la la-user mr-2"></i> B - C</a>
+                  <a class="nav-link" data-toggle="tab" href="#i_clinicos"><i class="la la-history"></i> I. Clinicos</a>
                 </li>
-                <!-- <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#contact"><i class="la la-phone mr-2"></i> Valores</a>
+
+                <li class="nav-item"><a href="#indicadores-dieteticos" data-toggle="tab" class="nav-link">I.
+                    Dieteticos</a>
                 </li>
+                <li class="nav-item"><a href="#frecuencia-consumo" data-toggle="tab" class="nav-link">Frecuencia
+                    Consumo</a>
+                </li>
+                <li class="nav-item"><a href="#r24" data-toggle="tab" class="nav-link">R 24hr</a>
+                </li>
+                <li class="nav-item"><a href="#estilo-de-vida" data-toggle="tab" class="nav-link">Estilo de Vida</a>
+                </li>
+
+
+                {% if paciente.sexo == 'Femenino' %}
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#message"><i class="la la-envelope mr-2"></i> Message</a> -->
+                  <a class="nav-link" data-toggle="tab" href="#aspectos_gin"> A. Ginecológicos</a>
                 </li>
+                {% endif %}
+
+
+                <li class="nav-item"><a href="#antro" data-toggle="tab" class="nav-link">Antro</a>
+                </li>
+                <li class="nav-item"><a href="#macros" data-toggle="tab" class="nav-link">Macros</a>
+                </li>
+
               </ul>
               <div class="tab-content">
-                <div class="tab-pane fade show active" id="home" role="tabpanel">
+
+
+                <div class="tab-pane fade show active" id="datos-personales" role="tabpanel">
+                  <div class="pt-4">
+
+
+                    <div class="row">
+                      <div class="col-md-12 text-center">
+
+                        {% if not paciente.foto_usuario %}
+                        <img src="{% static 'images/user.png' %}" class="img-circle" height="100" width="100"
+                          alt="No photo">
+                        {% else %}
+                        <img src="{{ user.foto_usuario.thumbnail.140x140 }}" class="img-circle" alt="User photo" />
+                        {% endif %}
+                        <br>
+
+                      </div>
+                    </div>
+
+                    <table class="table">
+
+                      <thead>
+                        <tr>
+                          <th colspan="3">Información geneal</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+
+                        <tr>
+                          <td>Nombres:</td>
+                          <td>{{ paciente.first_name }}, {{ paciente.last_name }} </td>
+                        </tr>
+
+                        <tr>
+                          <td>Documento:</td>
+                          <td>{{ paciente.tipo_docimento }} {{ paciente.nro_documento }} </td>
+                        </tr>
+
+                        <tr>
+                          <td>Fecha de nacimiento:</td>
+                          <td>{{ paciente.fecha_nacimiento }}. Edad: {{ paciente.edad }} </td>
+                        </tr>
+
+                        <tr>
+                          <td>Correo electrónico:</td>
+                          <td>{{ paciente.email }} </td>
+                        </tr>
+
+                        <tr>
+                          <td>Sexo:</td>
+                          <td>{{ paciente.sexo }} </td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+
+
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="citas">
                   <div class="pt-4">
                     <h4>Citas</h4>
+
+                    <br>
 
                     <div class="row">
                       <div class="col-md-12 space20">
@@ -138,16 +169,254 @@
 
                   </div>
                 </div>
-                <div class="tab-pane fade" id="profile">
+
+                <div class="tab-pane fade" id="i_clinicos">
                   <div class="pt-4">
-                    <h4>Valores</h4>
+
+                    <div class="page-header clearfix">
+                      <h3 class="float-left">Indicadores bioquímicos</h3>
+                      <a href="javascript:void(0)" class="btn btn-primary float-right btn-sm add-indicador"> Agregar
+                        Indicadores </a>
+                    </div>
+                    <br>
 
                     <div class="row">
                       <div class="col-md-12 space20">
 
                         <div class="table-responsive">
 
-                          <table id="table_valores" class="display" style="min-width: 845px">
+                          <table id="table_indicadores" class="display" style="min-width: 845px">
+                            <div class="loading-table-data">
+                              <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                              <span class="sr-only">Download...</span>
+                              <p>Download...</p>
+                            </div>
+                          </table>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <br>
+                    <h3>Indicadores clínicos</h3>
+                    <br>
+
+                    <div class="row">
+                      <div class="col-md-12 space20">
+
+                        <h4>História clínica</h4>
+                        <div class="table-responsive">
+
+                          <table id="table_antecedentes" class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Antecedentes</th>
+                                <th scope="col">Personales</th>
+                                <th scope="col">Familiares</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>
+                        </div>
+                        <button class="btn btn-primary float-right btn-sm indicadores-btn">Editar antecedentes</button>
+                      </div>
+                    </div>
+
+                    <br>
+
+
+                  </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="indicadores-dieteticos">
+                  <div class="pt-4">
+
+                    <div class="row">
+                      <div class="col-md-12 space20">
+
+                        <h4>Hábitos y preferencias alimentarias
+                        </h4>
+                        <div class="table-responsive">
+
+                          <table id="table_preferencias_alimentarias" class="table" style="min-width: 845px">
+                            <thead>
+                              <tr>
+                                <th scope="col">Indicador</th>
+                                <th scope="col">Valor</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>
+                        </div>
+                        <button class="btn btn-primary float-right btn-sm preferencias-alimentarias-btn">Editar
+                          preferencias
+                          alimentarias</button>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12 space20">
+
+                        <h4>Comidas
+                        </h4>
+                        <div class="table-responsive">
+
+                          <table id="table_comidas" class="table" style="min-width: 845px">
+                            <thead>
+                              <tr>
+                                <th scope="col">Indicador</th>
+                                <th scope="col">Valor</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>
+                        </div>
+                        <button class="btn btn-primary float-right btn-sm comidas-btn">Editar comidas</button>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12 space20">
+
+                        <h4>Hábitos
+                        </h4>
+                        <div class="table-responsive">
+
+                          <table id="table_habitos" class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Consumo</th>
+                                <th scope="col">Si-No</th>
+                                <th scope="col">Frecuencia</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Cantidad</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>
+                        </div>
+                        <button class="btn btn-primary float-right btn-sm habitos-btn">Editar hábitos</button>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="frecuencia-consumo">
+                  <div class="pt-4">
+
+                    <div class="page-header clearfix">
+                      <h3 class="float-left">Frecuencia de consumo</h3>
+                      <a href="javascript:void(0)" class="btn btn-primary float-right btn-sm add-frecuencia-consumo">
+                        Agregar
+                        Frecuencia de consumo </a>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                      <div class="col-md-12 space20">
+
+                        <div class="table-responsive">
+
+                          <table id="table_frecuencia_de_consumo" class="display" style="min-width: 845px">
+                            <div class="loading-table-data">
+                              <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                              <span class="sr-only">Download...</span>
+                              <p>Download...</p>
+                            </div>
+                          </table>
+                        </div>
+
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="r24">
+                  <div class="pt-4">
+                    R24
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="estilo-de-vida">
+                  <div class="pt-4">
+
+                    <div class="row">
+                      <div class="col-md-12 space20">
+                        <br>
+                        <h4>Estilo de vida</h4>
+
+
+                        <div class="table-responsive">
+
+                          <table id="table_actividad_fisica" class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Actividad fisica</th>
+                                <th scope="col">Valor</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>
+                        </div>
+                        <button class="btn btn-primary float-right btn-sm actividad_fisica-btn">Editar actividad
+                          física</button>
+                      </div>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <div class="page-header clearfix">
+                      <h3 class="float-left">Deportes</h3>
+                      <a href="javascript:void(0)" class="btn btn-primary float-right btn-sm add-deportes">
+                        Agregar deporte </a>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                      <div class="col-md-12 space20">
+
+                        <div class="table-responsive">
+
+                          <table id="table_deportes" class="display" style="min-width: 845px">
+                            <div class="loading-table-data">
+                              <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                              <span class="sr-only">Download...</span>
+                              <p>Download...</p>
+                            </div>
+                          </table>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <div class="page-header clearfix">
+                      <h3 class="float-left">Suplementos</h3>
+                      <a href="javascript:void(0)" class="btn btn-primary float-right btn-sm add-suplementos">
+                        Agregar suplemento </a>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                      <div class="col-md-12 space20">
+
+                        <div class="table-responsive">
+
+                          <table id="table_suplementos" class="display" style="min-width: 845px">
                             <div class="loading-table-data">
                               <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
                               <span class="sr-only">Download...</span>
@@ -161,28 +430,46 @@
 
                   </div>
                 </div>
-                <div class="tab-pane fade" id="contact">
+
+                <div class="tab-pane fade" id="aspectos_gin">
                   <div class="pt-4">
-                    <h4>This is contact title</h4>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                      live the blind texts. Separated they live in Bookmarksgrove.
-                    </p>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                      live the blind texts. Separated they live in Bookmarksgrove.
-                    </p>
+
+                    <br>
+                    <h4>Datos ginecológicos</h4>
+                    <br>
+
+                    <div class="row">
+                      <div class="col-md-12 space20">
+
+                        <div class="table-responsive">
+                          <table id="table_ginecologicos" class="table" style="min-width: 845px">
+                            <tbody>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <button class="btn btn-primary float-right btn-sm ginecologicos-btn">Editar
+                          genecológicos</button>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="antro">
+                  <div class="pt-4">
+                    Antro
                   </div>
                 </div>
-                <div class="tab-pane fade" id="message">
+
+                <div class="tab-pane fade" id="macros">
                   <div class="pt-4">
-                    <h4>This is message title</h4>
-                    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua,
-                      retro synth master cleanse. Mustache cliche tempor.
-                    </p>
-                    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua,
-                      retro synth master cleanse. Mustache cliche tempor.
-                    </p>
+                    Macro
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -195,7 +482,1656 @@
   </div>
 </div>
 
+
+
+<!-- Modals -->
+
+<!-- Modal Cita -->
+
+<!-- Editar indicador -->
+<div class="modal fade" id="edit-cita">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar cita</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="add-cita-form" name="add-cita-form" class="form-horizontal">
+
+          <input type="hidden" id="cita_id" name="cita_id">
+
+
+          <div class="form-group">
+            <label for="diagnostico_edit" class="col-sm-12 control-label">Diagnóstico</label>
+            <div class="col-sm-12">
+              <textarea class="form-control" rows="4" id="diagnostico_edit"></textarea>
+            </div>
+          </div>
+
+          <div class="custom-control custom-checkbox mb-3">
+            <input type="checkbox" class="custom-control-input" id="completada_edit" required>
+            <label class="custom-control-label" for="completada_edit">Completada</label>
+          </div>
+
+      </div>
+
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="saveCita()" class="btn btn-primary" id="btn-save" value="create"
+          class="btn btn-primary">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal datatables -->
+<!-- Agregar indicador -->
+<div class="modal fade" id="add-indicador">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Crear indicador</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <form id="add-indicador-form" name="add-indicador-form" class="form-horizontal">
+        <div class="modal-body">
+
+          <input type="hidden" class="form-control" id="user" name="user">
+
+          <div class="form-group">
+            <label for="fecha" class="col-sm-12 control-label">Fecha</label>
+            <div class="col-sm-12">
+              <input type="date" class="form-control" id="fecha" name="fecha" placeholder="Ingrese la fecha del examen"
+                value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="colesterol" class="col-sm-12 control-label">Colesterol</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="colesterol" name="colesterol"
+                placeholder="Ingresa el valor del coresterol" value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="trigliceridos" class="col-sm-12 control-label">Trigliceridos</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="trigliceridos" name="trigliceridos"
+                placeholder="Ingresa el valor de los trigliceridos" value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="hdl" class="col-sm-12 control-label">HDL</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="hdl" name="hdl" placeholder="Ingresa el valor de el HDL"
+                value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ldl" class="col-sm-12 control-label">LDL</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="ldl" name="ldl" placeholder="Ingresa el valor del LDL"
+                value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="glucosa_ayunas" class="col-sm-12 control-label">Glucosa en ayunas</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="glucosa_ayunas" name="glucosa_ayunas"
+                placeholder="Ingresa el valor de la glucosa en ayunas " value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="hemoglobina" class="col-sm-12 control-label">Hemoglobina</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="hemoglobina" name="hemoglobina"
+                placeholder="Ingresa el valor de la glucosa en ayunas " value="" maxlength="50" required="">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" id="btn-save" value="create"
+            class="btn btn-primary">Guardar</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- Agregar add-frecuencia-consumo-modal -->
+<div class="modal fade" id="add-frecuencia-consumo-modal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Crear Frecuencia de consumo</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <form id="add-frecuencia-consumo-form" name="add-frecuencia-consumo-form" class="form-horizontal">
+        <div class="modal-body">
+
+          <input type="hidden" class="form-control" id="user_fc" name="user">
+
+          <div class="form-group">
+            <label for="fecha" class="col-sm-12 control-label">Alimento</label>
+            <div class="col-sm-12">
+
+              <!-- Select Tipo de alimentos -->
+              <select name="alimento" id="alimento" class="form-control">
+                <optgroup label="Leches">
+                  <option value="Leche pinito">Leche pinito</option>
+                  <option value="Leche evaporada">Leche evaporada</option>
+                  <option value="Leche condensada">Leche condensada</option>
+                  <option value="Yogurt">Yogurt</option>
+                </optgroup>
+
+                <optgroup label="Frutas">
+                  <option value="Manzana">Manzana</option>
+                  <option value="Banano">Banano</option>
+                  <option value="Papaya">Papaya</option>
+                  <option value="Sandia">Sandia</option>
+                  <option value="Piña">Piña</option>
+                  <option value="Mandarina">Mandarina</option>
+                </optgroup>
+
+                <optgroup label="Verduras">
+                  <option value="Brócoli">Brócoli</option>
+                  <option value="Chayote">Chayote</option>
+                  <option value="Zanahoria">Zanahoria</option>
+                  <option value="Pepino">Pepino</option>
+                  <option value="Lechuga">Lechuga</option>
+                  <option value="Repollo">Repollo</option>
+                  <option value="Tomate">Tomate</option>
+                  <option value="Yuca">Yuca</option>
+                  <option value="Papa">Papa</option>
+                </optgroup>
+
+                <optgroup label="Harinas">
+                  <option value="Arroz">Arroz</option>
+                  <option value="Frijoles">Frijoles</option>
+                  <option value="Lentejas">Lentejas</option>
+                  <option value="Garbanzos">Garbanzos</option>
+                  <option value="Pan cuadrado">Pan cuadrado</option>
+                  <option value="Pan baguette">Pan baguette</option>
+                  <option value="Pastas">Pastas</option>
+                  <option value="Avena">Avena</option>
+                  <option value="Tortilla">Tortilla</option>
+                  <option value="Galletas">Galletas</option>
+                  <option value="Cereales">Cereales</option>
+                </optgroup>
+
+                <optgroup label="Carnes">
+                  <option value="Huevo">Huevo</option>
+                  <option value="Embutidos">Embutidos</option>
+                  <option value="Jamón">Jamón</option>
+                  <option value="Atún">Atún</option>
+                  <option value="Pollo">Pollo</option>
+                  <option value="Carne molida">Carne molida</option>
+                  <option value="Chuletas">Chuletas</option>
+                  <option value="Bistec">Bistec</option>
+                  <option value="Salmon-Pescado">Salmon-Pescado</option>
+                  <option value="Mariscos">Mariscos</option>
+                </optgroup>
+
+                <optgroup label="Grasa">
+                  Azucar de Mesa Azucar de Mesa <option value="Aceite">Aceite</option>
+                  <option value="Mantequilla">Mantequilla</option>
+                  <option value="Margarina">Margarina</option>
+                  <option value="Natilla">Natilla</option>
+                  <option value="Queso Crema">Queso Crema</option>
+                </optgroup>
+
+                <optgroup label="Azucar">
+                  <option value="Azucar de Mesa">Azucar de Mesa</option>
+                  <option value="Jalea-Mermelada">Jalea-Mermelada</option>
+                  <option value="Gaseosas">Gaseosas</option>
+                  <option value="Dulces">Dulces</option>
+                  <option value="Repostería">Repostería</option>
+                  <option value="Comida chatarra">Comida chatarra</option>
+                </optgroup>
+
+                <optgroup label="Bebidas">
+                  <option value="Leche">Leche</option>
+                  <option value="Jugos Naturales">Jugos Naturales</option>
+                  <option value="Jugos azucarados">Jugos azucarados</option>
+                  <option value="Bebidas Energizantes">Bebidas Energizantes</option>
+                  <option value="Bebidas Deportivas">Bebidas Deportivas</option>
+                  <option value="Café">Café</option>
+                  <option value="Agua"></option>
+                </optgroup>
+
+              </select>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="colesterol" class="col-sm-12 control-label">Frecuencia</label>
+            <div class="col-sm-12">
+              <!-- frecuencia en alimentos -->
+              <select name="frecuencia" id="frecuencia" class="form-control">
+                <option value="1xDía">1xDía</option>
+                <option value="3xDía">3xDía</option>
+                <option value="1xSemana">1xSemana</option>
+                <option value="2-4xSemana">2-4xSemana</option>
+                <option value="1xMes">1xMes</option>
+                <option value="2-3xMes">2-3xMes</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Observación</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="observacion" name="observacion" value="" maxlength="50"
+                required="">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" id="btn-save" value="create"
+            class="btn btn-primary">Guardar</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- Agregar edit-frecuencia-consumo-modal -->
+<div class="modal fade" id="edit-frecuencia-consumo-modal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">edit-indicador Frecuencia de consumo</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="edit-frecuencia-consumo-form" name="edit-frecuencia-consumo-form" class="form-horizontal">
+
+          <input type="hidden" class="form-control" id="frecuencia-consumo_id" name="frecuencia-consumo_id">
+
+          <div class="form-group">
+            <label for="fecha" class="col-sm-12 control-label">Alimento</label>
+            <div class="col-sm-12">
+
+              <!-- Select Tipo de alimentos -->
+              <select name="alimento" id="alimento_edit" class="form-control">
+                <optgroup label="Leches">
+                  <option value="Leche pinito">Leche pinito</option>
+                  <option value="Leche evaporada">Leche evaporada</option>
+                  <option value="Leche condensada">Leche condensada</option>
+                  <option value="Yogurt">Yogurt</option>
+                </optgroup>
+
+                <optgroup label="Frutas">
+                  <option value="Manzana">Manzana</option>
+                  <option value="Banano">Banano</option>
+                  <option value="Papaya">Papaya</option>
+                  <option value="Sandia">Sandia</option>
+                  <option value="Piña">Piña</option>
+                  <option value="Mandarina">Mandarina</option>
+                </optgroup>
+
+                <optgroup label="Verduras">
+                  <option value="Brócoli">Brócoli</option>
+                  <option value="Chayote">Chayote</option>
+                  <option value="Zanahoria">Zanahoria</option>
+                  <option value="Pepino">Pepino</option>
+                  <option value="Lechuga">Lechuga</option>
+                  <option value="Repollo">Repollo</option>
+                  <option value="Tomate">Tomate</option>
+                  <option value="Yuca">Yuca</option>
+                  <option value="Papa">Papa</option>
+                </optgroup>
+
+                <optgroup label="Harinas">
+                  <option value="Arroz">Arroz</option>
+                  <option value="Frijoles">Frijoles</option>
+                  <option value="Lentejas">Lentejas</option>
+                  <option value="Garbanzos">Garbanzos</option>
+                  <option value="Pan cuadrado">Pan cuadrado</option>
+                  <option value="Pan baguette">Pan baguette</option>
+                  <option value="Pastas">Pastas</option>
+                  <option value="Avena">Avena</option>
+                  <option value="Tortilla">Tortilla</option>
+                  <option value="Galletas">Galletas</option>
+                  <option value="Cereales">Cereales</option>
+                </optgroup>
+
+                <optgroup label="Carnes">
+                  <option value="Huevo">Huevo</option>
+                  <option value="Embutidos">Embutidos</option>
+                  <option value="Jamón">Jamón</option>
+                  <option value="Atún">Atún</option>
+                  <option value="Pollo">Pollo</option>
+                  <option value="Carne molida">Carne molida</option>
+                  <option value="Chuletas">Chuletas</option>
+                  <option value="Bistec">Bistec</option>
+                  <option value="Salmon-Pescado">Salmon-Pescado</option>
+                  <option value="Mariscos">Mariscos</option>
+                </optgroup>
+
+                <optgroup label="Grasa">
+                  Azucar de Mesa Azucar de Mesa <option value="Aceite">Aceite</option>
+                  <option value="Mantequilla">Mantequilla</option>
+                  <option value="Margarina">Margarina</option>
+                  <option value="Natilla">Natilla</option>
+                  <option value="Queso Crema">Queso Crema</option>
+                </optgroup>
+
+                <optgroup label="Azucar">
+                  <option value="Azucar de Mesa">Azucar de Mesa</option>
+                  <option value="Jalea-Mermelada">Jalea-Mermelada</option>
+                  <option value="Gaseosas">Gaseosas</option>
+                  <option value="Dulces">Dulces</option>
+                  <option value="Repostería">Repostería</option>
+                  <option value="Comida chatarra">Comida chatarra</option>
+                </optgroup>
+
+                <optgroup label="Bebidas">
+                  <option value="Leche">Leche</option>
+                  <option value="Jugos Naturales">Jugos Naturales</option>
+                  <option value="Jugos azucarados">Jugos azucarados</option>
+                  <option value="Bebidas Energizantes">Bebidas Energizantes</option>
+                  <option value="Bebidas Deportivas">Bebidas Deportivas</option>
+                  <option value="Café">Café</option>
+                  <option value="Agua"></option>
+                </optgroup>
+
+              </select>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="colesterol" class="col-sm-12 control-label">Frecuencia</label>
+            <div class="col-sm-12">
+              <!-- frecuencia en alimentos -->
+              <select name="frecuencia" id="frecuencia_edit" class="form-control">
+                <option value="1xDía">1xDía</option>
+                <option value="3xDía">3xDía</option>
+                <option value="1xSemana">1xSemana</option>
+                <option value="2-4xSemana">2-4xSemana</option>
+                <option value="1xMes">1xMes</option>
+                <option value="2-3xMes">2-3xMes</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Observación</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="observacion_edit" name="observacion_edit" value=""
+                maxlength="50" required="">
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="saveFrecuenciaDeConsumo()" class="btn btn-primary" id="btn-save" value="create"
+          class="btn btn-primary">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Agregar add-deportes-modal -->
+<div class="modal fade" id="add-deportes-modal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar deporte</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <form id="add-deportes-form" name="add-deportes-form" class="form-horizontal">
+        <div class="modal-body">
+          <input type="hidden" class="form-control" id="user_dep" name="user">
+
+          <div class="form-group">
+            <label for="fecha" class="col-sm-12 control-label">Deporte</label>
+            <div class="col-sm-12">
+              <select name="deporte" id="deporte" class="form-control">
+                <option value="Gimnasio (Pesas)">Gimnasio (Pesas)</option>
+                <option value="Bicicleta">Bicicleta</option>
+                <option value="Crossfit">Crossfit</option>
+                <option value="Baile">Baile</option>
+                <option value="Correr">Correr</option>
+                <option value="Caminar">Caminar</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Fecha inicio</label>
+            <div class="col-sm-12">
+              <input type="date" class="form-control" id="horario" name="fecha_inicio" value="" maxlength="50"
+                required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="colesterol" class="col-sm-12 control-label">Dias a la semana</label>
+            <div class="col-sm-12">
+              <!-- frecuencia en alimentos -->
+              <select name="dias_semanas" id="dias_semanas" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="colesterol" class="col-sm-12 control-label">Dias de descanso</label>
+            <div class="col-sm-12">
+              <!-- frecuencia en alimentos -->
+              <select name="dias_descanso" id="dias_descanso" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="colesterol" class="col-sm-12 control-label">Duración</label>
+            <div class="col-sm-12">
+              <!-- frecuencia en alimentos -->
+              <select name="duracion" id="duracion" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Horario</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="horario" name="horario" value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Merienda Pre</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="merienda_pre" name="merienda_pre" value="" maxlength="50"
+                required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Merienda Post</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="merienda_post" name="merienda_post" value="" maxlength="50"
+                required="">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" id="btn-save" value="create"
+            class="btn btn-primary">Guardar</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- Agregar edit-deportes-modal -->
+<div class="modal fade" id="edit-deportes-modal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar deporte</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="edit-deportes-form" name="edit-deportes-form" class="form-horizontal">
+
+          <input type="hidden" class="form-control" id="deporte_id" name="deporte_id">
+
+          <div class="form-group">
+            <label for="fecha" class="col-sm-12 control-label">Deporte</label>
+            <div class="col-sm-12">
+              <select name="deporte_edit" id="deporte_edit" class="form-control">
+                <option value="Gimnasio (Pesas)">Gimnasio (Pesas)</option>
+                <option value="Bicicleta">Bicicleta</option>
+                <option value="Crossfit">Crossfit</option>
+                <option value="Baile">Baile</option>
+                <option value="Correr">Correr</option>
+                <option value="Caminar">Caminar</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fecha_inicio_edit" class="col-sm-12 control-label">Fecha inicio</label>
+            <div class="col-sm-12">
+              <input type="date" class="form-control" id="fecha_inicio_edit" name="fecha_inicio_edit" value=""
+                maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="colesterol" class="col-sm-12 control-label">Dias a la semana</label>
+            <div class="col-sm-12">
+              <!-- frecuencia en alimentos -->
+              <select name="dias_semanas_edit" id="dias_semanas_edit" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="colesterol" class="col-sm-12 control-label">Dias de descanso</label>
+            <div class="col-sm-12">
+              <!-- frecuencia en alimentos -->
+              <select name="dias_descanso_edit" id="dias_descanso_edit" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="colesterol" class="col-sm-12 control-label">Duración</label>
+            <div class="col-sm-12">
+              <!-- frecuencia en alimentos -->
+              <select name="duracion_edit" id="duracion_edit" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Horario</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="horario_edit" name="horario_edit" value="" maxlength="50"
+                required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Merienda Pre</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="merienda_pre_edit" name="merienda_pre_edit" value=""
+                maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Merienda Post</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="merienda_post_edit" name="merienda_post_edit" value=""
+                maxlength="50" required="">
+            </div>
+          </div>
+
+      </div>
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="saveDeporte()" class="btn btn-primary" id="btn-save" value="create"
+          class="btn btn-primary">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Agregar add-suplementos-modal -->
+<div class="modal fade" id="add-suplementos-modal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar suplemento</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <form id="add-suplementos-form" name="add-suplementos-form" class="form-horizontal">
+        <div class="modal-body">
+          <input type="hidden" class="form-control" id="user_sup" name="user">
+
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Nombre Suplemento</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="nombre_suplemento" name="nombre_suplemento" value=""
+                maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Marca</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="marca" name="marca" value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Veces por dia</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="veces_por_dia" name="veces_por_dia" value="" maxlength="50"
+                required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Dias a la semana</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="dias_a_la_semana" name="dias_a_la_semana" value=""
+                maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Dosis</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="dosis" name="dosis" value="" maxlength="50" required="">
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" id="btn-save" value="create"
+            class="btn btn-primary">Guardar</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- Agregar edit-suplementos-modal -->
+<div class="modal fade" id="edit-suplementos-modal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar suplemento</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="edit-suplementos-form" name="edit-suplementos-form" class="form-horizontal">
+          
+          <input type="hidden" class="form-control" id="suplemento_id" name="suplemento_id">
+
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Nombre Suplemento</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="nombre_suplemento_edit" name="nombre_suplemento_edit" value=""
+                maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Marca</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="marca_edit" name="marca_edit" value="" maxlength="50"
+                required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Veces por dia</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="veces_por_dia_edit" name="veces_por_dia_edit" value=""
+                maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Dias a la semana</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="dias_a_la_semana_edit" name="dias_a_la_semana_edit" value=""
+                maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacion" class="col-sm-12 control-label">Dosis</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="dosis_edit" name="dosis_edit" value="" maxlength="50"
+                required="">
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="saveSuplemento()" class="btn btn-primary" id="btn-save" value="create"
+          class="btn btn-primary">Guardar</button>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- Editar indicador -->
+<div class="modal fade" id="edit-indicador">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar indicadores</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="add-indicador-form" name="add-indicador-form" class="form-horizontal">
+
+          <input type="hidden" class="form-control" id="indicador_id" name="indicador_id">
+
+          <div class="form-group">
+            <label for="fecha_edit" class="col-sm-12 control-label">Fecha</label>
+            <div class="col-sm-12">
+              <input type="date" class="form-control" id="fecha_edit" name="fecha_edit"
+                placeholder="Ingrese la fecha del examen" value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="colesterol_edit" class="col-sm-12 control-label">Colesterol</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="colesterol_edit" name="colesterol_edit"
+                placeholder="Ingresa el valor del coresterol" value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="trigliceridos_edit" class="col-sm-12 control-label">Trigliceridos</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="trigliceridos_edit" name="trigliceridos_edit"
+                placeholder="Ingresa el valor de los trigliceridos" value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="hdl_edit_" class="col-sm-12 control-label">HDL</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="hdl_edit" name="hdl_edit"
+                placeholder="Ingresa el valor de el HDL" value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ldl_edit" class="col-sm-12 control-label">LDL</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="ldl_edit" name="ldl_edit"
+                placeholder="Ingresa el valor del LDL" value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="glucosa_ayunas_edit" class="col-sm-12 control-label">Glucosa en ayunas</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="glucosa_ayunas_edit" name="glucosa_ayunas_edit"
+                placeholder="Ingresa el valor de la glucosa en ayunas " value="" maxlength="50" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="hemoglobina_edit" class="col-sm-12 control-label">Hemoglobina</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="hemoglobina_edit" name="hemoglobina_edit"
+                placeholder="Ingresa el valor de la glucosa en ayunas " value="" maxlength="50" required="">
+            </div>
+          </div>
+
+      </div>
+
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="saveIndicador()" class="btn btn-primary" id="btn-save" value="create"
+          class="btn btn-primary">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Agregar frecuencia de consumo -->
+<div class="modal fade" id="frecuencia-de-consumo-modal">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Frecuencia de Consumo</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="frecuencia-de-con-form" name="indicador-form" class="form-horizontal">
+
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="guardarIndicadores()" class="btn btn-primary" id="btn-save" value="create"
+          class="btn btn-primary">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modals de edición Json field -->
+
+<!-- Edicion Indicadores clínicos Json -->
+<div class="modal fade" id="indicadores-modal">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edición se indicadores clínicos</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="indicador-form" name="indicador-form" class="form-horizontal">
+
+          <div class="table-responsive">
+
+            <table id="table_antecedentes" class="table table_antecedentes" style="min-width: 845px">
+
+              <thead>
+                <tr>
+                  <th scope="col">Antecedentes</th>
+                  <th scope="col">Personales</th>
+                  <th scope="col">Familiares</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <th scope="col">Hipertensión</th>
+                  <th scope="col"><input type="checkbox" name="hipertension_per_value" id="hipertension_per_value"></th>
+                  <th scope="col"><input type="checkbox" name="hipertension_fam_value" id="hipertension_fam_value"></th>
+                </tr>
+                <tr>
+                  <th scope="col">Diabetes Mellitus</th>
+                  <th scope="col"><input type="checkbox" name="diabetes_mellitus_per_value"
+                      id="diabetes_mellitus_per_value"></th>
+                  <th scope="col"><input type="checkbox" name="diabetes_mellitus_fam_value"
+                      id="diabetes_mellitus_fam_value"></th>
+                </tr>
+                <tr>
+                  <th scope="col">ECV</th>
+                  <th scope="col"><input type="checkbox" name="ecv_per_value" id="ecv_per_value"></th>
+                  <th scope="col"><input type="checkbox" name="ecv_fam_value" id="ecv_fam_value"></th>
+                </tr>
+                <tr>
+                  <th scope="col">Enfermedades de Tiroides</th>
+                  <th scope="col"><input type="checkbox" name="enfermedades_de_tiroides_per_value"
+                      id="enfermedades_de_tiroides_per_value"></th>
+                  <th scope="col"><input type="checkbox" name="enfermedades_de_tiroides_fam_value"
+                      id="enfermedades_de_tiroides_fam_value"></th>
+                </tr>
+                <tr>
+                  <th scope="col">Cáncer</th>
+                  <th scope="col"><input type="checkbox" name="cancer_per_value" id="cancer_per_value"></th>
+                  <th scope="col"><input type="checkbox" name="cancer_fam_value" id="cancer_fam_value"></th>
+                </tr>
+                <tr>
+                  <th scope="col">Estreñimiento</th>
+                  <th scope="col"><input type="checkbox" name="estrenimiento_per_value" id="estrenimiento_per_value">
+                  </th>
+                  <th scope="col"><input type="checkbox" name="estrenimiento_fam_value" id="estrenimiento_fam_value">
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col">Diarreas</th>
+                  <th scope="col"><input type="checkbox" name="diarreas_per_value" id="diarreas_per_value"></th>
+                  <th scope="col"><input type="checkbox" name="diarreas_fam_value" id="diarreas_fam_value"></th>
+                </tr>
+                <tr>
+                  <th scope="col">Vomitos</th>
+                  <th scope="col"><input type="checkbox" name="vomitos_per_value" id="vomitos_per_value"></th>
+                  <th scope="col"><input type="checkbox" name="vomitos_fam_value" id="vomitos_fam_value"></th>
+                </tr>
+                <tr>
+                  <th scope="col">Dislipidemias</th>
+                  <th scope="col"><input type="checkbox" name="dislipidemias_per_value" id="dislipidemias_per_value">
+                  </th>
+                  <th scope="col"><input type="checkbox" name="dislipidemias_fam_value" id="dislipidemias_fam_value">
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col">Problemas de Peso</th>
+                  <th scope="col"><input type="checkbox" name="problemas_de_peso_per_value"
+                      id="problemas_de_peso_per_value"></th>
+                  <th scope="col"><input type="checkbox" name="problemas_de_peso_fam_value"
+                      id="problemas_de_peso_fam_value"></th>
+                </tr>
+                <tr>
+                  <th scope="col">Ansiedad-Depresión</th>
+                  <th scope="col"><input type="checkbox" name="ansiedad_depresion_per_value"
+                      id="ansiedad_depresion_per_value"></th>
+                  <th scope="col"><input type="checkbox" name="ansiedad_depresion_fam_value"
+                      id="ansiedad_depresion_fam_value"></th>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="guardarIndicadores()" class="btn btn-primary" id="btn-save" value="create"
+          class="btn btn-primary">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Edicion preferencias_alimentarias Json -->
+<div class="modal fade" id="preferencias_alimentarias-modal">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edición de preferencias alimentarias</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="preferencias_alimentarias-form" name="preferencias_alimentarias-form" class="form-horizontal">
+
+          <div class="table-responsive">
+
+            <table class="table">
+
+              <thead>
+                <tr>
+                  <th scope="col">Indicardor</th>
+                  <th scope="col">Valor</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td scope="col">¿Presenta alguna alergia alimentaria?</td>
+                  <td scope="col">
+                    <select name="preferencias_alimentarias_01" id="preferencias_alimentarias_01" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">¿Cúal presenta?</td>
+                  <td scope="col">
+                    <input type="text" id="preferencias_alimentarias_02" class="form-control">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">¿Presenta alguna alergia alimentaria?</td>
+                  <td scope="col">
+                    <select name="preferencias_alimentarias_03" id="preferencias_alimentarias_03" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">¿Cúal presenta?</td>
+                  <td scope="col">
+                    <input type="text" id="preferencias_alimentarias_04" class="form-control">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">¿Dónde mayormente come? En casa o trabajo</td>
+                  <td scope="col">
+                    <select name="preferencias_alimentarias_05" id="preferencias_alimentarias_05" class="form-control">
+                      <option value="Casa">Casa</option>
+                      <option value="Trabajo">Trabajo</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">¿Cocina o compra sus alimentos?</td>
+                  <td scope="col">
+                    <select name="preferencias_alimentarias_06" id="preferencias_alimentarias_06" class="form-control">
+                      <option value="Cocina">Cocina</option>
+                      <option value="Compra">Compra</option>
+                      <option value="Ambos">Ambos</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">¿Cómo califica su alimentación?</td>
+                  <td scope="col">
+                    <select name="preferencias_alimentarias_07" id="preferencias_alimentarias_07" class="form-control">
+                      <option value="Buena">Buena</option>
+                      <option value="Mala">Mala</option>
+                      <option value="Mala">Regular</option>
+                      <option value="Excelente">Excelente</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">¿Cómo califica su apetito?</td>
+                  <td scope="col">
+                    <select name="preferencias_alimentarias_08" id="preferencias_alimentarias_08" class="form-control">
+                      <option value="Baja">Baja</option>
+                      <option value="Normal">Normal</option>
+                      <option value="Mala">Moderado</option>
+                      <option value="Excelente">Intensa</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">¿Presenta ansiedad por la comida?</td>
+                  <td scope="col">
+                    <select name="preferencias_alimentarias_09" id="preferencias_alimentarias_09" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">¿Qué consume para la ansiedad?</td>
+                  <td scope="col">
+                    <input type="text" id="preferencias_alimentarias_10" class="form-control">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">¿Le añade sal a la comida ya preparada?</td>
+                  <td scope="col">
+                    <select name="preferencias_alimentarias_11" id="preferencias_alimentarias_11" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="guardarPreferenciasAlimentarias()" class="btn btn-primary" id="btn-save"
+          value="create" class="btn btn-primary">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Edicion comidas Json -->
+<div class="modal fade" id="comidas-modal">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edición de comidas realizadas al día</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="comidas-form" name="comidas-form" class="form-horizontal">
+
+          <div class="table-responsive">
+
+            <table class="table">
+
+              <thead>
+                <tr>
+                  <th scope="col">Indicardor</th>
+                  <th scope="col">Valor</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td scope="col">Desayuno</td>
+                  <td scope="col">
+                    <select name="comidas_01" id="comidas_01" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Merienda mañana</td>
+                  <td scope="col">
+                    <select name="comidas_02" id="comidas_02" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Almuerzo</td>
+                  <td scope="col">
+                    <select name="comidas_03" id="comidas_03" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Merienda Tarde</td>
+                  <td scope="col">
+                    <select name="comidas_04" id="comidas_04" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Cena</td>
+                  <td scope="col">
+                    <select name="comidas_05" id="comidas_05" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Colación Nocturna</td>
+                  <td scope="col">
+                    <select name="comidas_06" id="comidas_06" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Otro</td>
+                  <td scope="col">
+                    <select name="comidas_06" id="comidas_07" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="guardarComidas()" class="btn btn-primary" id="btn-save" value="create"
+          class="btn btn-primary">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Edicion habitos Json -->
+<div class="modal fade" id="habitos-modal">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edición de hábitos alimenticios</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="habitos-form" name="habitos-form" class="form-horizontal">
+
+          <div class="table-responsive">
+
+            <table class="table">
+
+              <thead>
+                <tr>
+                  <th scope="col">CONSUMO</th>
+                  <th scope="col">SI-NO</th>
+                  <th scope="col">FRECUENCIA</th>
+                  <th scope="col">TIPO</th>
+                  <th scope="col">CANTIDAD</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td scope="col">Alcohol</td>
+                  <td scope="col">
+                    <select name="habitos_01" id="habitos_01" class="form-control">
+                      <option value="No">No</option>
+                      <option value="Si">Si</option>
+                    </select>
+                  </td>
+
+                  <td scope="col">
+                    <select name="habitos_02" id="habitos_02" class="form-control">
+                      <option value="No consume">No consume</option>
+                      <option value="Diario + 5 días">Diario + 5 días</option>
+                      <option value="Semanal 1-2 días">Semanal 1-2 días</option>
+                      <option value="Semanal 3-4 días">Semanal 3-4 días</option>
+                      <option value="Ocasional 1-2 Mes">Ocasional 1-2 Mes</option>
+                    </select>
+                  </td>
+
+                  <td scope="col">
+                    <select name="habitos_03" id="habitos_03" class="form-control">
+                      <option value="Ninguna">Ninguna</option>
+                      <option value="Cerveza">Cerveza</option>
+                      <option value="Vino">Vino</option>
+                      <option value="Whiskey">Whiskey</option>
+                      <option value="Cocteles">Cocteless</option>
+                      <option value="Sangria">Sangria</option>
+
+                    </select>
+                  </td>
+                  <td scope="col">
+                    <select name="habitos_04" id="habitos_04" class="form-control">
+                      <option value="Ninguna">Ninguna</option>
+                      <option value="1 unidad">1 unidad</option>
+                      <option value="2 a 3 ud">2 a 3 ud</option>
+                      <option value="4 a 5 ud">4 a 5 ud</option>
+                      <option value=">5 ud">>5 ud</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Tabaco</td>
+                  <td scope="col">
+                    <select name="habitos_05" id="habitos_05" class="form-control">
+                      <option value="No">No</option>
+                      <option value="Si">Si</option>
+                    </select>
+                  </td>
+
+                  <td scope="col">
+                    <select name="habitos_06" id="habitos_06" class="form-control">
+                      <option value="No consume">No consume</option>
+                      <option value="Diario + 5 días">Diario + 5 días</option>
+                      <option value="Semanal 1-2 días">Semanal 1-2 días</option>
+                      <option value="Semanal 3-4 días">Semanal 3-4 días</option>
+                      <option value="Ocasional 1-2 Mes">Ocasional 1-2 Mes</option>
+
+                    </select>
+                  </td>
+
+                  <td scope="col">
+                    <select name="habitos_07" id="habitos_07" class="form-control">
+                      <option value="Ninguna">Ninguna</option>
+                      <option value="Cigarro">Cigarro</option>
+                      <option value="Tabaco">Tabaco</option>
+                      <option value="Pipa">Pipa</option>
+                    </select>
+                  </td>
+
+                  <td scope="col">
+                    <select name="habitos_08" id="habitos_08" class="form-control">
+                      <option value="Ninguna">Ninguna</option>
+                      <option value="1 unidad">1 unidad</option>
+                      <option value="2 a 3 ud">2 a 3 ud</option>
+                      <option value="4 a 5 ud">4 a 5 ud</option>
+                      <option value=">5 ud">>5 ud</option>
+                    </select>
+                  </td>
+
+                </tr>
+
+                <tr>
+                  <td scope="col">Drogas</td>
+                  <td scope="col">
+                    <select name="habitos_09" id="habitos_09" class="form-control">
+                      <option value="No">No</option>
+                      <option value="Si">Si</option>
+                    </select>
+                  </td>
+
+                  <td scope="col">
+                    <select name="habitos_10" id="habitos_10" class="form-control">
+                      <option value="No consume">No consume</option>
+                      <option value="Diario + 5 días">Diario + 5 días</option>
+                      <option value="Semanal 1-2 días">Semanal 1-2 días</option>
+                      <option value="Semanal 3-4 días">Semanal 3-4 días</option>
+                      <option value="Ocasional 1-2 Mes">Ocasional 1-2 Mes</option>
+
+                    </select>
+                  </td>
+
+                  <td scope="col">
+                    <select name="habitos_11" id="habitos_11" class="form-control">
+                      <option value="Ninguna">Ninguna</option>
+                      <option value="Inhalado">Inhalado</option>
+                      <option value="Inyectado">Inyectado</option>
+                      <option value="Fumado">Fumado</option>
+                    </select>
+                  </td>
+
+                  <td scope="col">
+                    <select name="habitos_12" id="habitos_12" class="form-control">
+                      <option value="Ninguna">Ninguna</option>
+                      <option value="1 unidad">1 unidad</option>
+                      <option value="2 a 3 ud">2 a 3 ud</option>
+                      <option value="4 a 5 ud">4 a 5 ud</option>
+                      <option value=">5 ud">>5 ud</option>
+                    </select>
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="guardarHabitos()" class="btn btn-primary" id="btn-save" value="create"
+          class="btn btn-primary">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Edicion ginecologicos Json -->
+<div class="modal fade" id="ginecologicos-modal">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edición datos ginecológicos</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="ginecologicos-form" name="ginecologicos-form" class="form-horizontal">
+
+          <div class="table-responsive">
+
+            <table class="table">
+
+              <thead>
+                <tr>
+                  <th scope="col">Indicardor</th>
+                  <th scope="col">Valor</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td scope="col">Anticonceptivos</td>
+                  <td scope="col">
+                    <select name="ginecologicos_01" id="ginecologicos_01" class="form-control">
+                      <option value="No">No</option>
+                      <option value="Si">Si</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">¿Cuáles?</td>
+                  <td scope="col">
+                    <input type="text" id="ginecologicos_02" class="form-control">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Embarazo actual</td>
+                  <td scope="col">
+                    <select name="ginecologicos_03" id="ginecologicos_03" class="form-control">
+                      <option value="No">No</option>
+                      <option value="Si">Si</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Días de menstruación</td>
+                  <td scope="col">
+                    <input type="number" id="ginecologicos_04" class="form-control">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Fecha de ultima menstruación</td>
+                  <td scope="col">
+                    <input type="date" name="ginecologicos_05" id="ginecologicos_05" class="form-control">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Sintomas Antes</td>
+                  <td scope="col">
+                    <input type="text" name="ginecologicos_06" id="ginecologicos_06" class="form-control">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Sintomas Durante</td>
+                  <td scope="col">
+                    <input type="text" name="ginecologicos_07" id="ginecologicos_07" class="form-control">
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="guardarGinecologicos()" class="btn btn-primary" id="btn-save" value="create"
+          class="btn btn-primary">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Edicion actidad fisica Json -->
+<div class="modal fade" id="actividad_fisica-modal">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edición de actividad fisica</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="actividad_fisica-form" name="actividad_fisica-form" class="form-horizontal">
+
+          <div class="table-responsive">
+
+            <table class="table">
+
+              <thead>
+                <tr>
+                  <th scope="col">Indicardor</th>
+                  <th scope="col">Valor</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td scope="col">Muy ligera (trabajo de escritorio, choferes)</td>
+                  <td scope="col">
+                    <select name="actividad_fisica_01" id="actividad_fisica_01" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Ligera (trabajo de poco esfuerzo)</td>
+                  <td scope="col">
+                    <select name="actividad_fisica_02" id="actividad_fisica_02" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Pesada (mecánicos, obreros, albañiles, deportistas)Exhaustiva (campesinos, deportistas
+                    de alto rendimiento)</td>
+                  <td scope="col">
+                    <select name="actividad_fisica_03" id="actividad_fisica_03" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">¿Realiza Ejercicio?</td>
+                  <td scope="col">
+                    <select name="actividad_fisica_04" id="actividad_fisica_04" class="form-control">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td scope="col">Fecha ingreso</td>
+                  <td scope="col">
+                    <input type="date" name="actividad_fisica_05" id="actividad_fisica_05" class="form-control">
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger light" data-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="guardarActividadFisica()" class="btn btn-primary" id="btn-save" value="create"
+          class="btn btn-primary">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 <input type="hidden" id="user_id" value="{{object.pk}}">
+<input type="hidden" id="datos_biomedicos_id" value="{{datos_biomedicos_id}}">
+<input type="hidden" id="preferencias_alimentarias" value="{{preferencias_alimentarias}}">
+<input type="hidden" id="comidas" value="{{comidas}}">
+<input type="hidden" id="habitos" value="{{habitos}}">
+<input type="hidden" id="antecedentes" value="{{antecedentes}}">
+<input type="hidden" id="actividad_fisica" value="{{actividad_fisica}}">
+<input type="hidden" id="estilo_de_vida" value="{{estilo_de_vida}}">
+<input type="hidden" id="ginecologicos" value="{{ginecologicos}}">
 
 {% endblock content %}
 
@@ -206,29 +2142,1000 @@
 <script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
 
 <script>
+  const c = '{{ csrf_token }}';
+  const ajax_header = {
+    'X-CSRFToken': c
+  };
+
+  let user_id = $("#user_id").val()
+  let dTableCitas;
+
   function pacienteDetail(id) {
     var url = "{% url 'nutri_app:pacientes_detail' 999999999 %}";
     document.location.href = url.replace('999999999', id);
   }
 
-  let dTableCitas;
+  function editIndicador(id) {
+
+    $.ajax({
+      url: "/nutri_app/api/paciente/indicador_bioquimico/" + user_id + '/' + id + '/',
+      type: "GET",
+      headers: ajax_header,
+      success: function (request) {
+        $('#indicador_id').val(request.id);
+        $('#fecha_edit').val(request.fecha);
+        $('#colesterol_edit').val(request.colesterol);
+        $('#trigliceridos_edit').val(request.trigliceridos);
+        $('#hdl_edit').val(request.hdl);
+        $('#ldl_edit').val(request.ldl);
+        $('#glucosa_ayunas_edit').val(request.glucosa_ayunas);
+        $('#hemoglobina_edit').val(request.hemoglobina);
+
+        $('#edit-indicador').modal('show');
+      }
+    });
+
+  }
+
+  function saveIndicador() {
+
+    const indicador_id = $('#indicador_id').val();
+
+    data = {
+      'fecha': $('#fecha_edit').val(),
+      'colesterol': $('#colesterol_edit').val(),
+      'trigliceridos': $('#trigliceridos_edit').val(),
+      'hdl': $('#hdl_edit').val(),
+      'ldl': $('#ldl_edit').val(),
+      'glucosa_ayunas': $('#glucosa_ayunas_edit').val(),
+      'hemoglobina': $('#hemoglobina_edit').val(),
+    }
+
+    $.ajax({
+      url: "/nutri_app/api/paciente/indicador_bioquimico/" + user_id + '/' + indicador_id + '/',
+      type: "PATCH",
+      headers: ajax_header,
+      data: data,
+      dataType: "json",
+      success: function (request) {
+        var oTable = $('#table_indicadores').DataTable();
+        oTable.ajax.url('/nutri_app/api/paciente/indicador_bioquimico/' + user_id + '/?format=datatables').load();
+        $('#add-indicador').modal('hide');
+        $('#add-indicador-form').trigger("reset");
+        $('#edit-indicador').modal('hide');
+      }
+    });
+
+  }
+
+  function editCita(id) {
+
+    $.ajax({
+      url: "/nutri_app/api/paciente_cita/" + user_id + '/' + id + '/',
+      type: "GET",
+      headers: ajax_header,
+      success: function (request) {
+        $('#cita_id').val(id);
+        $('#diagnostico_edit').val(request.diagnostico);
+        if (request.completada) $('#completada_edit').prop('checked', true);
+        $('#edit-cita').modal('show');
+      }
+    });
+
+  }
+
+  function saveCita() {
+
+    const cita_id = $('#cita_id').val();
+
+    data = {
+      'diagnostico': $('#diagnostico_edit').val(),
+      'completada': $('#completada_edit').is(':checked'),
+    }
+
+    $.ajax({
+      url: "/nutri_app/api/paciente_cita/" + user_id + '/' + cita_id + '/',
+      type: "PATCH",
+      headers: ajax_header,
+      data: data,
+      dataType: "json",
+      success: function (request) {
+        // console.log(request);
+        var oTable = $('#table_citas').DataTable();
+        oTable.ajax.url('/nutri_app/api/paciente_cita/' + user_id + '/?format=datatables').load();
+        $('#edit-cita').modal('hide');
+        $('#add-cita-form').trigger("reset");
+      }
+    });
+
+  }
+
+  function editFrecuenciDeConsumo(id) {
+
+    $.ajax({
+      url: "/nutri_app/api/frecuencia_de_consumo/" + user_id + '/' + id + '/',
+      type: "GET",
+      headers: ajax_header,
+      success: function (request) {
+        $('#frecuencia-consumo_id').val(id);
+        $('#alimento_edit').val(request.alimento).change();
+        $('#frecuencia_edit').val(request.frecuencia).change();
+        $('#observacion_edit').val(request.observacion);
+
+        $('#edit-frecuencia-consumo-modal').modal('show');
+      }
+    });
+
+  }
+
+  function saveFrecuenciaDeConsumo() {
+
+    const frecuencia_consumo_id = $('#frecuencia-consumo_id').val();
+
+    data = {
+      'alimento': $('#alimento_edit').val(),
+      'frecuencia': $('#frecuencia_edit').val(),
+      'observacion': $('#observacion_edit').val(),
+    }
+
+    $.ajax({
+      url: "/nutri_app/api/frecuencia_de_consumo/" + user_id + '/' + frecuencia_consumo_id + '/',
+      type: "PATCH",
+      headers: ajax_header,
+      data: data,
+      dataType: "json",
+      success: function (request) {
+        // console.log(request);
+        var oTable = $('#table_frecuencia_de_consumo').DataTable();
+        oTable.ajax.url('/nutri_app/api/frecuencia_de_consumo/' + user_id + '/?format=datatables').load();
+        $('#edit-frecuencia-consumo-modal').modal('hide');
+        $('#edit-frecuencia-consumo-form').trigger("reset");
+      }
+    });
+
+  }
+
+
+  function editFrecuenciDeConsumo(id) {
+
+    $.ajax({
+      url: "/nutri_app/api/frecuencia_de_consumo/" + user_id + '/' + id + '/',
+      type: "GET",
+      headers: ajax_header,
+      success: function (request) {
+        $('#frecuencia-consumo_id').val(id);
+        $('#alimento_edit').val(request.alimento).change();
+        $('#frecuencia_edit').val(request.frecuencia).change();
+        $('#observacion_edit').val(request.observacion);
+
+        $('#edit-frecuencia-consumo-modal').modal('show');
+      }
+    });
+
+  }
+
+  function saveFrecuenciaDeConsumo() {
+
+    const frecuencia_consumo_id = $('#frecuencia-consumo_id').val();
+
+    data = {
+      'alimento': $('#alimento_edit').val(),
+      'frecuencia': $('#frecuencia_edit').val(),
+      'observacion': $('#observacion_edit').val(),
+    }
+
+    $.ajax({
+      url: "/nutri_app/api/frecuencia_de_consumo/" + user_id + '/' + frecuencia_consumo_id + '/',
+      type: "PATCH",
+      headers: ajax_header,
+      data: data,
+      dataType: "json",
+      success: function (request) {
+        // console.log(request);
+        var oTable = $('#table_frecuencia_de_consumo').DataTable();
+        oTable.ajax.url('/nutri_app/api/frecuencia_de_consumo/' + user_id + '/?format=datatables').load();
+        $('#edit-frecuencia-consumo-modal').modal('hide');
+        $('#edit-frecuencia-consumo-form').trigger("reset");
+      }
+    });
+
+  }
+
+  function editDeporte(id) {
+
+    $.ajax({
+      url: "/nutri_app/api/deportes/" + user_id + '/' + id + '/',
+      type: "GET",
+      headers: ajax_header,
+      success: function (request) {
+        $('#deporte_id').val(id);
+        $('#deporte_edit').val(request.deporte).change();
+        $('#fecha_inicio_edit').val(request.fecha_inicio);
+        $('#dias_semanas_edit').val(request.dias_semanas).change();
+        $('#dias_descanso_edit').val(request.dias_descanso).change();
+        $('#duracion_edit').val(request.duracion).change();
+        $('#horario_edit').val(request.horario);
+        $('#merienda_pre_edit').val(request.merienda_pre);
+        $('#merienda_post_edit').val(request.merienda_post);
+
+        $('#edit-deportes-modal').modal('show');
+      }
+    });
+
+  }
+
+  function saveDeporte() {
+
+    const deporte_id = $('#deporte_id').val();
+
+    data = {
+      'deporte': $('#deporte_edit').val(),
+      'fecha_inicio': $('#fecha_inicio_edit').val(),
+      'dias_semanas': $('#dias_semanas_edit').val(),
+      'dias_descanso': $('#dias_descanso_edit').val(),
+      'duracion': $('#duracion').val(),
+      'horario': $('#horario_edit').val(),
+      'merienda_pre': $('#merienda_pre_edit').val(),
+      'merienda_post': $('#merienda_post_edit').val(),
+    }
+
+    $.ajax({
+      url: "/nutri_app/api/deportes/" + user_id + '/' + deporte_id + '/',
+      type: "PATCH",
+      headers: ajax_header,
+      data: data,
+      dataType: "json",
+      success: function (request) {
+        // console.log(request);
+        var oTable = $('#table_deportes').DataTable();
+        oTable.ajax.url('/nutri_app/api/deportes/' + user_id + '/?format=datatables').load();
+        $('#edit-deportes-modal').modal('hide');
+        $('#edit-deportes-form').trigger("reset");
+      }
+    });
+
+  }
+
+
+  function editSuplemento(id) {
+
+    console.log('EEEEE', id)
+
+    $.ajax({
+      url: "/nutri_app/api/suplementos/" + user_id + '/' + id + '/',
+      type: "GET",
+      headers: ajax_header,
+      success: function (request) {
+
+        console.log(request);
+
+        $('#suplemento_id').val(id);
+        $('#nombre_suplemento_edit').val(request.nombre_suplemento);
+        $('#marca_edit').val(request.marca);
+        $('#veces_por_dia_edit').val(request.marca);
+        $('#dias_a_la_semana_edit').val(request.marca);
+        $('#dosis_edit').val(request.dosis);
+
+        $('#edit-suplementos-modal').modal('show');
+      }
+    });
+
+  }
+
+  function saveSuplemento() {
+
+    const suplemento_id = $('#suplemento_id').val();
+
+    data = {
+      'deporte': $('#deporte_edit').val(),
+      'nombre_suplemento': $('#nombre_suplemento_edit').val(),
+      'marca': $('#marca_edit').val(),
+      'veces_por_dia': $('#veces_por_dia_edit').val(),
+      'dias_a_la_semana': $('#dias_a_la_semana_edit').val(),
+      'dosis': $('#dosis_edit').val(),
+    }
+
+    $.ajax({
+      url: "/nutri_app/api/suplementos/" + user_id + '/' + suplemento_id + '/',
+      type: "PATCH",
+      headers: ajax_header,
+      data: data,
+      dataType: "json",
+      success: function (request) {
+        // console.log(request);
+        var oTable = $('#table_suplementos').DataTable();
+        oTable.ajax.url('/nutri_app/api/suplementos/' + user_id + '/?format=datatables').load();
+        $('#edit-suplementos-modal').modal('hide');
+        $('#edit-suplementos-form').trigger("reset");
+      }
+    });
+
+  }
+
+
+
+
+  // Json actions
+  /*  edit Indicadores */
+  $('.indicadores-btn').click(function () {
+
+    antecedentes = JSON.parse($('#antecedentes').val());
+
+    $.each(antecedentes, function (i, item) {
+      //console.log(item)
+      if (item.indicador == 'Hipertensión' && item.personal) $('#hipertension_per_value').prop('checked', true);
+      if (item.indicador == 'Hipertensión' && item.familiar) $('#hipertension_fam_value').prop('checked', true);
+
+      if (item.indicador == 'Diabetes Mellitus' && item.personal) $('#diabetes_mellitus_per_value').prop(
+        'checked', true);
+      if (item.indicador == 'Diabetes Mellitus' && item.familiar) $('#diabetes_mellitus_fam_value').prop(
+        'checked', true);
+
+      if (item.indicador == 'ECV' && item.personal) $('#ecv_per_value').prop('checked', true);
+      if (item.indicador == 'ECV' && item.familiar) $('#ecv_fam_value').prop('checked', true);
+
+      if (item.indicador == 'Enfermedades de Tiroides' && item.personal) $(
+        '#enfermedades_de_tiroides_per_value').prop('checked', true);
+      if (item.indicador == 'Enfermedades de Tiroides' && item.familiar) $(
+        '#enfermedades_de_tiroides_fam_value').prop('checked', true);
+
+      if (item.indicador == 'Cáncer' && item.personal) $('#cancer_per_value').prop('checked', true);
+      if (item.indicador == 'Cáncer' && item.familiar) $('#cancer_fam_value').prop('checked', true);
+
+      if (item.indicador == 'Estreñimiento' && item.personal) $('#estrenimiento_per_value').prop('checked',
+        true);
+      if (item.indicador == 'Estreñimiento' && item.familiar) $('#estrenimiento_fam_value').prop('checked',
+        true);
+
+      if (item.indicador == 'Diarreas' && item.personal) $('#diarreas_per_value').prop('checked', true);
+      if (item.indicador == 'Diarreas' && item.familiar) $('#diarreas_fam_value').prop('checked', true);
+
+      if (item.indicador == 'Vomitos' && item.personal) $('#dislipidemias_per_value').prop('checked', true);
+      if (item.indicador == 'Vomitos' && item.familiar) $('#dislipidemias_fam_value').prop('checked', true);
+
+      if (item.indicador == 'Dislipidemias' && item.personal) $('#vomitos_per_value').prop('checked', true);
+      if (item.indicador == 'Dislipidemias' && item.familiar) $('#vomitos_fam_value').prop('checked', true);
+
+      if (item.indicador == 'Problemas de Peso' && item.personal) $('#problemas_de_peso_per_value').prop(
+        'checked', true);
+      if (item.indicador == 'Problemas de Peso' && item.familiar) $('#problemas_de_peso_fam_value').prop(
+        'checked', true);
+
+      if (item.indicador == 'Ansiedad-Depresión' && item.personal) $('#ansiedad_depresion_per_value').prop(
+        'checked', true);
+      if (item.indicador == 'Ansiedad-Depresión' && item.familiar) $('#ansiedad_depresion_fam_value').prop(
+        'checked', true);
+    });
+
+    $('#indicadores-modal').modal('show');
+  });
+
+  $('.preferencias-alimentarias-btn').click(function () {
+
+    preferencias_alimentarias = JSON.parse($('#preferencias_alimentarias').val());
+
+    $.each(preferencias_alimentarias, function (i, item) {
+      if (item.indicador == '¿Presenta alguna alergia alimentaria?') $('#preferencias_alimentarias_01').val(item
+        .valor).change();
+      if (item.indicador == '¿Cúal presenta?') $('#preferencias_alimentarias_02').val(item.valor);
+      if (item.indicador == '¿Presenta alguna alergia alimentaria?') $('#preferencias_alimentarias_03').val(item
+        .valor).change();
+      if (item.indicador == '¿Cúal presenta?.') $('#preferencias_alimentarias_04').val(item.valor);
+      if (item.indicador == '¿Dónde mayormente come? En casa o trabajo?') $('#preferencias_alimentarias_05')
+        .val(item.valor).change();
+      if (item.indicador == '¿Cocina o compra sus alimentos?') $('#preferencias_alimentarias_06').val(item
+        .valor).change();
+      if (item.indicador == '¿Cómo califica su alimentación?') $('#preferencias_alimentarias_07').val(item
+        .valor).change();
+      if (item.indicador == '¿Cómo califica su apetito?') $('#preferencias_alimentarias_08').val(item.valor)
+        .change();
+      if (item.indicador == '¿Presenta ansiedad por la comida?') $('#preferencias_alimentarias_09').val(item
+        .valor);
+      if (item.indicador == '¿Qué consume para la ansiedad?') $('#preferencias_alimentarias_10').val(item
+        .valor);
+      if (item.indicador == '¿Le añade sal a la comida ya preparada?') $('#preferencias_alimentarias_11').val(
+        item.valor).change();
+
+    });
+
+    $('#preferencias_alimentarias-modal').modal('show');
+  });
+
+  $('.comidas-btn').click(function () {
+
+    comidas = JSON.parse($('#comidas').val());
+
+    $.each(comidas, function (i, item) {
+      if (item.indicador == 'Desayuno') $('#comidas_01').val(item.valor).change();
+      if (item.indicador == 'Merienda mañana') $('#comidas_02').val(item.valor).change();
+      if (item.indicador == 'Almuerzo') $('#comidas_03').val(item.valor).change();
+      if (item.indicador == 'Merienda Tarde') $('#comidas_04').val(item.valor).change();
+      if (item.indicador == 'Cena') $('#comidas_05').val(item.valor).change();
+      if (item.indicador == 'Colación Nocturna') $('#comidas_06').val(item.valor).change();
+      if (item.indicador == 'Otro') $('#comidas_07').val(item.valor).change();
+
+    });
+
+    $('#comidas-modal').modal('show');
+
+  });
+
+  $('.habitos-btn').click(function () {
+
+    antecedentes = JSON.parse($('#habitos').val());
+
+    $.each(antecedentes, function (i, item) {
+      if (item.indicador == 'Alcohol') {
+        $('#habitos_01').val(item.valor).change();
+        $('#habitos_02').val(item.frecuencia).change();
+        $('#habitos_03').val(item.tipo).change();
+        $('#habitos_04').val(item.cantidad).change();
+      };
+
+      if (item.indicador == 'Tabaco') {
+        $('#habitos_05').val(item.valor).change();
+        $('#habitos_06').val(item.frecuencia).change();
+        $('#habitos_07').val(item.tipo).change();
+        $('#habitos_08').val(item.cantidad).change();
+      };
+
+      if (item.indicador == 'Drogas') {
+        $('#habitos_09').val(item.valor).change();
+        $('#habitos_10').val(item.frecuencia).change();
+        $('#habitos_11').val(item.tipo).change();
+        $('#habitos_12').val(item.cantidad).change();
+      };
+
+    });
+
+    $('#habitos-modal').modal('show');
+
+  });
+
+  $('.actividad_fisica-btn').click(function () {
+
+    actividad_fisica = JSON.parse($('#actividad_fisica').val());
+
+    $.each(actividad_fisica, function (i, item) {
+      if (item.indicador == 'Muy ligera (trabajo de escritorio, choferes)') $('#actividad_fisica_01').val(item
+        .valor).change();
+      if (item.indicador == 'Ligera (trabajo de poco esfuerzo)') $('#actividad_fisica_02').val(item.valor)
+        .change();
+      if (item.indicador ==
+        'Pesada (mecánicos, obreros, albañiles, deportistas)Exhaustiva (campesinos, deportistas de alto rendimiento)'
+      ) $('#actividad_fisica_03').val(item.valor).change();
+      if (item.indicador == '¿Realiza Ejercicio?') $('#actividad_fisica_04').val(item.valor).change();
+      if (item.indicador == 'Fecha ingreso') $('#actividad_fisica_05').val(item.valor);
+
+    });
+
+    $('#actividad_fisica-modal').modal('show');
+
+  });
+
+  $('.ginecologicos-btn').click(function () {
+
+    ginecologicos = JSON.parse($('#ginecologicos').val());
+
+    $.each(ginecologicos, function (i, item) {
+      if (item.indicador == 'Anticonceptivos') $('#ginecologicos_01').val(item.valor).change();
+      if (item.indicador == '¿Cuáles?') $('#ginecologicos_02').val(item.valor);
+      if (item.indicador == 'Embarazo actual') $('#ginecologicos_03').val(item.valor).change();
+      if (item.indicador == 'Días de menstruación') $('#ginecologicos_04').val(item.valor);
+      if (item.indicador == 'Fecha de ultima menstruación') $('#ginecologicos_05').val(item.valor);
+      if (item.indicador == 'Sintomas Antes') $('#ginecologicos_06').val(item.valor);
+      if (item.indicador == 'Sintomas Durante') $('#ginecologicos_07').val(item.valor);
+    });
+
+    $('#ginecologicos-modal').modal('show');
+
+  });
+
+
+  function guardarIndicadores() {
+
+    const data_indicadores = [{
+        "familiar": $('#hipertension_fam_value').is(':checked'),
+        "personal": $('#hipertension_per_value').is(':checked'),
+        "indicador": "Hipertensión"
+      },
+      {
+        "familiar": $('#diabetes_mellitus_fam_value').is(':checked'),
+        "personal": $('#diabetes_mellitus_per_value').is(':checked'),
+        "indicador": "Diabetes Mellitus"
+      },
+      {
+        "familiar": $('#ecv_fam_value').is(':checked'),
+        "personal": $('#ecv_per_value').is(':checked'),
+        "indicador": "ECV"
+      },
+      {
+        "familiar": $('#enfermedades_de_tiroides_fam_value').is(':checked'),
+        "personal": $('#enfermedades_de_tiroides_per_value').is(':checked'),
+        "indicador": "Enfermedades de  Tiroides"
+      },
+      {
+        "familiar": $('#cancer_fam_value').is(':checked'),
+        "personal": $('#cancer_per_value').is(':checked'),
+        "indicador": "Cáncer"
+      },
+      {
+        "familiar": $('#estrenimiento_fam_value').is(':checked'),
+        "personal": $('#estrenimiento_per_value').is(':checked'),
+        "indicador": "Estreñimiento"
+      },
+      {
+        "familiar": $('#diarreas_fam_value').is(':checked'),
+        "personal": $('#diarreas_per_value').is(':checked'),
+        "indicador": "Diarreas"
+      },
+      {
+        "familiar": $('#vomitos_fam_value').is(':checked'),
+        "personal": $('#dislipidemias_per_value').is(':checked'),
+        "indicador": "Vomitos"
+      },
+      {
+        "familiar": $('#problemas_de_peso_fam_value').is(':checked'),
+        "personal": $('#problemas_de_peso_per_value').is(':checked'),
+        "indicador": "Problemas de Peso"
+      },
+      {
+        "familiar": $('#ansiedad_depresion_fam_value').is(':checked'),
+        "personal": $('#ansiedad_depresion_per_value').is(':checked'),
+        "indicador": "Ansiedad-Depresión"
+      }
+    ]
+
+    data = {
+      'antecedentes': JSON.stringify(data_indicadores),
+    }
+
+    $.ajax({
+      url: "/nutri_app/api/paciente/datos_biomedicos/" + $('#datos_biomedicos_id').val() + '/',
+      type: "PATCH",
+      headers: ajax_header,
+      data: data,
+      dataType: "json",
+      success: function (request) {
+
+        var trHTML = `<tr>
+                  <th scope="col">Antecedentes</th>
+                  <th scope="col">Personales</th>
+                  <th scope="col">Familiares</th>
+                </tr>`;
+        $.each(data_indicadores, function (i, item) {
+
+          let personal = 'No';
+          if (item.personal) personal = 'Si';
+          let familiar = 'No';
+          if (item.familiar) familiar = 'Si'
+
+          trHTML += '<tr><td>' + item.indicador + '</td><td>' + personal + '</td><td>' + familiar +
+            '</td></tr>';
+
+        });
+        $('#table_antecedentes').empty();
+        $('#table_antecedentes').append(trHTML);
+        $('#antecedentes').val(JSON.stringify(data_indicadores));
+        $('#indicadores-modal').modal('hide');
+
+      }
+    });
+
+  }
+
+  function guardarPreferenciasAlimentarias() {
+
+    const data_indicadores = [{
+        "indicador": "¿Presenta alguna alergia alimentaria?",
+        "valor": $('#preferencias_alimentarias_01').val(),
+      },
+      {
+        "indicador": "¿Cúal presenta?",
+        "valor": $('#preferencias_alimentarias_02').val(),
+      },
+      {
+        "indicador": "¿Presenta alguna intolerancia alimentaria?",
+        "valor": $('#preferencias_alimentarias_03').val(),
+      },
+      {
+        "indicador": "¿Cúal presenta?.",
+        "valor": $('#preferencias_alimentarias_04').val(),
+      },
+      {
+        "indicador": "¿Dónde mayormente come? En casa o trabajo",
+        "valor": $('#preferencias_alimentarias_05').val(),
+      },
+      {
+        "indicador": "¿Cocina o compra sus alimentos?",
+        "valor": $('#preferencias_alimentarias_06').val(),
+      },
+      {
+        "indicador": "¿Cómo califica su alimentación?",
+        "valor": $('#preferencias_alimentarias_07').val(),
+      },
+      {
+        "indicador": "¿Cómo califica su apetito?",
+        "valor": $('#preferencias_alimentarias_08').val(),
+      },
+      {
+        "indicador": "¿Presenta ansiedad por la comida?",
+        "valor": $('#preferencias_alimentarias_09').val(),
+      },
+      {
+        "indicador": "¿Qué consume para la ansiedad?",
+        "valor": $('#preferencias_alimentarias_10').val(),
+      },
+      {
+        "indicador": "¿Le añade sal a la comida ya preparada?",
+        "valor": $('#preferencias_alimentarias_11').val(),
+      },
+
+
+    ]
+
+    data = {
+      'preferencias_alimentarias': JSON.stringify(data_indicadores),
+    }
+
+    $.ajax({
+      url: "/nutri_app/api/paciente/datos_biomedicos/" + $('#datos_biomedicos_id').val() + '/',
+      type: "PATCH",
+      headers: ajax_header,
+      data: data,
+      dataType: "json",
+      success: function (request) {
+
+        var trHTML = `<tr>
+              <th scope="col">Antecedentes</th>
+              <th scope="col">Valor</th>
+            </tr>`;
+        $.each(data_indicadores, function (i, item) {
+
+          trHTML += '<tr><td>' + item.indicador + '</td><td>' + item.valor + '</td></tr>';
+
+        });
+        $('#table_preferencias_alimentarias').empty();
+        $('#table_preferencias_alimentarias').append(trHTML);
+        $('#preferencias_alimentarias').val(JSON.stringify(data_indicadores));
+        $('#preferencias_alimentarias-modal').modal('hide');
+
+      }
+    });
+
+  }
+
+  function guardarComidas() {
+
+    const data_indicadores = [{
+        "indicador": "Desayuno",
+        "valor": $('#comidas_01').val(),
+      },
+      {
+        "indicador": "Merienda mañana",
+        "valor": $('#comidas_02').val(),
+      },
+      {
+        "indicador": "Almuerzo",
+        "valor": $('#comidas_03').val(),
+      },
+      {
+        "indicador": "Merienda Tarde",
+        "valor": $('#comidas_04').val(),
+      },
+      {
+        "indicador": "Cena",
+        "valor": $('#comidas_05').val(),
+      },
+      {
+        "indicador": "Colación Nocturna",
+        "valor": $('#comidas_06').val(),
+      },
+      {
+        "indicador": "Otro",
+        "valor": $('#comidas_07').val(),
+      },
+
+    ]
+
+    data = {
+      'comidas': JSON.stringify(data_indicadores),
+    }
+
+    $.ajax({
+      url: "/nutri_app/api/paciente/datos_biomedicos/" + $('#datos_biomedicos_id').val() + '/',
+      type: "PATCH",
+      headers: ajax_header,
+      data: data,
+      dataType: "json",
+      success: function (request) {
+
+        var trHTML = `<tr>
+          <th scope="col">Antecedentes</th>
+          <th scope="col">Valor</th>
+        </tr>`;
+        $.each(data_indicadores, function (i, item) {
+
+          trHTML += '<tr><td>' + item.indicador + '</td><td>' + item.valor + '</td></tr>';
+
+        });
+        $('#table_comidas').empty();
+        $('#table_comidas').append(trHTML);
+        $('#comidas').val(JSON.stringify(data_indicadores));
+        $('#comidas-modal').modal('hide');
+
+      }
+    });
+
+  }
+
+  function guardarHabitos() {
+
+    const data_indicadores = [{
+        "indicador": "Alcohol",
+        "valor": $('#habitos_01').val(),
+        "frecuencia": $('#habitos_02').val(),
+        "tipo": $('#habitos_03').val(),
+        "cantidad": $('#habitos_04').val(),
+      },
+
+      {
+        "indicador": "Tabaco",
+        "valor": $('#habitos_05').val(),
+        "frecuencia": $('#habitos_06').val(),
+        "tipo": $('#habitos_07').val(),
+        "cantidad": $('#habitos_08').val(),
+      },
+
+      {
+        "indicador": "Drogas",
+        "valor": $('#habitos_09').val(),
+        "frecuencia": $('#habitos_10').val(),
+        "tipo": $('#habitos_11').val(),
+        "cantidad": $('#habitos_12').val(),
+      },
+
+    ]
+
+    data = {
+      'habitos': JSON.stringify(data_indicadores),
+    }
+
+    $.ajax({
+      url: "/nutri_app/api/paciente/datos_biomedicos/" + $('#datos_biomedicos_id').val() + '/',
+      type: "PATCH",
+      headers: ajax_header,
+      data: data,
+      dataType: "json",
+      success: function (request) {
+
+        var trHTML = `<tr>
+                        <th scope="col">Consumo</th>
+                        <th scope="col">Si-No</th>
+                        <th scope="col">Frecuencia</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Cantidad</th>
+                      </tr>`;
+        $.each(data_indicadores, function (i, item) {
+
+          trHTML += '<tr><td>' + item.indicador + '</td><td>' + item.valor + '</td><td>' + item.frecuencia +
+            '</td><td>' + item.tipo + '</td><td>' + item.cantidad + '</td></tr>';
+
+        });
+        $('#table_habitos').empty();
+        $('#table_habitos').append(trHTML);
+        $('#habitos').val(JSON.stringify(data_indicadores));
+        $('#habitos-modal').modal('hide');
+
+      }
+    });
+
+  }
+
+  function guardarActividadFisica() {
+
+    const data_indicadores = [{
+        "indicador": "Muy ligera (trabajo de escritorio, choferes)",
+        "valor": $('#actividad_fisica_01').val(),
+      },
+      {
+        "indicador": "Ligera (trabajo de poco esfuerzo)",
+        "valor": $('#actividad_fisica_02').val(),
+      },
+      {
+        "indicador": "Pesada (mecánicos, obreros, albañiles, deportistas)Exhaustiva (campesinos, deportistas de alto rendimiento)",
+        "valor": $('#actividad_fisica_03').val(),
+      },
+      {
+        "indicador": "¿Realiza Ejercicio?",
+        "valor": $('#actividad_fisica_04').val(),
+      },
+      {
+        "indicador": "Fecha ingreso",
+        "valor": $('#actividad_fisica_05').val(),
+      },
+
+    ]
+
+    data = {
+      'actividad_fisica': JSON.stringify(data_indicadores),
+    }
+
+    $.ajax({
+      url: "/nutri_app/api/paciente/datos_biomedicos/" + $('#datos_biomedicos_id').val() + '/',
+      type: "PATCH",
+      headers: ajax_header,
+      data: data,
+      dataType: "json",
+      success: function (request) {
+
+        var trHTML = `<tr>
+      <th scope="col">Antecedentes</th>
+      <th scope="col">Valor</th>
+    </tr>`;
+        $.each(data_indicadores, function (i, item) {
+
+          trHTML += '<tr><td>' + item.indicador + '</td><td>' + item.valor + '</td></tr>';
+
+        });
+        $('#table_actividad_fisica').empty();
+        $('#table_actividad_fisica').append(trHTML);
+        $('#actividad_fisica').val(JSON.stringify(data_indicadores));
+        $('#actividad_fisica-modal').modal('hide');
+
+      }
+    });
+
+  }
+
+  function guardarGinecologicos() {
+
+    const data_indicadores = [{
+        "indicador": "Anticonceptivos",
+        "valor": $('#ginecologicos_01').val(),
+      },
+      {
+        "indicador": "¿Cuáles?",
+        "valor": $('#ginecologicos_02').val(),
+      },
+      {
+        "indicador": "Embarazo actual",
+        "valor": $('#ginecologicos_03').val(),
+      },
+      {
+        "indicador": "Días de menstruación",
+        "valor": $('#ginecologicos_04').val(),
+      },
+      {
+        "indicador": "Fecha de ultima menstruación",
+        "valor": $('#ginecologicos_05').val(),
+      },
+      {
+        "indicador": "Sintomas Antes",
+        "valor": $('#ginecologicos_06').val(),
+      },
+      {
+        "indicador": "Sintomas Durante",
+        "valor": $('#ginecologicos_07').val(),
+      },
+
+
+    ]
+
+    data = {
+      'ginecologicos': JSON.stringify(data_indicadores),
+    }
+
+    $.ajax({
+      url: "/nutri_app/api/paciente/datos_biomedicos/" + $('#datos_biomedicos_id').val() + '/',
+      type: "PATCH",
+      headers: ajax_header,
+      data: data,
+      dataType: "json",
+      success: function (request) {
+
+        var trHTML = `<tr>
+  <th scope="col">Antecedentes</th>
+  <th scope="col">Valor</th>
+</tr>`;
+        $.each(data_indicadores, function (i, item) {
+
+          trHTML += '<tr><td>' + item.indicador + '</td><td>' + item.valor + '</td></tr>';
+
+        });
+        $('#table_ginecologicos').empty();
+        $('#table_ginecologicos').append(trHTML);
+        $('#ginecologicos').val(JSON.stringify(data_indicadores));
+        $('#ginecologicos-modal').modal('hide');
+
+      }
+    });
+
+  }
+
 
   $(document).ready(
     function () {
 
-      user_id = $("#user_id").val()
+      // Cargar tablas json
+      // Antedecentes Json
+      let ant_json = JSON.parse($('#antecedentes').val());
+
+      var trHTML = '';
+      $.each(ant_json, function (i, item) {
+
+        let personal = 'No';
+        if (item.personal) personal = 'Si';
+        let familiar = 'No';
+        if (item.familiar) familiar = 'Si';
+
+        trHTML += '<tr><td>' + item.indicador + '</td><td>' + personal + '</td><td>' + familiar + '</td></tr>';
+      });
+
+      $('#table_antecedentes').append(trHTML);
+
+      //Cargar table_preferencias_alimentarias Json
+
+      ant_json = JSON.parse($('#preferencias_alimentarias').val());
+
+      var trHTML = '';
+      $.each(ant_json, function (i, item) {
+        trHTML += '<tr><td>' + item.indicador + '</td><td>' + item.valor + '</td>';
+      });
+
+      $('#table_preferencias_alimentarias').append(trHTML);
+
+      ant_json = JSON.parse($('#comidas').val());
+
+      var trHTML = '';
+      $.each(ant_json, function (i, item) {
+        trHTML += '<tr><td>' + item.indicador + '</td><td>' + item.valor + '</td>';
+      });
+
+      $('#table_comidas').append(trHTML);
+
+      ant_json = JSON.parse($('#habitos').val());
+
+      var trHTML = '';
+      $.each(ant_json, function (i, item) {
+        trHTML += '<tr><td>' + item.indicador + '</td><td>' + item.valor + '</td><td>' + item.frecuencia +
+          '</td><td>' + item.tipo + '</td><td>' + item.cantidad + '</td>';
+      });
+
+      $('#table_habitos').append(trHTML);
+
+      // Cargar tablas json estilo de vida
+      ant_json = JSON.parse($('#actividad_fisica').val());
+
+      var trHTML = '';
+      $.each(ant_json, function (i, item) {
+        trHTML += '<tr><td>' + item.indicador + '</td><td>' + item.valor + '</td></tr>';
+      });
+      $('#table_actividad_fisica').append(trHTML);
+
+      // Cargar tablas json ginecologicos
+      ant_json = JSON.parse($('#ginecologicos').val());
+
+      var trHTML = '';
+      $.each(ant_json, function (i, item) {
+        trHTML += '<tr><td>' + item.indicador + '</td><td>' + item.valor + '</td></tr>';
+      });
+      $('#table_ginecologicos').append(trHTML);
+
 
       dTableCitas = $('#table_citas').DataTable({
 
         processing: true,
         serverSide: true,
-        lengthChange: false,
+        // lengthChange: false,
         pageLength: 50,
-        lengthMenu: [
-          [10, 25, -1],
-          [10, 25, "All"]
-        ],
-        'ajax': '/nutri_app/api/paciente_cita/'+user_id+'/?format=datatables',
+        scrollY: "42vh",
+        // scrollCollapse: true,
+        // lengthMenu: [
+        //   [10, 25, -1],
+        //   [10, 25, "All"]
+        // ],
+        'ajax': '/nutri_app/api/paciente_cita/' + user_id + '/?format=datatables',
         columnDefs: [{
           targets: 0,
           render: function (data) {
@@ -251,15 +3158,21 @@
             "responsivePriority": 1,
           },
           {
+            "title": "Id",
+            "data": "id",
+            "visible": false,
+            "searchable": false,
+          },
+          {
             "data": null,
             "orderable": false,
             "searchable": false,
             "width": "65px",
             "render": function (data, type, row, meta) {
-
-              var a = `<div class="d-flex">
-						           <a  class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-eye"></i></a>
-					            </div>`
+              var a = '<div class="d-flex">'
+              a += '<a class="btn btn-primary btn-xs sharp" onclick="editCita(\'' + row.id +
+                '\')"><i class="fa fa-edit"></i></a>';
+              a += '<div>'
               return a;
             }
           },
@@ -274,9 +3187,459 @@
       });
 
 
+      /*
+      Crud Indicadores
+      */
+      /*  add indicador */
+      $('.add-indicador').click(function () {
+        $("#user").val($("#user_id").val());
+        $('#add-indicador').modal('show');
+      });
+
+      // add indicador form submit
+      $('#add-indicador-form').submit(function (e) {
+
+        e.preventDefault();
+        item = {}
+        x = $(this).serializeArray();
+        $.each(x, function (i, field) {
+          item[field.name] = field.value;
+        });
+        // ajax
+        $.ajax({
+          url: "/nutri_app/api/paciente/indicador_bioquimico/" + user_id + '/',
+          type: "POST",
+          headers: ajax_header,
+          dataType: "json",
+          data: item,
+          success: function () {
+            var oTable = $('#table_indicadores').DataTable();
+            oTable.ajax.url('/nutri_app/api/paciente/indicador_bioquimico/' + user_id +
+              '/?format=datatables').load();
+            $('#add-indicador').modal('hide');
+            $('#add-indicador-form').trigger("reset");
+          }
+        });
+      });
+
+
+      /*  add frecuencia de consumo */
+      $('.add-frecuencia-consumo').click(function () {
+        $("#user_fc").val($("#user_id").val());
+        $('#add-frecuencia-consumo-modal').modal('show');
+      });
+
+      // add recuencia de consumo form submit
+      $('#add-frecuencia-consumo-form').submit(function (e) {
+
+        e.preventDefault();
+        item = {}
+        x = $(this).serializeArray();
+
+        $.each(x, function (i, field) {
+          item[field.name] = field.value;
+        });
+        console.log(item);
+        // ajax
+        $.ajax({
+          url: "/nutri_app/api/frecuencia_de_consumo/" + user_id + '/',
+          type: "POST",
+          headers: ajax_header,
+          dataType: "json",
+          data: item,
+          success: function () {
+            var oTable = $('#table_frecuencia_de_consumo').DataTable();
+            oTable.ajax.url('/nutri_app/api/frecuencia_de_consumo/' + user_id + '/?format=datatables')
+              .load();
+            $('#add-frecuencia-consumo-modal').modal('hide');
+            $('#add-frecuencia-consumo-form').trigger("reset");
+          }
+        });
+      });
+
+      /*  add deporte */
+      $('.add-deportes').click(function () {
+        $("#user_dep").val($("#user_id").val());
+        $('#add-deportes-modal').modal('show');
+      });
+
+      // add recuencia de consumo form submit
+      $('#add-deportes-form').submit(function (e) {
+
+        e.preventDefault();
+        item = {}
+        x = $(this).serializeArray();
+
+        $.each(x, function (i, field) {
+          item[field.name] = field.value;
+        });
+        console.log(item);
+        // ajax
+        $.ajax({
+          url: "/nutri_app/api/deportes/" + user_id + '/',
+          type: "POST",
+          headers: ajax_header,
+          dataType: "json",
+          data: item,
+          success: function () {
+            var oTable = $('#table_deportes').DataTable();
+            oTable.ajax.url('/nutri_app/api/deportes/' + user_id + '/?format=datatables')
+              .load();
+            $('#add-deportes-modal').modal('hide');
+            $('#add-deportes-form').trigger("reset");
+          }
+        });
+      });
+
+      /*  add deporte */
+      $('.add-suplementos').click(function () {
+        $("#user_sup").val($("#user_id").val());
+        $('#add-suplementos-modal').modal('show');
+      });
+
+      // add recuencia de consumo form submit
+      $('#add-suplementos-form').submit(function (e) {
+
+        e.preventDefault();
+        item = {}
+        x = $(this).serializeArray();
+
+        $.each(x, function (i, field) {
+          item[field.name] = field.value;
+        });
+        console.log(item);
+        // ajax
+        $.ajax({
+          url: "/nutri_app/api/suplementos/" + user_id + '/',
+          type: "POST",
+          headers: ajax_header,
+          dataType: "json",
+          data: item,
+          success: function () {
+            var oTable = $('#table_suplementos').DataTable();
+            oTable.ajax.url('/nutri_app/api/suplementos/' + user_id + '/?format=datatables')
+              .load();
+            $('#add-suplementos-modal').modal('hide');
+            $('#add-suplementos-form').trigger("reset");
+          }
+        });
+      });
+
+
+      /*
+      Fin Crud Indicadores
+      */
+
+      dTableIndicadores = $('#table_indicadores').DataTable({
+
+        processing: true,
+        serverSide: true,
+        lengthChange: false,
+        // pageLength: 50,
+        scrollY: "42vh",
+        scrollCollapse: true,
+        // lengthMenu: [
+        //   [10, 25, -1],
+        //   [10, 25, "All"]
+        // ],
+        'ajax': '/nutri_app/api/paciente/indicador_bioquimico/' + user_id + '/?format=datatables',
+        columnDefs: [{
+          targets: 0,
+          render: function (data) {
+            return moment(data).format('DD/MM/YYYY');
+          }
+        }, ],
+        'columns': [{
+            "title": "Fecha",
+            "data": "fecha",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Colesterol",
+            "data": "colesterol",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Trigliceridos",
+            "data": "trigliceridos",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "HDL",
+            "data": "hdl",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "LDL",
+            "data": "ldl",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Glucosa Ayunas",
+            "data": "glucosa_ayunas",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Glucosa Ayunas",
+            "data": "glucosa_ayunas",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Hemoglobina",
+            "data": "hemoglobina",
+            "responsivePriority": 1,
+          },
+
+          {
+            "title": "Id",
+            "data": "id",
+            "visible": false,
+            "searchable": false,
+          },
+
+          {
+            "data": null,
+            "orderable": false,
+            "searchable": false,
+            "width": "65px",
+            "render": function (data, type, row, meta) {
+              var a = '<div class="d-flex">'
+              a += '<a class="btn btn-primary btn-xs sharp" onclick="editIndicador(\'' + row.id +
+                '\')"><i class="fa fa-edit"></i></a>';
+              a += '<div>'
+              return a;
+            }
+          },
+
+
+        ],
+
+        "initComplete": function (settings, json) {
+          $('div.loading-table-data').hide()
+        },
+
+      });
+
+
+      dTableDeportes = $('#table_deportes').DataTable({
+
+        processing: true,
+        serverSide: true,
+        // lengthChange: false,
+        pageLength: 50,
+        scrollY: "42vh",
+        // scrollCollapse: true,
+        // lengthMenu: [
+        //   [10, 25, -1],
+        //   [10, 25, "All"]
+        // ],
+        'ajax': '/nutri_app/api/deportes/' + user_id + '/?format=datatables',
+        columnDefs: [{
+          targets: 1,
+          render: function (data) {
+            return moment(data).format('DD/MM/YYYY');
+          }
+        }, ],
+        'columns': [{
+            "title": "Deporte",
+            "data": "deporte",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Fecha de Inicio",
+            "data": "fecha_inicio",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Dias a la semana",
+            "data": "dias_semanas",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Dias de descanso",
+            "data": "dias_descanso",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Duración",
+            "data": "duracion",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Horario",
+            "data": "horario",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Merienda pre",
+            "data": "merienda_pre",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Merienda post",
+            "data": "merienda_post",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Id",
+            "data": "id",
+            "visible": false,
+            "searchable": false,
+          },
+          {
+            "data": null,
+            "orderable": false,
+            "searchable": false,
+            "width": "65px",
+            "render": function (data, type, row, meta) {
+              var a = '<div class="d-flex">'
+              a += '<a class="btn btn-primary btn-xs sharp" onclick="editDeporte(\'' + row.id +
+                '\')"><i class="fa fa-edit"></i></a>';
+              a += '<div>'
+              return a;
+            }
+          },
+
+        ],
+
+
+        "initComplete": function (settings, json) {
+          $('div.loading-table-data').hide()
+        },
+
+      });
+
+
+      dTableSuplementos = $('#table_suplementos').DataTable({
+
+        processing: true,
+        serverSide: true,
+        pageLength: 50,
+        scrollY: "42vh",
+
+        'ajax': '/nutri_app/api/suplementos/' + user_id + '/?format=datatables',
+        columnDefs: [
+        //   {
+        //   targets: 0,
+        //   render: function (data) {
+        //     return moment(data).format('DD/MM/YYYY');
+        //   }
+        // }, 
+      ],
+        'columns': [{
+            "title": "Nombre del suplemento",
+            "data": "nombre_suplemento",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Marca",
+            "data": "marca",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Veces por día",
+            "data": "veces_por_dia",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Dias a la semana",
+            "data": "dias_a_la_semana",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Dosis",
+            "data": "dosis",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Id",
+            "data": "id",
+            "visible": false,
+            "searchable": false,
+          },
+          {
+            "data": null,
+            "orderable": false,
+            "searchable": false,
+            "width": "65px",
+            "render": function (data, type, row, meta) {
+              var a = '<div class="d-flex">'
+              a += '<a class="btn btn-primary btn-xs sharp" onclick="editSuplemento(\'' + row.id +
+                '\')"><i class="fa fa-edit"></i></a>';
+              a += '<div>'
+              return a;
+            }
+          },
+
+        ],
+
+
+        "initComplete": function (settings, json) {
+          $('div.loading-table-data').hide()
+        },
+
+      });
+
+
+      dTableFrecuenciaDeConsumo = $('#table_frecuencia_de_consumo').DataTable({
+
+        processing: true,
+        serverSide: true,
+        // lengthChange: false,
+        pageLength: 50,
+        scrollY: "42vh",
+        // scrollCollapse: true,
+        // lengthMenu: [
+        //   [10, 25, -1],
+        //   [10, 25, "All"]
+        // ],
+        'ajax': '/nutri_app/api/frecuencia_de_consumo/' + user_id + '/?format=datatables',
+
+        'columns': [{
+            "title": "Alimento",
+            "data": "alimento",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "frecuencia",
+            "data": "frecuencia",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "observacion",
+            "data": "observacion",
+            "responsivePriority": 1,
+          },
+          {
+            "title": "Id",
+            "data": "id",
+            "visible": false,
+            "searchable": false,
+          },
+          {
+            "data": null,
+            "orderable": false,
+            "searchable": false,
+            "width": "65px",
+            "render": function (data, type, row, meta) {
+              var a = '<div class="d-flex">'
+              a += '<a class="btn btn-primary btn-xs sharp" onclick="editFrecuenciDeConsumo(\'' + row.id +
+                '\')"><i class="fa fa-edit"></i></a>';
+              a += '<div>'
+              return a;
+            }
+          },
+
+        ],
+
+        "initComplete": function (settings, json) {
+          $('div.loading-table-data').hide()
+        },
+
+      });
+
     });
 
 </script>
-  
+
 {% endblock js %}
-  

@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, UpdateView
 
 from nutricionistas.users.models import User
+from nutricionistas.users.forms import UserProfileForm
 
 
 class UserPerfilDetailView(LoginRequiredMixin, DetailView):
@@ -27,9 +28,8 @@ class UserPerfilDetailView(LoginRequiredMixin, DetailView):
 class UserPerfilUpdateView(LoginRequiredMixin, UpdateView):
 
     model = User
-    fields = [
-        'first_name', 'last_name', 'nro_telefono',  'nro_telefono',
-        'sexo', 'fecha_nacimiento']
+    form_class = UserProfileForm
+    # fields = ['first_name', 'last_name', 'nro_telefono',  'nro_telefono','sexo', 'fecha_nacimiento']
 
     template_name = 'nutri_app/profile/perfil_form.html'
     success_url = reverse_lazy('nutri_app:user_profile_detail')

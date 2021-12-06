@@ -59,7 +59,7 @@ class CitasPendienteCalJsonView(APIView):
         desde = datetime.strptime(d, '%Y-%m-%dT%H:%M:%S')
         hasta = datetime.strptime(h, '%Y-%m-%dT%H:%M:%S')
 
-        citas_qs = Cita.objects.filter(fecha__range=[desde, hasta], completada=False)
+        citas_qs = Cita.objects.filter(fecha__range=[desde, hasta], completada=False, cancelada=False)
 
         citas_schedule = []
         

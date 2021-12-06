@@ -67,6 +67,7 @@
       </div>
     </div>
   </div>
+
   <div class="col-xl-9">
     <div class="card">
       <div class="card-body">
@@ -93,64 +94,66 @@
       </div>
     </div>
   </div>
-  <!-- Modal Add Category -->
-  <div class="modal fade none-border" id="add-category">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title"><strong>Tipo de Cita</strong></h4>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="row">
-              <div class="col-md-6">
-                <label class="control-label">Descripción</label>
-                <input class="form-control form-white" placeholder="Ingrese un nombre" type="text" name="category-name">
-              </div>
-              <div class="col-md-6">
-                <label class="control-label">Elegir Categoría</label>
-                <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
-                  <option value="success">Cita Recurrente</option>
-                  <option value="danger">Cita Unica</option>
-                  <!--<option value="info">Bloquear espacio</option>
-                                            <option value="pink">Bloqueo de día</option>-->
-                </select>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label class="control-label">Descripción</label>
-                <input class="form-control form-white" placeholder="Ingrese un nombre" type="text" name="category-name">
-              </div>
-              <div class="col-md-6">
-                <label class="control-label">Elegir Categoría</label>
-                <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
-                  <option value="success">Cita por primera vez</option>
-                  <option value="danger">Cita Regular</option>
-                  <!-- <option value="info">Bloquear espacio</option>
-                                            <option value="pink">Bloqueo de día</option>-->
-                </select>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-danger waves-effect waves-light save-category"
-            data-dismiss="modal">Guardar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 </div>
-</div>
+
+
 <!--**********************************
     Content body end
 ***********************************-->
 
 <!-- Modal -->
+
+<!-- Modal Add Category -->
+<div class="modal fade none-border" id="add-category">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><strong>Tipo de Cita</strong></h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <div class="col-md-6">
+              <label class="control-label">Descripción</label>
+              <input class="form-control form-white" placeholder="Ingrese un nombre" type="text" name="category-name">
+            </div>
+            <div class="col-md-6">
+              <label class="control-label">Elegir Categoría</label>
+              <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+                <option value="success">Cita Recurrente</option>
+                <option value="danger">Cita Unica</option>
+                <!--<option value="info">Bloquear espacio</option>
+                                          <option value="pink">Bloqueo de día</option>-->
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label class="control-label">Descripción</label>
+              <input class="form-control form-white" placeholder="Ingrese un nombre" type="text" name="category-name">
+            </div>
+            <div class="col-md-6">
+              <label class="control-label">Elegir Categoría</label>
+              <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+                <option value="success">Cita por primera vez</option>
+                <option value="danger">Cita Regular</option>
+                <!-- <option value="info">Bloquear espacio</option>
+                                          <option value="pink">Bloqueo de día</option>-->
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-danger waves-effect waves-light save-category"
+          data-dismiss="modal">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="modal fade" id="solicitarCitaModal">
   <div class="modal-dialog" role="document">
@@ -164,13 +167,13 @@
         <p>Horarios disponibles</p>
         <input type="hidden" id="fecha_cita">
         <p>Fecha: <span id="ver_fecha"></span></p>
-        <p>Hora: 08:00 <a onclick="solicitarCita('08:00')" class="btn btn-primary btn-sm">Solicitar cita</a> </p>
+        <span id='horas_disponibles'></span>
+        <!-- <p>Hora: 08:00 <a onclick="solicitarCita('08:00')" class="btn btn-primary btn-sm">Solicitar cita</a> </p>
         <p>Hora: 09:00 <a onclick="solicitarCita('09:00')" class="btn btn-primary btn-sm">Solicitar cita</a></p>
         <p>Hora: 10:00 <a onclick="solicitarCita('10:00')" class="btn btn-primary btn-sm">Solicitar cita</a></p>
         <p>Hora: 11:00 <a onclick="solicitarCita('11:00')" class="btn btn-primary btn-sm">Solicitar cita</a></p>
         <p>Hora: 13:00 <a onclick="solicitarCita('13:00')" class="btn btn-primary btn-sm">Solicitar cita</a></p>
-        <p>Hora: 14:00 <a onclick="solicitarCita('14:00')" class="btn btn-primary btn-sm">Solicitar cita</a></p>
-
+        <p>Hora: 14:00 <a onclick="solicitarCita('14:00')" class="btn btn-primary btn-sm">Solicitar cita</a></p> -->
 
       </div>
       <div class="modal-footer">
@@ -192,7 +195,9 @@
       <div class="modal-body">
 
         <p>Fecha: <br><span id="fecha"></span></p>
-        <p>Diagnótico<br> <span id="diagnostico"></span> </p>
+        <p>Diagnóstico:<br> <span id="diagnostico"></span> </p>
+
+        <p><span id="puede_cancelar"></span></p>
 
       </div>
       <div class="modal-footer">
@@ -222,21 +227,25 @@
 
   let dTable;
 
+  const ahora = new Date($.now());
+  const manana = new Date($.now());
+  manana.setDate(manana.getDate() + 1);
+
 
   function solicitarCita(hora) {
 
     const fecha_txt = $('#fecha_cita').val() + "T" + hora;
-    
-    const fecha = new Date(moment(fecha_txt, 'YYYY-MM-DD hh:mm'));
+
+    const fecha = new Date(moment.utc(fecha_txt, 'YYYY-MM-DD hh:mm'));
+
+    console.log(fecha_txt, fecha)
 
     var user_id = parseInt($('#user_id').val());
-   
+
     var data_json = {
       "user": user_id,
       "fecha": fecha.toJSON(),
     }
-
-    console.log(data_json);
 
     swal.fire({
       icon: 'info',
@@ -273,15 +282,8 @@
           });
 
           $("#solicitarCitaModal").modal("hide");
-          // dTable.ajax.reload(null, false);
-          // $("#calendar").DataTable().ajax.reload()
-          // dTable.DataTable().ajax.reload()
-              //$('#calendar').fullCalendar('removeEvents');
-              // $('#calendar').fullCalendar('addEventSource', events);         
-            //$('#calendar').fullCalendar().ajax.reload();
-          // dTable.ajax.reload();  
           $('#calendar').fullCalendar('rerenderEvents');
-          $('#calendar').fullCalendar('refetchEvents');  
+          $('#calendar').fullCalendar('refetchEvents');
 
         } else {
 
@@ -312,34 +314,87 @@
     }); // ajax()
 
 
+  }
 
+  function cancelarCita(id) {
 
+    var data_json = {
+      "cancelada": true,
+    }
+
+    swal.fire({
+      icon: 'info',
+      title: 'Por favor esperar unos instantes..!',
+      text: 'Procesando cancelación de cita..',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      confirmButtonText: 'Continuar',
+      onOpen: () => {
+        swal.showLoading()
+      }
+    });
+
+    $.ajax({
+      url: "/nutri_app/api/paciente_cita_cal/"+id+'/',
+      data: data_json,
+      headers: ajax_header,
+      dataType: "json",
+      type: "patch",
+      timeout: 45000,
+      success: function (request) {
+
+        swal.hideLoading();
+
+        console.log(request);
+        if (request) {
+          Swal.fire({
+            icon: 'success',
+            //type: 'error',
+            title: 'La cita ha sigo cancelada satifactoriamente',
+            //showConfirmButton: false,
+            //timer: 1000000
+          });
+
+          $("#detalleCitaModal").modal("hide");
+          $('#calendar').fullCalendar('rerenderEvents');
+
+        } else {
+
+          Swal.fire({
+            icon: 'warning',
+            //type: 'error',
+            title: 'Error',
+            text: 'La cancelación de la cita no pudo ser proceada',
+          })
+
+        }
+
+      },
+      error: function (request, status, error) {
+
+        swal.hideLoading();
+        Swal.fire({
+          icon: 'warning',
+          //type: 'error',
+          title: 'Error',
+          text: 'La cita no pudo ser procesada. Se ha generado en el servidor '
+        })
+
+      }
+      //error: add_error
+    }); // ajax()
 
 
   }
 
   dTable = $('#calendar').fullCalendar({
-    // header: {
-    //   left: 'prev,next today',
-    //   center: 'title',
-    //   right: 'month,agendaWeek,agendaDay'
-    // },
 
-    //lang: 'es',
-    //timezone: 'local',
     editable: false,
     selectable: true,
     eventLimit: true, // allow "more" link when too many events
 
     defaultView: $(window).width() < 765 ? 'basicDay' : 'month',
-
-    // events: [{
-    //     url: '/nutri_app/paciente/data/calendar',
-    //     failure: function() {
-    //       document.getElementById('script-warning').style.display = 'inline'; // show
-    //     }
-    //   }
-    // ],
 
     eventSources: [{
         url: "/nutri_app/paciente/data/calendar/pendiente",
@@ -363,6 +418,17 @@
         },
         color: "#05BB47",
         textColor: '#696969',
+      }, {
+        url: "/nutri_app/paciente/data/calendar/cancelado",
+        headers: ajax_header,
+        timezone: "UTC",
+        dataType: "json",
+        type: "get",
+        error: function () {
+          alert('error downloading data from server calendar user');
+        },
+        color: "#939290",
+        textColor: '#696969',
       },
 
     ],
@@ -375,7 +441,23 @@
     },
     eventClick: function (calEvent, jsEvent, view) {
 
-      $('#fecha').text(calEvent.start);
+      // Determinar si se puede cancelar
+
+      var fechaCal = new Date(calEvent.start);
+
+      fecha = moment(fechaCal).format("DD-MM-YYYY HH:mm:ss")
+
+      console.log(calEvent.puede_cancelar, calEvent.cancelada)
+
+      if (Boolean(calEvent.puede_cancelar) && Boolean(calEvent.cancelada === false)) {
+        $('#puede_cancelar').empty()
+        const htmlVal =
+          `<a onclick="cancelarCita('${calEvent.id}')" class="btn btn-warning btn-sm">Cacelar Cita</a>`
+        $('#puede_cancelar').html(htmlVal)
+
+      }
+
+      $('#fecha').text(fecha);
       $('#nombre').text(calEvent.title);
       $('#diagnostico').text(calEvent.diagnostico);
       $(this).css('border-color', 'red');
@@ -384,9 +466,62 @@
 
     dayClick: function (date, allDay, jsEvent, view) {
 
-      $('#fecha_cita').val(date.toISOString().split('T')[0]);
-      $('#ver_fecha').text(date.toISOString().split('T')[0]);
-      $("#solicitarCitaModal").modal("show");
+      if (date >= ahora) {
+
+        $.ajax({
+          url: "/nutri_app/paciente/data/calendar/disponibilidad?date=" + date.toISOString().split('T')[0],
+          headers: ajax_header,
+          type: "get",
+          timeout: 45000,
+          success: function (request) {
+
+            if (request) {
+
+              $('#horas_disponibles').empty()
+              let htmlVal = ''
+              $.each(request, function (index, value) {
+                htmlVal +=
+                  `<p>Hora: ${value} <a onclick="solicitarCita('${value}')" class="btn btn-primary btn-sm">Solicitar cita</a></p>`
+              });
+              $('#horas_disponibles').append(htmlVal)
+
+              $('#fecha_cita').val(date.toISOString().split('T')[0]);
+              $('#ver_fecha').text(date.toISOString().split('T')[0]);
+              $("#solicitarCitaModal").modal("show");
+
+            } else {
+
+              Swal.fire({
+                icon: 'warning',
+                //type: 'error',
+                title: 'Error',
+                text: 'Se genereo un error en el servidor',
+              })
+            }
+
+          },
+          error: function (request, status, error) {
+
+            swal.hideLoading();
+            Swal.fire({
+              icon: 'warning',
+              //type: 'error',
+              title: 'Error',
+              text: 'La cita no pudo ser procesada. Se ha generado en el servidor '
+            })
+
+          }
+          //error: add_error
+        }); // ajax()
+
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: '¡ Atención !',
+          text: 'Sólo es posible realizar citas 24 horas antes',
+        })
+      }
+
 
     },
 
