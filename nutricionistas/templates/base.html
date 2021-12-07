@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{% block title %}Dashboard{% endblock title %}
-    </title>
+  </title>
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicons/favicon.png' %}">
   <link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
@@ -71,8 +71,8 @@
             <div class="header-left">
               <div class="dashboard_bar">
                 {% block title_page %}
-                Panel  
-                {% endblock title_page %}     
+                Panel
+                {% endblock title_page %}
               </div>
             </div>
 
@@ -182,13 +182,23 @@
 
 
 
-          {% if user.is_admin  %} 
+          {% if user.is_admin  %}
           <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
               <i class="flaticon-381-network"></i>
               <span class="nav-text">Usuarios</span>
             </a>
             <ul aria-expanded="false">
               <li><a href="{% url 'nutri_app:users_list' %}">Listado general</a></li>
+            </ul>
+          </li>
+
+          <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+              <i class="flaticon-381-network"></i>
+              <span class="nav-text">Matenimiento</span>
+            </a>
+            <ul aria-expanded="false">
+              <li><a href="{% url 'nutri_app:menu_list' %}">Menú diarios</a></li>
+              <li><a href="{% url 'nutri_app:tipo_comida_list' %}">Tipo de comidas</a></li>
             </ul>
           </li>
 

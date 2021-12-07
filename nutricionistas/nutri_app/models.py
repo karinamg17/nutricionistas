@@ -1,6 +1,7 @@
 from django.db import models
-from django.db.models.deletion import CASCADE
 from nutricionistas.users.models import User
+from model_utils import Choices
+from model_utils.fields import StatusField
 
 
 class Cita(models.Model):
@@ -63,3 +64,27 @@ class Suplemento(models.Model):
     veces_por_dia = models.CharField(max_length=50, blank=True, null=True)
     dias_a_la_semana = models.CharField(max_length=50, blank=True, null=True)
     dosis = models.CharField(max_length=50, blank=True, null=True)
+
+
+class TipoComida(models.Model):
+    descripcion = models.TextField(default='', blank=True, null=True)
+    kcal = models.CharField(max_length=50, blank=True, null=True)
+    observaciones = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return self.descripcion
+
+
+class Menu(models.Model):
+    nombre_menu = models.CharField(max_length=100,)
+
+    def __str__(self):
+        return self.nombre_menu
+
+
+class MenuLine(models.Model):
+    COMIDAS_CHOICES = Choices('Comida 1', 'Comida 2', 'Comida 3', 'Comida 4', 'Comida 5', 'Comida 6', 'Colación')
+
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE, related_name='nutri_menu_lines', default=1)
+    comida = StatusField(choices_name='COMIDAS_CHOICES', default='Comida 1')
+    tipo_comida = models.ForeignKey(TipoComida, on_delete=models.CASCADE, related_name='nutri_menu_tipo_comidas')

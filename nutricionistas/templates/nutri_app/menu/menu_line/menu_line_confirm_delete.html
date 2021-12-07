@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}Nutricionistas - eliminar tipo de comida{% endblock %}
+
+{% block title_page %}Menú{% endblock title_page %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block breadcrumb %}
+<div class="row page-titles mx-0">
+  <div class="col-sm-6 p-md-0">
+    <div class="welcome-text">
+      <h4>Eliminar tipo de comida</h4>
+      <p>Del menú: {{menu.nombre_menu}}</p>
+    </div>
+  </div>
+  <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Panel</a></li>
+      <li class="breadcrumb-item active"><a href="{% url 'nutri_app:users_list' %}">Listado de tipos de comida</a></li>
+      <li class="breadcrumb-item active"><a href="javascript:void(0)">Eliminar</a></li>
+    </ol>
+  </div>
+</div>
+
+{% endblock breadcrumb %}
+
+
+{% block content %}
+
+
+<!-- start: PAGE CONTENT -->
+
+
+
+<table class="table table-bordered">
+
+  <tr>
+    <td><b>{% trans 'Comida' %}</b></td>
+    <td>{{ object.comida }}</td>
+  </tr>
+  <tr>
+    <td><b>{% trans 'Tipo de comida' %}</b></td>
+    <td>{{object.tipo_comida}}</td>
+  </tr>
+ 
+
+</table>
+
+<p>¿Está seguro de eliminar este tipo de comida al menu <strong>{{ menu.nombre_menu }}</strong>?</p>
+
+<form method="post">{% csrf_token %}
+  <a href="" onclick="document.forms[0].submit();return false;" class="btn btn-danger btn-sm">
+    <i class="fa fa-trash-o"></i> {% trans 'Eliminar' %}</a>
+  <a href="{% url 'nutri_app:menu_detail' menu.id %}" class="btn btn-primary btn-sm"><i class="fa fa-times"></i>
+    {% trans 'Cancelar' %}</a>
+</form>
+
+<!-- end: FROM -->
+
+
+
+{% endblock content %}

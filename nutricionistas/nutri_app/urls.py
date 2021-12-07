@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from nutricionistas.nutri_app.views import (
-    profile, users, paciente_calendar, nutricionista_calendar, pacientes
+    profile, users, paciente_calendar, nutricionista_calendar, pacientes, tipo_comida, menus
 )
 
 app_name = "nutri_app"
@@ -45,5 +45,23 @@ urlpatterns = [
     path('perfil', profile.UserPerfilDetailView.as_view(), name='user_profile_detail'),
     path('perfil/actualizar', profile.UserPerfilUpdateView.as_view(), name='user_profile_update'),
     path('perfil/actualizar/foto', profile.UserPhotolUpdateView.as_view(), name='user_profile_photo_update'),
+
+    path('menu/', menus.MenuListView.as_view(), name='menu_list'),
+    path('menu/create', menus.MenuCreateView.as_view(), name='menu_create'),
+    path('menu/edit/<int:pk>', menus.MenuUpdateView.as_view(), name='menu_edit'),
+    path('menu/detail/<int:pk>', menus.MenuDetailView.as_view(), name='menu_detail'),
+    path('menu/delete/<int:pk>', menus.MenuDeleteView.as_view(), name='menu_delete'),
+
+    path('menu_line/create/<int:menu_id>', menus.MenuLineCreateView.as_view(), name='menu_line_create'),
+    path('menu_line/edit/<int:menu_id>/<int:pk>', menus.MenuLineUpdateView.as_view(), name='menu_line_edit'),
+    path('menu_line/delete/<int:menu_id>/<int:pk>', menus.MenuLineDeleteView.as_view(), name='menu_line_delete'),
+
+    path('tipo_comida/', tipo_comida.TipoComidaListView.as_view(), name='tipo_comida_list'),
+    path('tipo_comida/create', tipo_comida.TipoComidaCreateView.as_view(), name='tipo_comida_create'),
+    path('tipo_comida/edit/<int:pk>', tipo_comida.TipoComidaUpdateView.as_view(), name='tipo_comida_edit'),
+    path('tipo_comida/detail/<int:pk>', tipo_comida.TipoComidaDetailView.as_view(), name='tipo_comida_detail'),
+    path('tipo_comida/delete/<int:pk>', tipo_comida.TipoComidaDeleteView.as_view(), name='tipo_comida_delete'),
+
+
 
 ]

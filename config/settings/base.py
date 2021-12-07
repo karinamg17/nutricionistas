@@ -297,7 +297,7 @@ ACCOUNT_ADAPTER = "nutricionistas.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "nutricionistas.users.adapters.SocialAccountAdapter"
 
-ACCOUNT_FORMS = {'signup': 'nuticionistas.users.forms.MyCustomSignupForm'}
+ACCOUNT_FORMS = {'signup': 'nutricionistas.users.forms.MyCustomSignupForm'}
 ACCOUNT_USERNAME_REQUIRED = False
 
 # Your stuff...

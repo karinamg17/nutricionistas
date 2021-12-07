@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}Nutricionistas - Agregar item a menu{% endblock %}
+
+{% block title_page %}Gestión de menú{% endblock title_page %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block breadcrumb %}
+<div class="row page-titles mx-0">
+  <div class="col-sm-6 p-md-0">
+    <div class="welcome-text">
+      <h4>Agregar tipo de comida a menú</h4>
+    </div>
+  </div>
+  <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Panel</a></li>
+      <li class="breadcrumb-item active"><a href="{% url 'nutri_app:menu_list' %}">Listado de menu</a></li>
+      <li class="breadcrumb-item active"><a href="javascript:void(0)">Detalle de menu</a></li>
+      <li class="breadcrumb-item active"><a href="javascript:void(0)">Agregar comida a menú</a></li>
+    </ol>
+  </div>
+</div>
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+<div class="white-box">
+
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-12">
+      <!-- general form elements -->
+      <div class="box box-primary">
+        <!-- form start -->
+
+        <div class="box-body">
+          <form role="form" method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <div class="control-group">
+              <div class="controls">
+                <button class="btn btn-success btn-sm" type="submit">
+                  <i class="fa fa-check"></i> {% trans 'Grabar' %}
+                </button>
+
+                <a href="{% url 'nutri_app:menu_detail' menu_id %}" class="btn btn-primary btn-sm"><i
+                    class="fa fa-times"></i> {% trans 'Cancelar' %}</a>
+
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+$("#id_comida").addClass("default-select");
+$("#id_tipo_comida").addClass("default-select");
+</script>
+{% endblock js %}

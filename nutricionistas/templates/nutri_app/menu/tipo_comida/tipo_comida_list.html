@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}Listado de usuarios{% endblock %}
+
+{% block title_page %}Usuarios{% endblock title_page %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block breadcrumb %}
+<div class="row page-titles mx-0">
+  <div class="col-sm-6 p-md-0">
+    <div class="welcome-text">
+      <h4>Listado general</h4>
+    </div>
+  </div>
+  <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Panel</a></li>
+      <li class="breadcrumb-item active"><a href="javascript:void(0)">Listado de tipo de comidas</a></li>
+    </ol>
+  </div>
+</div>
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+
+<div class="row">
+  <div class="col-md-12 space20">
+
+    <a href="{% url 'nutri_app:tipo_comida_create' %}" title="Add user" class="btn btn-primary btn-sm">
+      <i class="fa fa-plus"></i> {% trans 'Agregar tipo de comida' %}</a>
+  </div>
+</div>
+<br>
+
+
+<div class="table-responsive">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>{% trans 'Descripción' %}</th>
+        <th>{% trans 'Kcal' %}</th>
+        <th>{% trans 'Acciones' %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ope in object_list %}
+      <tr>
+       
+        <td>{{ ope.descripcion }}</td>
+        <td>{{ ope.kcal }}</td>
+       
+        <td class="text-nowrap">
+
+          <a class="btn btn-primary btn-sm" href="{% url 'nutri_app:tipo_comida_edit' ope.pk %}">
+            <i class="fa fa-edit" alt="Editar"></i></a>
+
+          <a class="btn btn-danger btn-sm" href="{% url 'nutri_app:tipo_comida_delete' ope.pk %}" alt="Eliminar">
+            <i class="fa fa-trash-o"></i> </a>
+        </td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include "_pagination.html" %}
+</div>
+
+
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}
